@@ -1,4 +1,4 @@
-namespace Interfaces
+namespace Core.Interact
 {
     public interface IInteractable
     {
