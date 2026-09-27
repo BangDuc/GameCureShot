@@ -16,7 +16,7 @@ namespace Michsky.UI.Dark
         public int currentPanelIndex = 0;
         public bool enableBrushAnimation = true;
         public bool enableHomeBlur = true;
-         
+
         private GameObject currentPanel;
         private GameObject nextPanel;
         private Animator currentPanelAnimator;
