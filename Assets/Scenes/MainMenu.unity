@@ -21614,7 +21614,6 @@ MonoBehaviour:
   - {fileID: 1366163280}
   - {fileID: 1374525833}
   - {fileID: 1876050257}
-  - {fileID: 0}
   - {fileID: 91815433}
   homeBlurManager: {fileID: 925042612}
   currentPanelIndex: 0
