@@ -35,7 +35,7 @@ public class ItemInteract_DOTween : MonoBehaviour, IInteractable
     {
         transform.DOKill();
         transform.DOScale(initialScale * hoverScaleMultiplier, hoverDuration).SetEase(Ease.OutBack);
-        Debug.Log("OnHoverEnter " + this.gameObject);
+        //Debug.Log("OnHoverEnter " + this.gameObject);
     }
 
     public void OnHoverExit()
@@ -43,7 +43,7 @@ public class ItemInteract_DOTween : MonoBehaviour, IInteractable
         transform.DOKill();
         transform.DOScale(initialScale, hoverDuration).SetEase(Ease.InQuad);
         
-        Debug.Log("OnHoverExit " + this.gameObject);
+        //Debug.Log("OnHoverExit " + this.gameObject);
     }
 
     protected void PlayLockedFeedback()
