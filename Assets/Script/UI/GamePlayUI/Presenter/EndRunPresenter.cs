@@ -11,6 +11,10 @@ public class EndRunPresenter : MonoBehaviour
     [Header("System")]
     [SerializeField] private RunController controller;
 
+    private void Start()
+    {
+        controller = RunController.Instance;
+    }
 
     private void OnEnable()
     {

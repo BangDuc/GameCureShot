@@ -40,6 +40,8 @@ public class RunController : Singleton<RunController>
 
     private void UpdateRun()
     {
+        if (!isRunning) return;
+
         remainingTime -= Time.fixedDeltaTime;
         elapsedTime += Time.fixedDeltaTime;
 
@@ -56,7 +58,7 @@ public class RunController : Singleton<RunController>
     {
         if (runHealth <= 0)
         {
-            Debug.Log("Thua Game Pause");
+            Debug.Log("Thua Game");
             Pause();
         }
         

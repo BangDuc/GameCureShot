@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 
 public class PausePresenter: MonoBehaviour
@@ -15,9 +16,14 @@ public class PausePresenter: MonoBehaviour
     [Header("System")]
     [SerializeField] private RunController controller;
 
+    private void Start()
+    {
+        controller = RunController.Instance;
+    }
 
     private void OnEnable()
     {
+
         pauseButton.Clicked += HandlePauseClicked;
         resumeButton.Clicked += HandleResumeClicked;
         restartButton.Clicked += HandleRestartClicked;
@@ -36,12 +42,18 @@ public class PausePresenter: MonoBehaviour
 
     private void HandlePauseClicked()
     {
+        //LogicGame
+        controller.Pause();
+
+        //Logic UI
         Time.timeScale = 0f;
         pausePanel.Show();
     }   
     
     private void HandleResumeClicked()
     {
+        controller.Resume();
+        // Logic UI
         Time.timeScale = 1f;
         pausePanel.Hide();
     }
