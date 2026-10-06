@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Thêm namespace này ở đầu file
+using UnityEngine.InputSystem;
 
 public class CameraEdgeScroll : MonoBehaviour
 {
@@ -41,32 +41,51 @@ public class CameraEdgeScroll : MonoBehaviour
 
     private void Update()
     {
-        // Kiểm tra xem chuột có kết nối không
-        if (Mouse.current == null) return;
+        if (cam == null || backgroundRenderer == null || Mouse.current == null)
+            return;
+
+        Rect viewport = cam.pixelRect;
+
+        if (viewport.width <= 0f || viewport.height <= 0f || Time.deltaTime <= 0f)
+        {
+            currentVelocity = Vector3.zero;
+            return;
+        }
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+
+        if (!viewport.Contains(mousePos))
+        {
+            currentVelocity = Vector3.zero;
+            return;
+        }
+
+        CalculateBounds();
 
         Vector3 moveDir = Vector3.zero;
 
-        // Đọc tọa độ chuột theo New Input System
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-
-        // Kiểm tra mép trái / phải
-        if (mousePos.x <= edgeBorder && mousePos.x >= 0)
+        if (mousePos.x <= viewport.xMin + edgeBorder)
             moveDir.x = -1f;
-        else if (mousePos.x >= Screen.width - edgeBorder && mousePos.x <= Screen.width)
+        else if (mousePos.x >= viewport.xMax - edgeBorder)
             moveDir.x = 1f;
 
-        // Kiểm tra mép dưới / trên
-        if (mousePos.y <= edgeBorder && mousePos.y >= 0)
+        if (mousePos.y <= viewport.yMin + edgeBorder)
             moveDir.y = -1f;
-        else if (mousePos.y >= Screen.height - edgeBorder && mousePos.y <= Screen.height)
+        else if (mousePos.y >= viewport.yMax - edgeBorder)
             moveDir.y = 1f;
 
-        Vector3 targetPosition = transform.position + moveDir.normalized * (panSpeed * Time.deltaTime);
+        Vector3 targetPosition = transform.position
+            + moveDir.normalized * (panSpeed * Time.deltaTime);
 
         targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
         targetPosition.y = Mathf.Clamp(targetPosition.y, minY, maxY);
         targetPosition.z = transform.position.z;
 
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(
+            transform.position,
+            targetPosition,
+            ref currentVelocity,
+            smoothTime
+        );
     }
 }
