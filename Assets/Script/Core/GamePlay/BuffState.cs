@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Assets.Script.Core.GamePlay
 {
-    public class StarterPotionState
+    public class BuffState
     {
         public bool hasShield;
         public bool hasCoin;

@@ -10,9 +10,9 @@ public class SaveSlotView : MonoBehaviour
     [SerializeField] private TMP_Text descriptionText;
 
     private UIButtonView buttonView;
-    private string saveId;
+    private int saveId;
 
-    public event Action<string> Selected;
+    public event Action<int> Selected;
 
     private void Awake()
     {
@@ -29,25 +29,15 @@ public class SaveSlotView : MonoBehaviour
         buttonView.Clicked -= NotifySelected;
     }
 
-    public void Render(
-        string id,
-        string title,
-        string description,
-        bool canLoad)
+    public void Render(int slotId, string slotName, SaveInfo info)
     {
-        saveId = canLoad ? id : null;
-
-        titleText.text = title;
-        descriptionText.text = description;
-
-        buttonView.SetInteractable(canLoad);
+        saveId = slotId;
+        titleText.text = slotName;
+        descriptionText.text = "Time Stamp: " + info.timestamp + " playtime: " + info.playTime + " permanentHealth: " + info.permanentHealth + " money : " + info.money;
     }
 
     private void NotifySelected()
     {
-        if (string.IsNullOrEmpty(saveId))
-            return;
-
         Selected?.Invoke(saveId);
     }
 }

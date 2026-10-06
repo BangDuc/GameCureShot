@@ -4,7 +4,7 @@ namespace Assets.Script.Core.GameRoot
 {
     public class GameSession
     {
-        GameData_Runtime gamedata;
+        GameData gamedata;
 
 
         public void OnPermanentHealthLoss()
