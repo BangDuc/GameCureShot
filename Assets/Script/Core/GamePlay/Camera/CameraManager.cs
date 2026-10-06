@@ -4,6 +4,8 @@ using Assets.Script.Core.GamePlay.Camera;
 
 public class CameraManager : MonoBehaviour
 {
+
+    
     [Header("Current State")]
     [SerializeField] private CameraState state = CameraState.Ready;
 
@@ -17,7 +19,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float currentHoldTimer = 0f;
     [SerializeField] private float cooldownTimer = 0f;
 
-    [SerializeField] private PhotoManager photoManager;
+    //[SerializeField] private PhotoManager photoManager;
 
     public CameraState State => state;
     public float DoubleMoneyChance => doubleMoneyChance;
@@ -29,25 +31,7 @@ public class CameraManager : MonoBehaviour
 
     public void UpdateCamera()
     {
-        switch (state)
-        {
-            case CameraState.Holding:
-                currentHoldTimer += Time.deltaTime;
-                if (currentHoldTimer >= holdTime)
-                {
-                    Capture();
-                }
-                break;
-
-            case CameraState.Cooldown:
-                cooldownTimer -= Time.deltaTime;
-                if (cooldownTimer <= 0f)
-                {
-                    cooldownTimer = 0f;
-                    state = CameraState.Ready;
-                }
-                break;
-        }
+        
     }
 
     public bool CanCapture()
@@ -74,24 +58,14 @@ public class CameraManager : MonoBehaviour
 
     public void Capture()
     {
-        // Trừ máu theo % (healthCostPercent) nếu có liên kết RunController
-        // Thực hiện chụp ảnh qua PhotoManager
-        if (photoManager != null)
-        {
-            //photoManager.TakePhoto();
-        }
-
-        // Đưa máy ảnh vào trạng thái hồi chiêu
-        state = CameraState.Cooldown;
-        cooldownTimer = cooldownTime;
-        currentHoldTimer = 0f;
+        
     }
 
-    public void ApplyUpgrade(UpgradeLevelData levelData)
-    {
-        holdTime = levelData.HoldTime;
-        cooldownTime = levelData.CooldownTime;
-        healthCostPercent = levelData.HealthCostPercent;
-        doubleMoneyChance = levelData.DoubleMoneyChance;
-    }
+    //public void ApplyUpgrade(UpgradeLevelData levelData)
+    //{
+    //    holdTime = levelData.HoldTime;
+    //    cooldownTime = levelData.CooldownTime;
+    //    healthCostPercent = levelData.HealthCostPercent;
+    //    doubleMoneyChance = levelData.DoubleMoneyChance;
+    //}
 }

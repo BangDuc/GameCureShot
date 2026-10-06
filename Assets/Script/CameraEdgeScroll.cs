@@ -1,5 +1,6 @@
+using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem; // Thêm namespace này ở đầu file
+using UnityEngine.InputSystem;
 
 public class CameraEdgeScroll : MonoBehaviour
 {
@@ -11,42 +12,47 @@ public class CameraEdgeScroll : MonoBehaviour
     [Header("Giới hạn bối cảnh (Background Bounds)")]
     [SerializeField] private SpriteRenderer backgroundRenderer;
 
-    private Camera cam;
+    private CinemachineCamera cam;
     private Vector3 currentVelocity;
     private float minX, maxX, minY, maxY;
 
     private void Awake()
     {
-        cam = GetComponent<Camera>();
+        cam = GetComponent<CinemachineCamera>();
+        CalculateBounds();
+    }
+
+    // Đổi sang Update hoặc gọi lại khi thay đổi độ phân giải màn hình
+    private void Start()
+    {
         CalculateBounds();
     }
 
     public void CalculateBounds()
     {
-        if (backgroundRenderer == null || cam == null) return;
+        // Sử dụng Camera.main để lấy tỉ lệ màn hình chuẩn (aspect) thay vì cam.aspect
+        if (backgroundRenderer == null || cam == null || Camera.main == null) return;
 
         Bounds bgBounds = backgroundRenderer.bounds;
 
-        float camHalfHeight = cam.orthographicSize;
-        float camHalfWidth = camHalfHeight * cam.aspect;
+        float camHalfHeight = cam.Lens.OrthographicSize;
+        float camHalfWidth = camHalfHeight * Camera.main.aspect; // ĐÃ SỬA Ở ĐÂY
 
         minX = bgBounds.min.x + camHalfWidth;
         maxX = bgBounds.max.x - camHalfWidth;
         minY = bgBounds.min.y + camHalfHeight;
         maxY = bgBounds.max.y - camHalfHeight;
 
+        // Nếu kích thước camera lớn hơn background, giữ tâm camera ở giữa background
         if (minX > maxX) minX = maxX = bgBounds.center.x;
         if (minY > maxY) minY = maxY = bgBounds.center.y;
     }
 
     private void Update()
     {
-        // Kiểm tra xem chuột có kết nối không
         if (Mouse.current == null) return;
 
         Vector3 moveDir = Vector3.zero;
-
-        // Đọc tọa độ chuột theo New Input System
         Vector2 mousePos = Mouse.current.position.ReadValue();
 
         // Kiểm tra mép trái / phải
@@ -61,12 +67,21 @@ public class CameraEdgeScroll : MonoBehaviour
         else if (mousePos.y >= Screen.height - edgeBorder && mousePos.y <= Screen.height)
             moveDir.y = 1f;
 
+        // Tính toán vị trí mong muốn tiếp theo
         Vector3 targetPosition = transform.position + moveDir.normalized * (panSpeed * Time.deltaTime);
 
+        // Kẹp (Clamp) tọa độ để không vượt qua rìa background
         targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
         targetPosition.y = Mathf.Clamp(targetPosition.y, minY, maxY);
         targetPosition.z = transform.position.z;
 
+        // Di chuyển mượt mà Cinemachine Camera bằng SmoothDamp
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime);
+    }
+
+    // Cập nhật lại giới hạn nếu người chơi thay đổi độ phân giải cửa sổ game khi đang chạy
+    private void OnRectTransformDimensionsChange()
+    {
+        CalculateBounds();
     }
 }
