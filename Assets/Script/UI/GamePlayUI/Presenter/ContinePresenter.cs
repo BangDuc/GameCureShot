@@ -7,9 +7,8 @@ public class ContinePresenter : MonoBehaviour
     [SerializeField] private UIButtonView closeButton;
     [SerializeField] private PanelView continuePanel;
 
-    //[Header("System")]
-    //[SerializeField] private RunController controller;
-
+    [Header("Save List")]
+    [SerializeField] private SavePresenter savePresenter;
 
     private void OnEnable()
     {
@@ -26,6 +25,7 @@ public class ContinePresenter : MonoBehaviour
     private void HandleContinueClicked()
     {
         continuePanel.Show();
+        savePresenter.BuildProfile();
     }
 
     private void HandleCloseClicked()

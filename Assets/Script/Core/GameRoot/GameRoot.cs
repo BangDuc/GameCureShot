@@ -24,7 +24,6 @@ namespace Assets.Script.Core.GameRoot
         public void StartGame()
         {
             AsyncLoader.Instance.StartLoading("GamePlaySence");
-            SaveSystem system = new();
             ShopStockData orion = new ShopStockData
             {
                 itemId = "test_item",
@@ -47,7 +46,7 @@ namespace Assets.Script.Core.GameRoot
                 playtime = 5400f
             };
             data.orionShopStock.Add(orion);
-            system.Save(data, 0);
+            SaveSystem.Save(data, 0);
             Debug.Log(Application.persistentDataPath);
         }
     }

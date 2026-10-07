@@ -2,18 +2,19 @@ using Assets.Script.Core.GameRoot;
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using Unity.XR.GoogleVr;
 
-public class SaveSystem
+public static class SaveSystem
 {
-    string folderPath = Path.Combine(Application.persistentDataPath, "Saves");
-    public void Save(GameData data, int slotId)
+    private static string folderPath = Path.Combine(Application.persistentDataPath, "Saves");
+    public static void Save(GameData data, int slotId)
     {
         string filePath = Path.Combine(folderPath, $"slot_{slotId}.json");
         Directory.CreateDirectory(folderPath);
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(filePath, json);
     }
-    public GameData Load(int slotId)
+    public static GameData Load(int slotId)
     {
         string filePath = Path.Combine(folderPath, $"slot_{slotId}.json");
         if (!HasSave(slotId)) return null;
@@ -22,7 +23,7 @@ public class SaveSystem
         return data; 
     }
 
-    public void Delete(int slotId)
+    public static void Delete(int slotId)
     {
         string filePath = Path.Combine(folderPath, $"slot_{slotId}.json");
         if (HasSave(slotId))
@@ -31,13 +32,13 @@ public class SaveSystem
         }
     }
 
-    public bool HasSave(int slotId)
+    public static bool HasSave(int slotId)
     {
         string filePath = Path.Combine(folderPath, $"slot_{slotId}.json");
         return File.Exists(filePath);
     }
 
-    public List<SaveInfo> GetSaveInfos()
+    public static List<SaveInfo> GetSaveInfos()
     {
         List<SaveInfo> list = new();
         if(!Directory.Exists(folderPath))
@@ -57,7 +58,7 @@ public class SaveSystem
             SaveInfo info = new SaveInfo
             {
                 slotId = slotId,
-                saveName = $"Day" + data.currentDay,
+                saveName = slotId == 0 ? "Auto Save" : "Day "+slotId,
                 day = data.currentDay,
                 money = data.money,
                 isSealBroken = data.isSealBroken,

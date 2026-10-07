@@ -31,9 +31,12 @@ public class SaveSlotView : MonoBehaviour
 
     public void Render(int slotId, string slotName, SaveInfo info)
     {
-        saveId = slotId;
-        titleText.text = slotName;
-        descriptionText.text = "Time Stamp: " + info.timestamp + " playtime: " + info.playTime + " permanentHealth: " + info.permanentHealth + " money : " + info.money;
+        if (info != null)
+        {
+            saveId = slotId;
+            titleText.text = slotName;
+            descriptionText.text = "Time Stamp: " + info.timestamp + " playtime: " + info.playTime + " permanentHealth: " + info.permanentHealth + " money : " + info.money;
+        }
     }
 
     private void NotifySelected()
