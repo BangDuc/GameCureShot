@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ShopPresenter : MonoBehaviour
@@ -7,6 +8,7 @@ public class ShopPresenter : MonoBehaviour
     [SerializeField] private UITabShopButtonView orionShopButton;
     [SerializeField] private PanelView normalShopPanel;
     [SerializeField] private PanelView orionShopPanel;
+    [SerializeField] private NormalItemSlotPresenter normalItemSlotPresenter;
 
     //[Header("System")]
     //[SerializeField] private RunController controller;
@@ -17,7 +19,10 @@ public class ShopPresenter : MonoBehaviour
         normalShopButton.Clicked += HandleNormalShopClicked;
         orionShopButton.Clicked += HandleOrionShopClicked;
     }
-
+    private void Start()
+    {
+        normalItemSlotPresenter.BuildProfile();
+    }
     private void OnDisable()
     {
         normalShopButton.Clicked -= HandleNormalShopClicked;
@@ -28,6 +33,7 @@ public class ShopPresenter : MonoBehaviour
     {
         orionShopPanel.Hide();
         normalShopPanel.Show();
+        normalItemSlotPresenter.BuildProfile();
     }
 
     private void HandleOrionShopClicked()

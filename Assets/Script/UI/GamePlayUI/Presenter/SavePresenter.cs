@@ -7,12 +7,6 @@ public class SavePresenter : MonoBehaviour
     [SerializeField] private Transform content;
     [SerializeField] private SaveSlotView slotPrefab;
     private readonly List<SaveSlotView> views = new();
-
-    private void Awake()
-    {
-
-    }
-
     public void BuildProfile()
     {
         List<SaveInfo> saves = GetListSaveInfos();
