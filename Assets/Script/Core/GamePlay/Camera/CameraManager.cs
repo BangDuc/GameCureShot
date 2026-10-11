@@ -19,10 +19,16 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float currentHoldTimer = 0f;
     [SerializeField] private float cooldownTimer = 0f;
 
-    //[SerializeField] private PhotoManager photoManager;
+    [SerializeField] private PhotoManager photoManager;
+    [Header("SubClass")]
 
+    [SerializeField] CameraMoving cameraMoving;
+
+    [SerializeField] InGamePhotoCapture cameraCapture;
     public CameraState State => state;
     public float DoubleMoneyChance => doubleMoneyChance;
+
+
 
     private void Update()
     {

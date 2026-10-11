@@ -8,10 +8,11 @@ public class CameraPresenter : MonoBehaviour
 
     [Header("System")]
     [SerializeField] private RunController controller;
-
+    [SerializeField] private CameraMoving cameraMoving;
     private void Start()
     {
         controller = RunController.Instance;
+        cameraMoving = CameraMoving.Instance;
     }
 
     private void OnEnable()
@@ -29,8 +30,11 @@ public class CameraPresenter : MonoBehaviour
         if (cameraPanel.isActiveAndEnabled)
         {
             cameraPanel.Hide();
+            cameraMoving.ChangeCameraGamePlayMode();
             return;
         }
         cameraPanel.Show();
+        cameraMoving.ChangeCameraPhotoMode();
+
     }
 }

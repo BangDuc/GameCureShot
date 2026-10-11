@@ -10,7 +10,7 @@ public class BackgroundBounds : MonoBehaviour
     public float minY;
     public float maxY;
 
-    void Start()
+    void Awake()
     {
         CalculateBounds();
     }
@@ -19,7 +19,7 @@ public class BackgroundBounds : MonoBehaviour
     {
         if (backgroundRenderer != null)
         {
-            // Lấy khối hộp bao quanh đối tượng trong không gian World Space
+           
             Bounds bounds = backgroundRenderer.bounds;
 
             // bounds.min là góc dưới cùng bên trái (tọa độ nhỏ nhất)
@@ -31,11 +31,11 @@ public class BackgroundBounds : MonoBehaviour
             maxY = bounds.max.y;
 
             // In ra Console để kiểm tra thử
-            Debug.Log($"Biên BG -> Trái (minX): {minX} | Phải (maxX): {maxX} | Dưới (minY): {minY} | Trên (maxY): {maxY}");
+          
         }
         else
         {
-            Debug.LogError("Vui lòng gán SpriteRenderer của Background vào Script!");
+            Debug.Log("Thiếu Sence BG");
         }
     }
 

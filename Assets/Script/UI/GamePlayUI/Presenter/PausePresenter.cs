@@ -46,7 +46,6 @@ public class PausePresenter: MonoBehaviour
         controller.Pause();
 
         //Logic UI
-        Time.timeScale = 0f;
         pausePanel.Show();
     }   
     
