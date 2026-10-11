@@ -5,4 +5,11 @@ using UnityEngine;
 public class InventoryItemData
 {
     public string itemId;
+    public ItemState state;
+}
+
+public enum ItemState
+{
+    Normal,
+    Broken
 }

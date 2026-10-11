@@ -19,11 +19,12 @@ public class ItemDetailView : MonoBehaviour
     private string itemId;
     private int numberPurchase = 1;
     private UIButtonView buttonView;
-    public event Action<string> Selected;
+    public event Action<string, int> Selected;
     private void Awake()
     {
         buttonView = GetComponentInChildren<UIButtonView>();
     }
+
 
     private void OnEnable()
     {
@@ -64,6 +65,6 @@ public class ItemDetailView : MonoBehaviour
     }
     private void NotifySelected()
     {
-        Selected?.Invoke(itemId);
+        Selected?.Invoke(itemId, numberPurchase);
     }
 }

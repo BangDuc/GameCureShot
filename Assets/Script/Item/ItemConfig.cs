@@ -19,14 +19,6 @@ public class ItemConfig
 }
 
 [Serializable]
-public class ShopOfferItemConfig
-{
-    public string itemId;
-    public int price;
-    public int initalStock;
-}
-
-[Serializable]
 public class ItemEffectConfig
 {
     public string type;
@@ -39,6 +31,5 @@ public class ItemConfigData
 {
     public List<ItemConfig> items =
         new List<ItemConfig>();
-    public List<ShopOfferItemConfig> shopitems =
-        new List<ShopOfferItemConfig>();
+
 }

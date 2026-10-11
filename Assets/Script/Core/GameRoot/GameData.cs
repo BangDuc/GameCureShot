@@ -20,16 +20,10 @@ namespace Assets.Script.Core.GameRoot
         public int consecutiveUnpaidDays;
         public bool isSealBroken;
         public float playtime;
-        public ResumePoint resumepoint;
-        public InventoryData inventory = new();
-        public WorldStateData worldState = new();
+        public InventoryData inventoryData = new();
+        public WorldStateData worldStateData = new();
         public List<ShopStockData> orionShopStock = new();
+        public List<ShopStockData> normalShopStock = new();
+        public int lastStarterPotionPurchaseDay;
     }
-}
-
-public enum ResumePoint
-{
-    run,
-    summary,
-    shop
 }

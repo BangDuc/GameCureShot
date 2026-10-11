@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NormalShopPreseenter : MonoBehaviour
+public class NormalShopPresenter : MonoBehaviour
 {
     [Header("View")]
     [SerializeField] private UITabShopButtonView purchaseButton;
@@ -9,14 +9,16 @@ public class NormalShopPreseenter : MonoBehaviour
     [SerializeField] private PanelView cameraPanel;
     [SerializeField] private PanelView purchaseDetail;
     [SerializeField] private PanelView cameraDetail;
-    //[Header("System")]
-    //[SerializeField] private RunController controller;
-
 
     private void OnEnable()
     {
         purchaseButton.Clicked += HandlePurchaseClicked;
         cameraShopButton.Clicked += HandleCameraClicked;
+    }
+
+    private void Start()
+    {
+        HandlePurchaseClicked();
     }
 
     private void OnDisable()

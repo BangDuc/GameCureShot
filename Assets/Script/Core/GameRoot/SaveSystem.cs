@@ -13,6 +13,10 @@ public static class SaveSystem
         Directory.CreateDirectory(folderPath);
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(filePath, json);
+        for(int i = slotId+1; i < 8; i++)
+        {
+            if (HasSave(i)) Delete(i);
+        }    
     }
     public static GameData Load(int slotId)
     {
@@ -49,8 +53,8 @@ public static class SaveSystem
         foreach(string file in files)
         {
             string filename = Path.GetFileNameWithoutExtension(file);
-            string idText = filename.Substring(5);
-            if (!int.TryParse(idText, out int slotId))
+            string[] idText = filename.Split("_");
+            if (!int.TryParse(idText[1], out int slotId))
                 continue;
             GameData data= Load(slotId);
             if (data == null)
@@ -70,5 +74,21 @@ public static class SaveSystem
             list.Add(info);
         }
         return list;
+    }
+    public static GameData GetLastSaveInfo()
+    {
+        int max = 0;
+        string[] files = Directory.GetFiles(folderPath, "slot_*.json");
+        foreach(string file in files)
+        {
+            string filename = Path.GetFileNameWithoutExtension(file);
+            string[] idText = filename.Split("_");
+            if (!int.TryParse(idText[1], out int slotId))
+            {
+                if (slotId > max) max = slotId;
+            }
+            else continue;
+        }
+        return Load(max);
     }
 }

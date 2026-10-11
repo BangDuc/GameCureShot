@@ -23,8 +23,5 @@ namespace Assets.Script.Core.GameRoot
             currentState = newstate;
             currentState.Enter();
         }
-       
-
-
     }
 }
