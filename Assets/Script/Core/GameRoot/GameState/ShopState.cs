@@ -6,11 +6,14 @@ namespace Assets.Script.Core.GameRoot.GameState
 {
     public class ShopState : IGameState
     {
+        private readonly GameStateMachine stateMachine;
         private readonly ShopManager shopManager;
+        private ShopPresenter presenter;
 
-        public ShopState(ShopManager shopManager)
+        public ShopState(ShopManager shopManager, GameStateMachine stateMachine)
         {
             this.shopManager = shopManager;
+            this.stateMachine = stateMachine;
         }
 
         public void Enter()
@@ -22,6 +25,10 @@ namespace Assets.Script.Core.GameRoot.GameState
         public void Exit()
         {
             SceneManager.sceneLoaded -= HandleSceneLoaded;
+            if (presenter != null)
+            {
+                presenter.Clicked -= HandleChangeState;
+            }
         }
 
         private void HandleSceneLoaded(
@@ -32,18 +39,23 @@ namespace Assets.Script.Core.GameRoot.GameState
 
             foreach (GameObject root in scene.GetRootGameObjects())
             {
-                ShopPresenter presenter =
+                    presenter =
                     root.GetComponentInChildren<ShopPresenter>(true);
 
                 if (presenter == null)
                     continue;
-
+                presenter.Clicked += HandleChangeState;
                 presenter.Initialize(shopManager);
                 return;
             }
 
             Debug.LogError(
                 "Không tìm thấy ShopPresenter trong ShopScene.");
+        }
+
+        private void HandleChangeState()
+        {
+            stateMachine.ChangeState(new MainMenuState());
         }
     }
 }

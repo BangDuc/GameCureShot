@@ -13,6 +13,7 @@ namespace Assets.Script.Core.GameRoot
         private ShopManager shopManager;
         private Inventory inventory;
         private DebtManager debtManager;
+        private EndingSystem endingSystem;
         private void Awake()
         {
             Initialize();
@@ -86,6 +87,7 @@ namespace Assets.Script.Core.GameRoot
             this.inventory = new Inventory(data.inventoryData);
             this.debtManager = new DebtManager(data);
             this.shopManager = new ShopManager(inventory, data, debtManager);
+            this.endingSystem = new EndingSystem(data);
         }    
         public void LoadGame(int slotId)
         {
@@ -97,7 +99,7 @@ namespace Assets.Script.Core.GameRoot
             }
             gameSession.SetData(data);
             InitializeManagers();
-            gameState.ChangeState(new ShopState(this.shopManager));
+            gameState.ChangeState(new ShopState(this.shopManager, gameState));
         }    
     }
 }

@@ -21,6 +21,9 @@ public class ShopDataAuthoring : MonoBehaviour
     [SerializeField]
     private DebtData debtData = new DebtData();
 
+    [Header("ENDINGS")]
+    [SerializeField] private EndingConfigData endingData = new();
+
 #if UNITY_EDITOR
     [ContextMenu("Export All JSON")]
     private void ExportJson()
@@ -34,6 +37,7 @@ public class ShopDataAuthoring : MonoBehaviour
         WriteJson(folder, "shops.json", shopData);
         WriteJson(folder, "itemSpawns.json", spawnData);
         WriteJson(folder, "debt.json", debtData);
+        WriteJson(folder, "endings.json", endingData);
 
         UnityEditor.AssetDatabase.Refresh();
         Debug.Log($"Đã xuất bốn file JSON vào: {folder}", this);

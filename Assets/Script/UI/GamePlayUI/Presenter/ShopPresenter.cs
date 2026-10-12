@@ -10,6 +10,8 @@ public class ShopPresenter : MonoBehaviour
     [SerializeField] private PanelView normalShopPanel;
     [SerializeField] private PanelView orionShopPanel;
     [SerializeField] private NormalItemSlotPresenter normalItemSlotPresenter;
+    [SerializeField] private UIButtonView continueButton;
+    public event Action Clicked;
     private ShopManager shopManager;
 
     public void Initialize(ShopManager shopManager)
@@ -25,11 +27,13 @@ public class ShopPresenter : MonoBehaviour
 
     private void OnEnable()
     {
+        continueButton.Clicked += HandleContinueClicked;
         normalShopButton.Clicked += HandleNormalShopClicked;
         orionShopButton.Clicked += HandleOrionShopClicked;
     }
     private void OnDisable()
     {
+        continueButton.Clicked -= HandleContinueClicked;
         normalShopButton.Clicked -= HandleNormalShopClicked;
         orionShopButton.Clicked -= HandleOrionShopClicked;
     }
@@ -46,4 +50,9 @@ public class ShopPresenter : MonoBehaviour
         normalShopPanel.Hide();
         orionShopPanel.Show();
     }
+
+    private void HandleContinueClicked()
+    {
+        Clicked?.Invoke();
+    }    
 }
