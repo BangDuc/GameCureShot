@@ -10,7 +10,7 @@ public class RunController : Singleton<RunController>
     [SerializeField] private float elapsedTime;
     [SerializeField] private int runHealth;
     [SerializeField] private bool isRunning = false;
-    [SerializeField] private StarterPotionState starterPotionState;
+    [SerializeField] private BuffState buffState;
 
 
     public event Action<int> OnDamageTaken;

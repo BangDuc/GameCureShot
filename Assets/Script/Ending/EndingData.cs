@@ -1,33 +1,57 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(
-    fileName = "NewEndingData",
-    menuName = "Game/Ending Data"
-)]
-public class EndingData : ScriptableObject
+//[CreateAssetMenu(
+//    fileName = "NewEndingData",
+//    menuName = "Game/Ending Data"
+//)]
+//public class EndingData : ScriptableObject
+//{
+//    [Header("Identity")]
+//    public EndingId endingId;
+
+//    [Header("Text")]
+//    public string typeLabel;
+//    public string endingTitle;
+
+//    [TextArea(3, 6)]
+//    public string description;
+
+//    [Header("Media")]
+//    public Sprite endingImage;
+//    public AudioClip endingMusic;
+
+//    [Header("Style")]
+//    public Color accentColor = new Color(
+//        0.447f,
+//        0.835f,
+//        0.91f,
+//        1f
+//    );
+
+//    [Header("Button")]
+//    public string actionLabel = "CONTINUE";
+//}
+
+[Serializable]
+public class EndingData
 {
-    [Header("Identity")]
     public EndingId endingId;
-
-    [Header("Text")]
-    public string typeLabel;
+    public string endingType;
     public string endingTitle;
-
-    [TextArea(3, 6)]
     public string description;
+    public string imagePath;
 
-    [Header("Media")]
+    [NonSerialized]
     public Sprite endingImage;
-    public AudioClip endingMusic;
 
-    [Header("Style")]
-    public Color accentColor = new Color(
-        0.447f,
-        0.835f,
-        0.91f,
-        1f
-    );
+    [NonSerialized]
+    public EndingRule endingRule;
+}
 
-    [Header("Button")]
-    public string actionLabel = "CONTINUE";
+[Serializable]
+public class EndingConfigData
+{
+    public List<EndingData> endings = new();
 }
