@@ -1,0 +1,32 @@
+{
+    "dailyDebts": [
+        {
+            "day": 1,
+            "requiredAmount": 0
+        },
+        {
+            "day": 2,
+            "requiredAmount": 0
+        },
+        {
+            "day": 3,
+            "requiredAmount": 0
+        },
+        {
+            "day": 4,
+            "requiredAmount": 0
+        },
+        {
+            "day": 5,
+            "requiredAmount": 0
+        },
+        {
+            "day": 6,
+            "requiredAmount": 0
+        },
+        {
+            "day": 7,
+            "requiredAmount": 0
+        }
+    ]
+}

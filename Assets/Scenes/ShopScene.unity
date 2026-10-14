@@ -3386,6 +3386,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492090541}
   m_CullTransparentMesh: 1
+--- !u!1 &515423758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2790536029139489516, guid: 9e1d687a299637e46a3a38f865df6bc4, type: 3}
+  m_PrefabInstance: {fileID: 3356792562070903985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &517142444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,7 +4649,7 @@ GameObject:
   - component: {fileID: 724996378}
   - component: {fileID: 724996377}
   m_Layer: 0
-  m_Name: ShopDataAuthoring
+  m_Name: GameConfigAuthoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4662,13 +4667,195 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5e4add6fc4b6f4698ed407ba3799a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopDataAuthoring
-  data:
+  itemData:
+    items:
+    - itemId: StarterPotion
+      itemName: Starter Potion
+      description: Each time you enter a run, you are required to make a purchase.
+        If your balance is zero, you can pay later.
+      iconPath: Sprite/Item/1
+      effects: []
+      passiveEffects: []
+    - itemId: Shield
+      itemName: Shield
+      description: Allows you to block one monster attack that hits directly at your
+        health
+      iconPath: Sprite/Item/2
+      effects:
+      - type: CoinBuffEffect
+        amount: 0
+        monsterId: 
+      passiveEffects: []
+    - itemId: Coin
+      itemName: Coin
+      description: Doubles the money for the first time you take a shot
+      iconPath: Sprite/Item/3
+      effects:
+      - type: CoinBuffEffect
+        amount: 0
+        monsterId: 
+      passiveEffects: []
+    - itemId: Health
+      itemName: Health
+      description: Once in a run, when your health drops below 30%, it will restore
+        your health to 70%
+      iconPath: Sprite/Item/4
+      effects:
+      - type: BloodBuffEffect
+        amount: 0
+        monsterId: 
+      passiveEffects: []
+    - itemId: ColdCoffee
+      itemName: Cold Coffee
+      description: Restores 15% HP.
+      iconPath: Sprite/Item/6
+      effects:
+      - type: HealEffect
+        amount: 0
+        monsterId: 
+      passiveEffects: []
+    - itemId: AdrenalineSerum
+      itemName: Adrenaline Serum
+      description: Passive. If HP drops to 0, automatically revives the player with
+        30% HP (saves a life, preventing permanent HP loss).
+      iconPath: Sprite/Item/9
+      effects: []
+      passiveEffects:
+      - type: ReviveEffect
+        amount: 0
+        monsterId: 
+  shopData:
     normalItems:
-    - itemId: 
+    - itemId: StarterPotion
       price: 0
       initialStock: 0
       group: 0
+    - itemId: Shield
+      price: 0
+      initialStock: 0
+      group: 0
+    - itemId: Coin
+      price: 0
+      initialStock: 0
+      group: 0
+    - itemId: Health
+      price: 0
+      initialStock: 0
+      group: 0
+    - itemId: ColdCoffee
+      price: 0
+      initialStock: 0
+      group: 0
+    - itemId: AdrenalineSerum
+      price: 0
+      initialStock: 0
+      group: 0
+    - itemId: BrokenAntenna
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: BlackTapeRoll
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: CigaretteButt
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: PhotoShard
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: WaterBottle
+      price: 0
+      initialStock: 0
+      group: 0
+    - itemId: PhoneNumberShard
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: CursedGear
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: CrayonBox
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: FaceMask
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: Lighter
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: Matches
+      price: 0
+      initialStock: 0
+      group: 1
+    - itemId: CassetteTape
+      price: 0
+      initialStock: 0
+      group: 1
     orionItems: []
+  spawnData:
+    spawnableItemIds:
+    - BrokenAntenna
+    - BlackTapeRoll
+    - CigaretteButt
+    - PhotoShard
+    - RottenMeat
+    - WaterBottle
+    - PhoneNumberShard
+    - CursedGear
+    - CrayonBox
+    - FaceMask
+    - Lighter
+    - Matches
+    - CassetteTape
+  debtData:
+    dailyDebts:
+    - day: 1
+      requiredAmount: 0
+    - day: 2
+      requiredAmount: 0
+    - day: 3
+      requiredAmount: 0
+    - day: 4
+      requiredAmount: 0
+    - day: 5
+      requiredAmount: 0
+    - day: 6
+      requiredAmount: 0
+    - day: 7
+      requiredAmount: 0
+  endingData:
+    endings:
+    - endingId: 0
+      endingType: Normal
+      endingTitle: The Seventh Dawn
+      description: Seven days have passed. You are still alive, and the seal remains
+        unbroken. For now, the house is silent.
+      imagePath: 
+    - endingId: 1
+      endingType: Debt
+      endingTitle: The Price of Failure
+      description: Your debt has gone unpaid for three days in a row. The contract
+        is over. Your time in the house ends here.
+      imagePath: 
+    - endingId: 2
+      endingType: Death
+      endingTitle: The Last Breath
+      description: Your last life is gone. The house keeps its secrets. Your story
+        ends here.
+      imagePath: 
+    - endingId: 3
+      endingType: To Be Continued
+      endingTitle: Beyond the Attic
+      description: You opened the attic door. The answers lie somewhere beyond the
+        darkness. Your story is not over yet.
+      imagePath: 
 --- !u!4 &724996378
 Transform:
   m_ObjectHideFlags: 0
@@ -12868,61 +13055,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827250273}
   m_CullTransparentMesh: 1
---- !u!1 &1829055559
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1829055561}
-  - component: {fileID: 1829055560}
-  m_Layer: 0
-  m_Name: ItemDataAuthoring
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1829055560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829055559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09955c79813d3634eb636385cdc85f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemDataAuthoring
-  data:
-    items:
-    - itemId: StarterPotion
-      itemName: StarterPotion
-      description: 
-      iconPath: 
-      price: 0
-      initalStock: 0
-      effects: []
-      passiveEffects: []
-    shopitems: []
---- !u!4 &1829055561
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829055559}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882874563
 GameObject:
   m_ObjectHideFlags: 0
@@ -13118,6 +13250,7 @@ MonoBehaviour:
   normalShopPanel: {fileID: 556260437}
   orionShopPanel: {fileID: 721077445}
   normalItemSlotPresenter: {fileID: 1100611372}
+  continueButton: {fileID: 5428790579995169748}
 --- !u!1001 &1887536696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14418,6 +14551,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemShopView
   icon: {fileID: 759042875}
+--- !u!114 &3262684134718506053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401002147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1731510b17df3544abea173539fea175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonView
 --- !u!1001 &3356792562070903985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14513,7 +14658,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2790536029139489516, guid: 9e1d687a299637e46a3a38f865df6bc4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5428790579995169748}
   m_SourcePrefab: {fileID: 100100000, guid: 9e1d687a299637e46a3a38f865df6bc4, type: 3}
 --- !u!1001 &3556280869666304865
 PrefabInstance:
@@ -15132,12 +15280,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 200752604775318864, guid: bcdef3cb57ae2ef4fbe53a28193e6fae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3262684134718506047}
+    - targetCorrespondingSourceObject: {fileID: 200752604775318864, guid: bcdef3cb57ae2ef4fbe53a28193e6fae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3262684134718506053}
   m_SourcePrefab: {fileID: 100100000, guid: bcdef3cb57ae2ef4fbe53a28193e6fae, type: 3}
 --- !u!224 &5428790579995169744 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5663082469193813943, guid: 9e1d687a299637e46a3a38f865df6bc4, type: 3}
   m_PrefabInstance: {fileID: 3356792562070903985}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5428790579995169748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515423758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1731510b17df3544abea173539fea175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonView
 --- !u!1001 &8492222267733567946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15315,4 +15478,3 @@ SceneRoots:
   - {fileID: 1595207220}
   - {fileID: 660398047}
   - {fileID: 724996378}
-  - {fileID: 1829055561}

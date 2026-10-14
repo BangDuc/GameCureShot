@@ -31,6 +31,23 @@ public class ShopPresenter : MonoBehaviour
         normalShopButton.Clicked += HandleNormalShopClicked;
         orionShopButton.Clicked += HandleOrionShopClicked;
     }
+
+    private void Start()
+    {
+        if (shopManager != null)
+            return;
+        GameData data = new GameData
+        {
+            currentDay = 1,
+            money = 500,
+            inventoryData = new InventoryData()
+        };
+        Inventory inventory = new Inventory(data.inventoryData);
+        DebtManager debtManager = new DebtManager(data);
+        ShopManager testShop = new ShopManager(inventory, data, debtManager);
+        Initialize(testShop);
+    }
+
     private void OnDisable()
     {
         continueButton.Clicked -= HandleContinueClicked;

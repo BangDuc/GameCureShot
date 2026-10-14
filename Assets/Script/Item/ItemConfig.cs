@@ -8,8 +8,6 @@ public class ItemConfig
     public string itemName;
     public string description;
     public string iconPath;
-    public int price;
-    public int initalStock;
 
     public List<ItemEffectConfig> effects =
         new List<ItemEffectConfig>();

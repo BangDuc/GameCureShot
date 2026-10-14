@@ -52,6 +52,67 @@ public class ShopDataAuthoring : MonoBehaviour
         File.WriteAllText(path, json);
     }
 #endif
+
+#if UNITY_EDITOR
+    [ContextMenu("Import Items JSON")]
+    private void ImportItemsJson()
+    {
+        string path = Path.Combine(
+            Application.dataPath,
+            "Resources",
+            "Data",
+            "items.json"
+        );
+
+        if (!File.Exists(path))
+        {
+            Debug.LogError($"Không tìm thấy file: {path}", this);
+            return;
+        }
+
+        try
+        {
+            string json = File.ReadAllText(path);
+
+            ItemConfigData imported =
+                JsonUtility.FromJson<ItemConfigData>(json);
+
+            if (imported == null || imported.items == null)
+            {
+                Debug.LogError(
+                    "Không đọc được danh sách items trong JSON.", this);
+                return;
+            }
+
+            // Ghi lại dữ liệu trước khi thay đổi để có thể Ctrl+Z.
+            UnityEditor.Undo.RecordObject(this, "Import Items JSON");
+
+            itemData = imported;
+
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabInstance(this))
+            {
+                UnityEditor.PrefabUtility
+                    .RecordPrefabInstancePropertyModifications(this);
+            }
+
+            UnityEditor.EditorUtility.SetDirty(this);
+
+            if (gameObject.scene.IsValid())
+            {
+                UnityEditor.SceneManagement.EditorSceneManager
+                    .MarkSceneDirty(gameObject.scene);
+            }
+
+            Debug.Log(
+                $"Đã nhập {imported.items.Count} item từ: {path}", this);
+        }
+        catch (System.Exception exception)
+        {
+            Debug.LogError(
+                $"Import thất bại: {exception.Message}", this);
+        }
+    }
+#endif
 }
 
 [Serializable]

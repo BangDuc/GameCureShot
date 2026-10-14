@@ -1,0 +1,32 @@
+{
+    "endings": [
+        {
+            "endingId": 0,
+            "endingType": "Normal",
+            "endingTitle": "The Seventh Dawn",
+            "description": "Seven days have passed. You are still alive, and the seal remains unbroken. For now, the house is silent.",
+            "imagePath": ""
+        },
+        {
+            "endingId": 1,
+            "endingType": "Debt",
+            "endingTitle": "The Price of Failure",
+            "description": "Your debt has gone unpaid for three days in a row. The contract is over. Your time in the house ends here.",
+            "imagePath": ""
+        },
+        {
+            "endingId": 2,
+            "endingType": "Death",
+            "endingTitle": "The Last Breath",
+            "description": "Your last life is gone. The house keeps its secrets. Your story ends here.",
+            "imagePath": ""
+        },
+        {
+            "endingId": 3,
+            "endingType": "To Be Continued",
+            "endingTitle": "Beyond the Attic",
+            "description": "You opened the attic door. The answers lie somewhere beyond the darkness. Your story is not over yet.",
+            "imagePath": ""
+        }
+    ]
+}

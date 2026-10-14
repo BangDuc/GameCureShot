@@ -1,0 +1,113 @@
+{
+    "normalItems": [
+        {
+            "itemId": "StarterPotion",
+            "price": 0,
+            "initialStock": 0,
+            "group": 0
+        },
+        {
+            "itemId": "Shield",
+            "price": 0,
+            "initialStock": 0,
+            "group": 0
+        },
+        {
+            "itemId": "Coin",
+            "price": 0,
+            "initialStock": 0,
+            "group": 0
+        },
+        {
+            "itemId": "Health",
+            "price": 0,
+            "initialStock": 0,
+            "group": 0
+        },
+        {
+            "itemId": "ColdCoffee",
+            "price": 0,
+            "initialStock": 0,
+            "group": 0
+        },
+        {
+            "itemId": "AdrenalineSerum",
+            "price": 0,
+            "initialStock": 0,
+            "group": 0
+        },
+        {
+            "itemId": "BrokenAntenna",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "BlackTapeRoll",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "CigaretteButt",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "PhotoShard",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "WaterBottle",
+            "price": 0,
+            "initialStock": 0,
+            "group": 0
+        },
+        {
+            "itemId": "PhoneNumberShard",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "CursedGear",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "CrayonBox",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "FaceMask",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "Lighter",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "Matches",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "CassetteTape",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        }
+    ],
+    "orionItems": []
+}

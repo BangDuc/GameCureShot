@@ -1,0 +1,82 @@
+{
+    "items": [
+        {
+            "itemId": "StarterPotion",
+            "itemName": "Starter Potion",
+            "description": "Each time you enter a run, you are required to make a purchase. If your balance is zero, you can pay later.",
+            "iconPath": "Sprite/Item/1",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "Shield",
+            "itemName": "Shield",
+            "description": "Allows you to block one monster attack that hits directly at your health",
+            "iconPath": "Sprite/Item/2",
+            "effects": [
+                {
+                    "type": "CoinBuffEffect",
+                    "amount": 0.0,
+                    "monsterId": ""
+                }
+            ],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "Coin",
+            "itemName": "Coin",
+            "description": "Doubles the money for the first time you take a shot",
+            "iconPath": "Sprite/Item/3",
+            "effects": [
+                {
+                    "type": "CoinBuffEffect",
+                    "amount": 0.0,
+                    "monsterId": ""
+                }
+            ],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "Health",
+            "itemName": "Health",
+            "description": "Once in a run, when your health drops below 30%, it will restore your health to 70%",
+            "iconPath": "Sprite/Item/4",
+            "effects": [
+                {
+                    "type": "BloodBuffEffect",
+                    "amount": 0.0,
+                    "monsterId": ""
+                }
+            ],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "ColdCoffee",
+            "itemName": "Cold Coffee",
+            "description": "Restores 15% HP.",
+            "iconPath": "Sprite/Item/6",
+            "effects": [
+                {
+                    "type": "HealEffect",
+                    "amount": 0.0,
+                    "monsterId": ""
+                }
+            ],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "AdrenalineSerum",
+            "itemName": "Adrenaline Serum",
+            "description": "Passive. If HP drops to 0, automatically revives the player with 30% HP (saves a life, preventing permanent HP loss).",
+            "iconPath": "Sprite/Item/9",
+            "effects": [],
+            "passiveEffects": [
+                {
+                    "type": "ReviveEffect",
+                    "amount": 0.0,
+                    "monsterId": ""
+                }
+            ]
+        }
+    ]
+}
