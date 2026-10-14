@@ -3,7 +3,6 @@ namespace Core.Interact
     public interface IInteractable
     {
         bool Interact();
-
         // Bổ sung để hỗ trợ Game Feel & Cursor phản hồi
         void OnHoverEnter();
         void OnHoverExit();
