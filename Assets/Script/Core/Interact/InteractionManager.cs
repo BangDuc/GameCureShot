@@ -7,7 +7,7 @@ public class Interact_Manager : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
     private Camera mainCamera;
     private IInteractable currentHovered;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         mainCamera = Camera.main;
@@ -17,6 +17,7 @@ public class Interact_Manager : MonoBehaviour
     void Update()
     {
         HandleHover();
+
         HandleClick();
     }
 
@@ -26,6 +27,7 @@ public class Interact_Manager : MonoBehaviour
 
         // Bắn Raycast 2D từ tọa độ chuột
         Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
         RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, 0f, interactableLayer);
 
         IInteractable target = hit.collider != null ? hit.collider.GetComponent<IInteractable>() : null;
