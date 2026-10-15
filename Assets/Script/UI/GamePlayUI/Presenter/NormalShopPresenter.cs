@@ -29,6 +29,7 @@ public class NormalShopPresenter : MonoBehaviour
 
     private void HandlePurchaseClicked()
     {
+
         cameraPanel.Hide();
         cameraDetail.Hide();
         purchasePanel.Show();

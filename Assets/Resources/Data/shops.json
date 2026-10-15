@@ -2,8 +2,8 @@
     "normalItems": [
         {
             "itemId": "StarterPotion",
-            "price": 0,
-            "initialStock": 0,
+            "price": 100,
+            "initialStock": 1,
             "group": 0
         },
         {
@@ -61,12 +61,6 @@
             "group": 1
         },
         {
-            "itemId": "WaterBottle",
-            "price": 0,
-            "initialStock": 0,
-            "group": 0
-        },
-        {
             "itemId": "PhoneNumberShard",
             "price": 0,
             "initialStock": 0,
@@ -104,6 +98,12 @@
         },
         {
             "itemId": "CassetteTape",
+            "price": 0,
+            "initialStock": 0,
+            "group": 1
+        },
+        {
+            "itemId": "WaterBottle",
             "price": 0,
             "initialStock": 0,
             "group": 1

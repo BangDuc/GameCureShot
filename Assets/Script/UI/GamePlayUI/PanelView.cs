@@ -11,15 +11,15 @@ public class PanelView : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        canvas.alpha = 1f;
-        canvas.interactable = true;
-        canvas.blocksRaycasts = true;
+        //canvas.alpha = 1f;
+        //canvas.interactable = true;
+        //canvas.blocksRaycasts = true;
     }
     public void Hide()
     {
-        canvas.alpha = 0f;
-        canvas.interactable = false;
-        canvas.blocksRaycasts = false;
+        //canvas.alpha = 0f;
+        //canvas.interactable = false;
+        //canvas.blocksRaycasts = false;
         gameObject.SetActive(false);
     }
 }

@@ -77,6 +77,118 @@
                     "monsterId": ""
                 }
             ]
+        },
+        {
+            "itemId": "BrokenAntenna",
+            "itemName": "Broken Antenna",
+            "description": "Interacts with TV",
+            "iconPath": "Sprite/Item/9",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "BlackTapeRoll",
+            "itemName": "Black Tape Roll",
+            "description": "Interacts with TV",
+            "iconPath": "Sprite/Item/18",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "CigaretteButt",
+            "itemName": "Cigarette Butt",
+            "description": "Interacts with Armchair",
+            "iconPath": "Sprite/Item/19",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "PhotoShard",
+            "itemName": "Photo Shard",
+            "description": "Interacts with Photo ",
+            "iconPath": "Sprite/Item/20",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "RottenMeat",
+            "itemName": "Rotten Meat",
+            "description": "Interacts with Animal Head / Interact with the oven (unlimited uses) ",
+            "iconPath": "Sprite/Item/21",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "WaterBottle",
+            "itemName": "Water Bottle",
+            "description": "Used to extinguish fire in fireplace",
+            "iconPath": "Sprite/Item/22",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "PhoneNumberShard",
+            "itemName": "Phone Number Shard",
+            "description": "Interacts with Phone",
+            "iconPath": "Sprite/Item/23",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "CursedGear",
+            "itemName": "Cursed Gear",
+            "description": "Interacts with Clock",
+            "iconPath": "Sprite/Item/24",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "CrayonBox",
+            "itemName": "Crayon Box",
+            "description": "Interacts with Painting on Staircase ",
+            "iconPath": "Sprite/Item/25",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "FaceMask",
+            "itemName": "Face Mask",
+            "description": "Interacts with Refrigerator ",
+            "iconPath": "Sprite/Item/26",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "Lighter",
+            "itemName": "Lighter",
+            "description": "Interacts with Oven (Can be used 5 times)",
+            "iconPath": "Sprite/Item/27",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "Matches",
+            "itemName": "Matches",
+            "description": "Interacts with Oven (Can be used 1 times)",
+            "iconPath": "Sprite/Item/28",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "Wrench",
+            "itemName": "Wrench",
+            "description": "Interact with the water pipes in the kitchen",
+            "iconPath": "Sprite/Item/29",
+            "effects": [],
+            "passiveEffects": []
+        },
+        {
+            "itemId": "CassetteTape",
+            "itemName": "Cassette tape",
+            "description": "Interact with the radio",
+            "iconPath": "Sprite/Item/30",
+            "effects": [],
+            "passiveEffects": []
         }
     ]
 }

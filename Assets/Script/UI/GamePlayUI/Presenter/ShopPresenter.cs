@@ -1,5 +1,6 @@
 using Assets.Script.Core.GameRoot;
 using System;
+using TMPro;
 using UnityEngine;
 
 public class ShopPresenter : MonoBehaviour
@@ -11,6 +12,10 @@ public class ShopPresenter : MonoBehaviour
     [SerializeField] private PanelView orionShopPanel;
     [SerializeField] private NormalItemSlotPresenter normalItemSlotPresenter;
     [SerializeField] private UIButtonView continueButton;
+    [SerializeField] private TMP_Text dayText;
+    [SerializeField] private TMP_Text cashText;
+    [SerializeField] private TMP_Text debtText;
+    [SerializeField] private TMP_Text healthText;
     public event Action Clicked;
     private ShopManager shopManager;
 
@@ -23,6 +28,7 @@ public class ShopPresenter : MonoBehaviour
         normalItemSlotPresenter.Initialize(shopManager);
 
         HandleNormalShopClicked();
+        RefreshHeader();
     }
 
     private void OnEnable()
@@ -53,6 +59,13 @@ public class ShopPresenter : MonoBehaviour
         continueButton.Clicked -= HandleContinueClicked;
         normalShopButton.Clicked -= HandleNormalShopClicked;
         orionShopButton.Clicked -= HandleOrionShopClicked;
+    }
+    private void RefreshHeader()
+    {
+        dayText.text = $"DAY {shopManager.CurrentDay}";
+        cashText.text = $"CASH ${shopManager.Money}";
+        debtText.text = $"OUTSTANDING DEBT ${shopManager.OutstandingDebt}";
+        healthText.text = $"PERMANENT HEALTH {shopManager.PermanentHealth}/4";
     }
 
     private void HandleNormalShopClicked()

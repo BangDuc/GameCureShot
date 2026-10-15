@@ -13,7 +13,7 @@ public class DebtManager
             throw new ArgumentNullException(nameof(gameData));
 
         if (debtData == null)
-            GetDebtData();
+            debtData = GetDebtData();
 
         if (debtData.dailyDebts == null)
             throw new ArgumentException(

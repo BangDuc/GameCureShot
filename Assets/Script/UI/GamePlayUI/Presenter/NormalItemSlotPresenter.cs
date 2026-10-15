@@ -46,7 +46,6 @@ public class NormalItemSlotPresenter : MonoBehaviour
         foreach (ShopOfferData offer in offers)
         {
             ItemData item = ItemManager.GetItemData(offer.itemId);
-
             if (item == null)
             {
                 Debug.LogError(
@@ -93,7 +92,10 @@ public class NormalItemSlotPresenter : MonoBehaviour
             return;
 
         bool purchased = shopManager.BuyItem(itemId, quantity);
-
+        if(purchased)
+        {
+            Debug.Log($"Đã mua {quantity} x {itemId}", this);
+        }    
         if (!purchased)
         {
             Debug.Log($"Không mua được {quantity} x {itemId}", this);

@@ -17,22 +17,19 @@ public class ItemDetailView : MonoBehaviour
     [SerializeField] private TMP_Text quantityText;
     [SerializeField] private TMP_Text totalText;
     private string itemId;
+    private int unitPrice;
+    private int total;
     private int numberPurchase = 1;
-    private UIButtonView buttonView;
+    [SerializeField] private UIButtonView buttonView;
     public event Action<string, int> Selected;
-    private void Awake()
-    {
-        buttonView = GetComponentInChildren<UIButtonView>();
-    }
-
 
     private void OnEnable()
     {
         buttonView.Clicked += NotifySelected;
         minusButton.Clicked += HanldeMinusClicked;
         plusButton.Clicked += HanldePlusClicked;
-    }
 
+    }
     private void OnDisable()
     {
         buttonView.Clicked -= NotifySelected;
@@ -48,23 +45,36 @@ public class ItemDetailView : MonoBehaviour
             icon.sprite = item.icon;
             nameText.text = item.itemName;
             descriptionText.text = item.description;
-            ownedText.text = ""+owned;
-            stockText.text = "" + stock.remainingStock;
-            priceText.text = "" + offer.price;
-            quantityText.text = "" + numberPurchase;
-            totalText.text = $"{offer.price*numberPurchase}";
+            ownedText.text = "OWNED: "+owned;
+            stockText.text = "INSTOCK: " + stock.remainingStock;
+            unitPrice = offer.price;
+            priceText.text = "PRICE: $" + unitPrice;
+            RefreshQuantityAndTotal();
+            totalText.text = "$" + total;
         }
     }
+    private void RefreshQuantityAndTotal()
+    {
+        total = unitPrice * numberPurchase;
+
+        quantityText.text = numberPurchase.ToString();
+        totalText.text = "$" + total;
+    }
+
     private void HanldeMinusClicked()
     {
-        numberPurchase -= 1;
+        numberPurchase = Mathf.Max(1, numberPurchase - 1);
+        RefreshQuantityAndTotal();
     }
+
     private void HanldePlusClicked()
     {
         numberPurchase += 1;
+        RefreshQuantityAndTotal();
     }
+
     private void NotifySelected()
     {
-        Selected?.Invoke(itemId, numberPurchase);
+        Selected?.Invoke(itemId, numberPurchase);    
     }
 }

@@ -7,12 +7,12 @@ namespace Assets.Script.Core.GameRoot.GameState
     {
         public void Enter()
         {
-            throw new System.NotImplementedException();
+            AsyncLoader.Instance.StartLoading("PlayGameScene");
         }
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

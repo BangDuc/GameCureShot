@@ -55,7 +55,7 @@ namespace Assets.Script.Core.GameRoot.GameState
 
         private void HandleChangeState()
         {
-            stateMachine.ChangeState(new MainMenuState());
+            stateMachine.ChangeState(new SurvivalState());
         }
     }
 }

@@ -7,6 +7,14 @@ public static class ItemManager
     public static List<ItemData> itemDatabase;
     public static ShopConfigData config;
 
+    [RuntimeInitializeOnLoadMethod(
+    RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetCache()
+    {
+        itemDatabase = null;
+        config = null;
+    }
+
     public static ItemData GetItemData(string itemId)
     {
         if(itemDatabase == null)

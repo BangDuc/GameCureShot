@@ -16,6 +16,11 @@ public class ShopManager
     private readonly DebtManager debtManager;
     private const string starterPotionId = "StarterPotion";
 
+    public int CurrentDay => gameData.currentDay;
+    public int Money => gameData.money;
+    public int OutstandingDebt => gameData.outstandingDebt;
+    public int PermanentHealth => gameData.permanentHealth;
+
     public ShopManager(
         Inventory inventory,
         GameData gameData,
