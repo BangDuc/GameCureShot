@@ -11,6 +11,7 @@ public class ShopManager
 
     private readonly List<ShopOfferData> normalItems;
     private readonly List<ShopStockData> normalShopStock;
+
     private readonly Inventory inventory;
     private readonly GameData gameData;
     private readonly DebtManager debtManager;

@@ -4,7 +4,14 @@ public class CameraPresenter : MonoBehaviour
 {
     [Header("View")]
     [SerializeField] private UIButtonView cameraButton;
+
+    [SerializeField] private UIButtonView exitCameraButton;
+
+    [SerializeField] private UIButtonView CaptureCameraButton;
+
     [SerializeField] private PanelView cameraPanel;
+
+
 
     [Header("System")]
     [SerializeField] private RunController controller;
@@ -18,11 +25,15 @@ public class CameraPresenter : MonoBehaviour
     private void OnEnable()
     {
         cameraButton.Clicked += HandleCameraClicked;
+        exitCameraButton.Clicked += HandleExitZoomClicked;
+        CaptureCameraButton.Clicked += HandleCaptureCameraClicked;
     }
 
     private void OnDisable()
     {
         cameraButton.Clicked -= HandleCameraClicked;
+        exitCameraButton.Clicked -= HandleExitZoomClicked;
+        CaptureCameraButton.Clicked -= HandleCaptureCameraClicked;
     }
 
     private void HandleCameraClicked()
@@ -31,10 +42,28 @@ public class CameraPresenter : MonoBehaviour
         {
             cameraPanel.Hide();
             cameraMoving.ChangeCameraGamePlayMode();
+
             return;
         }
         cameraPanel.Show();
+        
         cameraMoving.ChangeCameraPhotoMode();
 
     }
+
+    private void HandleExitZoomClicked()
+    {
+        if (!CameraMoving.Instance.isZoomMode) return;
+
+        CameraMoving.Instance.ChangeCameraGamePlayMode();
+
+    }
+
+    private void HandleCaptureCameraClicked()
+    {
+       Debug.Log("chup");
+       InGamePhotoCapture.Instance.Chup();
+
+    }
+
 }

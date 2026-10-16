@@ -21,13 +21,17 @@ public class CameraMoving : Singleton<CameraMoving>
     [SerializeField] float camHalfHeight;
     [SerializeField] float camHalfWidth;
 
+
+    [SerializeField]public bool isZoomMode;
     private void Start()
     {
+        isZoomMode = false;
         UpdateActiveCamera();
     }
 
     private void Update()
     {
+        if (isZoomMode) return;
         Moving();
     }
     private void UpdateActiveCamera()
@@ -75,19 +79,7 @@ public class CameraMoving : Singleton<CameraMoving>
         clampedPos.y = Mathf.Clamp(clampedPos.y, minY, maxY);
         transform.position = clampedPos;
     }
-    [ContextMenu("Test")]
-
-    public void ChangeCameraPhotoMode()
-    {
-        ChangeCamera(CameraIndex.PhotoMode);
-    }
-
-    [ContextMenu("Test2")]
-    public void ChangeCameraGamePlayMode()
-    {
-        ChangeCamera(CameraIndex.Gameplay);
-    }
-
+    
     public void ChangeCamera (CameraIndex index)
     {
         var cameraNew = GetCamera(index);
@@ -103,11 +95,7 @@ public class CameraMoving : Singleton<CameraMoving>
         activeCam = cameraNew;
 
         CalculateBounds();
-
-
     }
-
-
     public CinemachineCamera GetCamera(CameraIndex camIndex)
     {
         int idx = (int)camIndex;
@@ -120,11 +108,42 @@ public class CameraMoving : Singleton<CameraMoving>
         return null;
     }
 
+
+    [ContextMenu("Test")]
+    public void ChangeCameraPhotoMode()
+    {
+        if(isZoomMode) isZoomMode = false;
+
+        ChangeCamera(CameraIndex.PhotoMode);
+    }
+
+    [ContextMenu("Test2")]
+    public void ChangeCameraGamePlayMode()
+    {
+        if (isZoomMode) isZoomMode = false;
+        ChangeCamera(CameraIndex.Gameplay);
+    }
+
+    //transform position Z phải luôn là -10
+    public void ChangeZoomMode(Transform Zoom_object)
+    {
+        isZoomMode = true;
+        GameObject CameraTransform = new GameObject();
+
+        CameraTransform.transform.position = new Vector3(Zoom_object.position.x, Zoom_object.position.y, -10f);
+
+        ChangeCamera(CameraIndex.ZoomMode);
+        activeCam.Follow= CameraTransform.transform;
+        activeCam.LookAt = CameraTransform.transform;
+    }
+
 }
 
 public enum CameraIndex
 {
     Gameplay = 0,
-    PhotoMode = 1
+    PhotoMode = 1,
+
+    ZoomMode = 2
     
 }

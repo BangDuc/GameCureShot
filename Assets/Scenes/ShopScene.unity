@@ -200,6 +200,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d6132d395168e4eb3e88a678644ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelView
+--- !u!1 &591906055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 591906056}
+  m_Layer: 0
+  m_Name: EffectLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &591906056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591906055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 418.00262, y: 267.34833, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660398044
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,141 +357,86 @@ MonoBehaviour:
       description: Each time you enter a run, you are required to make a purchase.
         If your balance is zero, you can pay later.
       iconPath: Sprite/Item/1
-      effects: []
-      passiveEffects: []
     - itemId: Shield
       itemName: Shield
       description: Allows you to block one monster attack that hits directly at your
         health
       iconPath: Sprite/Item/2
-      effects:
-      - type: CoinBuffEffect
-        amount: 0
-        monsterId: 
-      passiveEffects: []
     - itemId: Coin
       itemName: Coin
       description: Doubles the money for the first time you take a shot
       iconPath: Sprite/Item/3
-      effects:
-      - type: CoinBuffEffect
-        amount: 0
-        monsterId: 
-      passiveEffects: []
     - itemId: Health
       itemName: Health
       description: Once in a run, when your health drops below 30%, it will restore
         your health to 70%
       iconPath: Sprite/Item/4
-      effects:
-      - type: BloodBuffEffect
-        amount: 0
-        monsterId: 
-      passiveEffects: []
     - itemId: ColdCoffee
       itemName: Cold Coffee
       description: Restores 15% HP.
       iconPath: Sprite/Item/6
-      effects:
-      - type: HealEffect
-        amount: 0
-        monsterId: 
-      passiveEffects: []
     - itemId: AdrenalineSerum
       itemName: Adrenaline Serum
       description: Passive. If HP drops to 0, automatically revives the player with
         30% HP (saves a life, preventing permanent HP loss).
       iconPath: Sprite/Item/9
-      effects: []
-      passiveEffects:
-      - type: ReviveEffect
-        amount: 0
-        monsterId: 
     - itemId: BrokenAntenna
       itemName: Broken Antenna
       description: Interacts with TV
       iconPath: Sprite/Item/9
-      effects: []
-      passiveEffects: []
     - itemId: BlackTapeRoll
       itemName: Black Tape Roll
       description: Interacts with TV
       iconPath: Sprite/Item/18
-      effects: []
-      passiveEffects: []
     - itemId: CigaretteButt
       itemName: Cigarette Butt
       description: Interacts with Armchair
       iconPath: Sprite/Item/19
-      effects: []
-      passiveEffects: []
     - itemId: PhotoShard
       itemName: Photo Shard
       description: 'Interacts with Photo '
       iconPath: Sprite/Item/20
-      effects: []
-      passiveEffects: []
     - itemId: RottenMeat
       itemName: Rotten Meat
       description: 'Interacts with Animal Head / Interact with the oven (unlimited
         uses) '
       iconPath: Sprite/Item/21
-      effects: []
-      passiveEffects: []
     - itemId: WaterBottle
       itemName: Water Bottle
       description: Used to extinguish fire in fireplace
       iconPath: Sprite/Item/22
-      effects: []
-      passiveEffects: []
     - itemId: PhoneNumberShard
       itemName: Phone Number Shard
       description: Interacts with Phone
       iconPath: Sprite/Item/23
-      effects: []
-      passiveEffects: []
     - itemId: CursedGear
       itemName: Cursed Gear
       description: Interacts with Clock
       iconPath: Sprite/Item/24
-      effects: []
-      passiveEffects: []
     - itemId: CrayonBox
       itemName: Crayon Box
       description: 'Interacts with Painting on Staircase '
       iconPath: Sprite/Item/25
-      effects: []
-      passiveEffects: []
     - itemId: FaceMask
       itemName: Face Mask
       description: 'Interacts with Refrigerator '
       iconPath: Sprite/Item/26
-      effects: []
-      passiveEffects: []
     - itemId: Lighter
       itemName: Lighter
       description: Interacts with Oven (Can be used 5 times)
       iconPath: Sprite/Item/27
-      effects: []
-      passiveEffects: []
     - itemId: Matches
       itemName: Matches
       description: Interacts with Oven (Can be used 1 times)
       iconPath: Sprite/Item/28
-      effects: []
-      passiveEffects: []
     - itemId: Wrench
       itemName: Wrench
       description: Interact with the water pipes in the kitchen
       iconPath: Sprite/Item/29
-      effects: []
-      passiveEffects: []
     - itemId: CassetteTape
       itemName: Cassette tape
       description: Interact with the radio
       iconPath: Sprite/Item/30
-      effects: []
-      passiveEffects: []
   shopData:
     normalItems:
     - itemId: StarterPotion
@@ -1684,6 +1660,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1729270800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729270801}
+  - component: {fileID: 1729270802}
+  m_Layer: 0
+  m_Name: ItemLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1729270801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729270800}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729270802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729270800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3d6b471046be4459f0b64787dda020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemLibrary
 --- !u!1 &1740461513
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,3 +2844,5 @@ SceneRoots:
   - {fileID: 1595207220}
   - {fileID: 660398047}
   - {fileID: 724996378}
+  - {fileID: 1729270801}
+  - {fileID: 591906056}

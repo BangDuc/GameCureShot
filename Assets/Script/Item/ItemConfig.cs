@@ -8,20 +8,6 @@ public class ItemConfig
     public string itemName;
     public string description;
     public string iconPath;
-
-    public List<ItemEffectConfig> effects =
-        new List<ItemEffectConfig>();
-
-    public List<ItemEffectConfig> passiveEffects =
-        new List<ItemEffectConfig>();
-}
-
-[Serializable]
-public class ItemEffectConfig
-{
-    public string type;
-    public float amount;
-    public string monsterId;
 }
 
 [Serializable]
