@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 6907194311302648046}
   - component: {fileID: 5634719434465901773}
   - component: {fileID: 4129719108798029313}
+  - component: {fileID: 3866359588609601912}
+  - component: {fileID: 2795757873988143091}
+  - component: {fileID: 5115580777830385205}
+  - component: {fileID: -5383894749218000273}
   m_Layer: 5
   m_Name: ShopItemCard
   m_TagString: Untagged
@@ -159,6 +163,55 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3866359588609601912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200752604775318864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1731510b17df3544abea173539fea175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonView
+--- !u!225 &2795757873988143091
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200752604775318864}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5115580777830385205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200752604775318864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d6132d395168e4eb3e88a678644ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
+--- !u!114 &-5383894749218000273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200752604775318864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19312b59ee2f25449aadfa1a15fc2617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemShopView
+  icon: {fileID: 0}
 --- !u!1 &1093177117875383189
 GameObject:
   m_ObjectHideFlags: 0

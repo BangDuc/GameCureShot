@@ -68,12 +68,4 @@ public class Inventory
     {
         return GetCount(itemId) > 0;
     }
-    //void ActivatePassiveEffects(InventoryItemData item)
-    //{
-
-    //}
-    //void DeactivatePassiveEffects(InventoryItemData item)
-    //{
-
-    //}
 }

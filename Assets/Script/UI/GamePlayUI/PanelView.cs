@@ -17,12 +17,13 @@ public class PanelView : MonoBehaviour
     }
     public void Hide()
     {
-        if(gameObject.activeInHierarchy)
+        if (gameObject.activeInHierarchy)
         {
             canvas.alpha = 0f;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;
-        }    
+        }
+
         gameObject.SetActive(false);
     }
 }

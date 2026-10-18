@@ -5,16 +5,16 @@ public class BloodEffect : MonoBehaviour, IItemEffect
 {
     public bool Apply(ItemUseContext context)
     {
-        if (context == null || context.runController == null)
-            return false;
+        //if (context == null || context.runController == null)
+        //    return false;
 
-        BuffState buffs = context.runController.Buffs;
+        //BuffState buffs = context.runController.Buffs;
 
-        if (buffs.hasBlood || buffs.bloodUsed)
-            return false;
+        //if (buffs.hasBlood || buffs.bloodUsed)
+        //    return false;
 
-        buffs.hasBlood = true;
-
+        //buffs.hasBlood = true;
+        Debug.Log("Da bat Blood");
         return true;
     }
 }

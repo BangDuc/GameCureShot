@@ -1,11 +1,12 @@
+using Bang.Lib.Singleton;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InGamePhotoCapture : MonoBehaviour
+public class InGamePhotoCapture : Singleton<InGamePhotoCapture>
 {
     [SerializeField] private Camera cam;
-    [SerializeField] private Image previewUI; // UI Image để hiển thị ảnh chụp
+    [SerializeField] private Image previewUI; 
     [SerializeField] PhotoManager photoManager;
     public static event Action<PhotoResult> OnPhotoTaken;
 
