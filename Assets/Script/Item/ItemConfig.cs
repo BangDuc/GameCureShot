@@ -8,6 +8,7 @@ public class ItemConfig
     public string itemName;
     public string description;
     public string iconPath;
+    public int initialUses = 1;
 
     public List<ItemEffectConfig> effects =
         new List<ItemEffectConfig>();

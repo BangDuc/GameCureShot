@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class ItemSpawnManager
 {
-    private readonly GameSession gameSession;
-    private readonly List<ItemData> spawnableItems;
-    private readonly List<ItemSpawnPoint> spawnPoints;
+    private readonly GameData gameData;
+
+    private readonly List<ItemData> spawnableItems = new();
+    private readonly List<ItemSpawnPoint> spawnPoints = new();
+
     private static ItemSpawnConfigData spawnConfig;
 
-    public ItemSpawnManager(GameSession gameSession)
+    public ItemSpawnManager(GameData gameData)
     {
-        this.gameSession = gameSession;
+        this.gameData = gameData;
     }
 
     public static List<string> GetSpawnableItemIds()

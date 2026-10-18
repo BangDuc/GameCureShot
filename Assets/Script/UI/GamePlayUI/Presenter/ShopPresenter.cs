@@ -36,6 +36,7 @@ public class ShopPresenter : MonoBehaviour
         continueButton.Clicked += HandleContinueClicked;
         normalShopButton.Clicked += HandleNormalShopClicked;
         orionShopButton.Clicked += HandleOrionShopClicked;
+        normalItemSlotPresenter.bought += RefreshHeader;
     }
 
     private void Start()
@@ -53,14 +54,14 @@ public class ShopPresenter : MonoBehaviour
         ShopManager testShop = new ShopManager(inventory, data, debtManager);
         Initialize(testShop);
     }
-
     private void OnDisable()
     {
         continueButton.Clicked -= HandleContinueClicked;
         normalShopButton.Clicked -= HandleNormalShopClicked;
         orionShopButton.Clicked -= HandleOrionShopClicked;
+        normalItemSlotPresenter.bought -= RefreshHeader;
     }
-    private void RefreshHeader()
+    public void RefreshHeader()
     {
         dayText.text = $"DAY {shopManager.CurrentDay}";
         cashText.text = $"CASH ${shopManager.Money}";

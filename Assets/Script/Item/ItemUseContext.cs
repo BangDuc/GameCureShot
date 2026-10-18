@@ -5,8 +5,7 @@ using UnityEngine;
 public class ItemUseContext
 {
     public InventoryItemData item;
-    public Player player;
-    public GameObject targetObject;
-    public InventoryItemData targetItem;
+    //public GameObject targetObject;
+    //public InventoryItemData targetItem;
     public RunController runController;
 }

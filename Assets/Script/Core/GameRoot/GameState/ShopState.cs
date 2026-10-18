@@ -1,4 +1,6 @@
-﻿    using System.Collections;
+﻿using Assets.Script.Core.GamePlay;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,11 +11,24 @@ namespace Assets.Script.Core.GameRoot.GameState
         private readonly GameStateMachine stateMachine;
         private readonly ShopManager shopManager;
         private ShopPresenter presenter;
-
-        public ShopState(ShopManager shopManager, GameStateMachine stateMachine)
+        private readonly ItemSpawnManager itemSpawnManager;
+        private readonly Inventory inventory;
+        private readonly GameData gameData;
+        private readonly Action<RunResult> showSummary;
+        public ShopState(
+            ShopManager shopManager,
+            GameStateMachine stateMachine,
+            ItemSpawnManager itemSpawnManager,
+            Inventory inventory,
+            GameData gameData,
+            Action<RunResult> showSummary)
         {
             this.shopManager = shopManager;
             this.stateMachine = stateMachine;
+            this.itemSpawnManager = itemSpawnManager;
+            this.inventory = inventory;
+            this.gameData = gameData;
+            this.showSummary = showSummary;
         }
 
         public void Enter()
@@ -55,7 +70,16 @@ namespace Assets.Script.Core.GameRoot.GameState
 
         private void HandleChangeState()
         {
-            stateMachine.ChangeState(new SurvivalState());
+            if (!shopManager.HasBoughtStarterPotion())
+                return;
+
+            stateMachine.ChangeState(
+                new SurvivalState(
+                    stateMachine,
+                    itemSpawnManager,
+                    inventory,
+                    gameData,
+                    showSummary));
         }
     }
 }

@@ -326,6 +326,7 @@ MonoBehaviour:
       description: Each time you enter a run, you are required to make a purchase.
         If your balance is zero, you can pay later.
       iconPath: Sprite/Item/1
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: Shield
@@ -333,6 +334,7 @@ MonoBehaviour:
       description: Allows you to block one monster attack that hits directly at your
         health
       iconPath: Sprite/Item/2
+      initialUses: 1
       effects:
       - type: CoinBuffEffect
         amount: 0
@@ -342,6 +344,7 @@ MonoBehaviour:
       itemName: Coin
       description: Doubles the money for the first time you take a shot
       iconPath: Sprite/Item/3
+      initialUses: 1
       effects:
       - type: CoinBuffEffect
         amount: 0
@@ -352,6 +355,7 @@ MonoBehaviour:
       description: Once in a run, when your health drops below 30%, it will restore
         your health to 70%
       iconPath: Sprite/Item/4
+      initialUses: 1
       effects:
       - type: BloodBuffEffect
         amount: 0
@@ -361,6 +365,7 @@ MonoBehaviour:
       itemName: Cold Coffee
       description: Restores 15% HP.
       iconPath: Sprite/Item/6
+      initialUses: 1
       effects:
       - type: HealEffect
         amount: 0
@@ -371,6 +376,7 @@ MonoBehaviour:
       description: Passive. If HP drops to 0, automatically revives the player with
         30% HP (saves a life, preventing permanent HP loss).
       iconPath: Sprite/Item/9
+      initialUses: 1
       effects: []
       passiveEffects:
       - type: ReviveEffect
@@ -380,24 +386,28 @@ MonoBehaviour:
       itemName: Broken Antenna
       description: Interacts with TV
       iconPath: Sprite/Item/9
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: BlackTapeRoll
       itemName: Black Tape Roll
       description: Interacts with TV
       iconPath: Sprite/Item/18
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: CigaretteButt
       itemName: Cigarette Butt
       description: Interacts with Armchair
       iconPath: Sprite/Item/19
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: PhotoShard
       itemName: Photo Shard
       description: 'Interacts with Photo '
       iconPath: Sprite/Item/20
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: RottenMeat
@@ -405,60 +415,70 @@ MonoBehaviour:
       description: 'Interacts with Animal Head / Interact with the oven (unlimited
         uses) '
       iconPath: Sprite/Item/21
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: WaterBottle
       itemName: Water Bottle
       description: Used to extinguish fire in fireplace
       iconPath: Sprite/Item/22
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: PhoneNumberShard
       itemName: Phone Number Shard
       description: Interacts with Phone
       iconPath: Sprite/Item/23
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: CursedGear
       itemName: Cursed Gear
       description: Interacts with Clock
       iconPath: Sprite/Item/24
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: CrayonBox
       itemName: Crayon Box
       description: 'Interacts with Painting on Staircase '
       iconPath: Sprite/Item/25
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: FaceMask
       itemName: Face Mask
       description: 'Interacts with Refrigerator '
       iconPath: Sprite/Item/26
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: Lighter
       itemName: Lighter
       description: Interacts with Oven (Can be used 5 times)
       iconPath: Sprite/Item/27
+      initialUses: 5
       effects: []
       passiveEffects: []
     - itemId: Matches
       itemName: Matches
       description: Interacts with Oven (Can be used 1 times)
       iconPath: Sprite/Item/28
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: Wrench
       itemName: Wrench
       description: Interact with the water pipes in the kitchen
       iconPath: Sprite/Item/29
+      initialUses: 1
       effects: []
       passiveEffects: []
     - itemId: CassetteTape
       itemName: Cassette tape
       description: Interact with the radio
       iconPath: Sprite/Item/30
+      initialUses: 1
       effects: []
       passiveEffects: []
   shopData:

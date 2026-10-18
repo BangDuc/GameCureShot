@@ -1,4 +1,5 @@
 using Assets.Script.Core.GamePlay;
+using Assets.Script.Core.GameRoot;
 using Bang.Lib.Singleton;
 using System;
 using UnityEngine;
@@ -12,11 +13,19 @@ public class RunController : Singleton<RunController>
     [SerializeField] private bool isRunning = false;
     [SerializeField] private BuffState buffState;
 
-
+    public BuffState Buffs => buffState;
     public event Action<int> OnDamageTaken;
     public event Action OnHealthDepleted;
+    private GameData gameData;
 
- 
+    public int CurrentHealth => runHealth;
+    public int PermanentHealth => gameData.permanentHealth;
+
+    public void Initialize(GameData gameData)
+    {
+        this.gameData = gameData;
+    }
+
     private void FixedUpdate()
     {
         if (isRunning)
@@ -31,6 +40,7 @@ public class RunController : Singleton<RunController>
         elapsedTime = 0;
         runHealth = 100;
         isRunning = true;
+        buffState = new BuffState();
     }
     [ContextMenu ("Test")]
     public void StartRun()

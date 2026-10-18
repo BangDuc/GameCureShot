@@ -5,6 +5,7 @@
             "itemName": "Starter Potion",
             "description": "Each time you enter a run, you are required to make a purchase. If your balance is zero, you can pay later.",
             "iconPath": "Sprite/Item/1",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -13,6 +14,7 @@
             "itemName": "Shield",
             "description": "Allows you to block one monster attack that hits directly at your health",
             "iconPath": "Sprite/Item/2",
+            "initialUses": 1,
             "effects": [
                 {
                     "type": "CoinBuffEffect",
@@ -27,6 +29,7 @@
             "itemName": "Coin",
             "description": "Doubles the money for the first time you take a shot",
             "iconPath": "Sprite/Item/3",
+            "initialUses": 1,
             "effects": [
                 {
                     "type": "CoinBuffEffect",
@@ -41,6 +44,7 @@
             "itemName": "Health",
             "description": "Once in a run, when your health drops below 30%, it will restore your health to 70%",
             "iconPath": "Sprite/Item/4",
+            "initialUses": 1,
             "effects": [
                 {
                     "type": "BloodBuffEffect",
@@ -55,6 +59,7 @@
             "itemName": "Cold Coffee",
             "description": "Restores 15% HP.",
             "iconPath": "Sprite/Item/6",
+            "initialUses": 1,
             "effects": [
                 {
                     "type": "HealEffect",
@@ -69,6 +74,7 @@
             "itemName": "Adrenaline Serum",
             "description": "Passive. If HP drops to 0, automatically revives the player with 30% HP (saves a life, preventing permanent HP loss).",
             "iconPath": "Sprite/Item/9",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": [
                 {
@@ -83,6 +89,7 @@
             "itemName": "Broken Antenna",
             "description": "Interacts with TV",
             "iconPath": "Sprite/Item/9",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -91,6 +98,7 @@
             "itemName": "Black Tape Roll",
             "description": "Interacts with TV",
             "iconPath": "Sprite/Item/18",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -99,6 +107,7 @@
             "itemName": "Cigarette Butt",
             "description": "Interacts with Armchair",
             "iconPath": "Sprite/Item/19",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -107,6 +116,7 @@
             "itemName": "Photo Shard",
             "description": "Interacts with Photo ",
             "iconPath": "Sprite/Item/20",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -115,6 +125,7 @@
             "itemName": "Rotten Meat",
             "description": "Interacts with Animal Head / Interact with the oven (unlimited uses) ",
             "iconPath": "Sprite/Item/21",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -123,6 +134,7 @@
             "itemName": "Water Bottle",
             "description": "Used to extinguish fire in fireplace",
             "iconPath": "Sprite/Item/22",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -131,6 +143,7 @@
             "itemName": "Phone Number Shard",
             "description": "Interacts with Phone",
             "iconPath": "Sprite/Item/23",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -139,6 +152,7 @@
             "itemName": "Cursed Gear",
             "description": "Interacts with Clock",
             "iconPath": "Sprite/Item/24",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -147,6 +161,7 @@
             "itemName": "Crayon Box",
             "description": "Interacts with Painting on Staircase ",
             "iconPath": "Sprite/Item/25",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -155,6 +170,7 @@
             "itemName": "Face Mask",
             "description": "Interacts with Refrigerator ",
             "iconPath": "Sprite/Item/26",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -163,6 +179,7 @@
             "itemName": "Lighter",
             "description": "Interacts with Oven (Can be used 5 times)",
             "iconPath": "Sprite/Item/27",
+            "initialUses": 5,
             "effects": [],
             "passiveEffects": []
         },
@@ -171,6 +188,7 @@
             "itemName": "Matches",
             "description": "Interacts with Oven (Can be used 1 times)",
             "iconPath": "Sprite/Item/28",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -179,6 +197,7 @@
             "itemName": "Wrench",
             "description": "Interact with the water pipes in the kitchen",
             "iconPath": "Sprite/Item/29",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         },
@@ -187,6 +206,7 @@
             "itemName": "Cassette tape",
             "description": "Interact with the radio",
             "iconPath": "Sprite/Item/30",
+            "initialUses": 1,
             "effects": [],
             "passiveEffects": []
         }

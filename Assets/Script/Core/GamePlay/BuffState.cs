@@ -12,6 +12,5 @@ namespace Assets.Script.Core.GamePlay
         public bool shieldUsed;
         public bool coinUsed;
         public bool bloodUsed;
-
     }
 }

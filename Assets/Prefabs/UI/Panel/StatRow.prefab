@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6100891922313067957}
   - component: {fileID: 5408962525524379710}
   - component: {fileID: 5812774137542277234}
+  - component: {fileID: 6055458239152698354}
   m_Layer: 5
   m_Name: StatRow
   m_TagString: Untagged
@@ -104,6 +105,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6055458239152698354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164101215434407559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5144f20233cb29049907cc0b7349af40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummaryRowView
+  labelText: {fileID: 796945365519679480}
+  valueText: {fileID: 1207785385176706513}
 --- !u!1 &1433951898457561053
 GameObject:
   m_ObjectHideFlags: 0

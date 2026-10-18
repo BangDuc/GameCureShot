@@ -9,6 +9,7 @@ public class ItemData
     public string itemName;
     public Sprite icon;
     public string description;
+    public int initialUses = 1;
     public List<IItemEffect> effects;
     public List<IPassiveItemEffect> passiveEffects;
 

@@ -9,19 +9,19 @@
         {
             "itemId": "Shield",
             "price": 0,
-            "initialStock": 0,
+            "initialStock": 5,
             "group": 0
         },
         {
             "itemId": "Coin",
             "price": 0,
-            "initialStock": 0,
+            "initialStock": 5,
             "group": 0
         },
         {
             "itemId": "Health",
             "price": 0,
-            "initialStock": 0,
+            "initialStock": 5,
             "group": 0
         },
         {

@@ -51,6 +51,7 @@ public static class ItemManager
                 itemId = itemConfig.itemId,
                 itemName = itemConfig.itemName,
                 description = itemConfig.description,
+                initialUses = itemConfig.initialUses,
                 icon = Resources.Load<Sprite>(itemConfig.iconPath),
 
                 effects = new List<IItemEffect>(),

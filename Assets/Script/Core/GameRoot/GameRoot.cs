@@ -1,3 +1,4 @@
+using Assets.Script.Core.GamePlay;
 using Assets.Script.Core.GameRoot.GameState;
 using System;
 using System.IO;
@@ -14,6 +15,7 @@ namespace Assets.Script.Core.GameRoot
         private Inventory inventory;
         private DebtManager debtManager;
         private EndingSystem endingSystem;
+        private ItemSpawnManager itemSpawnManager;
         private void Awake()
         {
             Initialize();
@@ -73,6 +75,15 @@ namespace Assets.Script.Core.GameRoot
             gameSession.AdvanceDay();
             shopManager.RestockNormalShop();
             AutoSave();
+
+            gameState.ChangeState(
+                new ShopState(
+                    shopManager,
+                    gameState,
+                    itemSpawnManager,
+                    inventory,
+                    gameSession.Data,
+                    ShowSummary));
         }
         private void AutoSave()
         {
@@ -86,6 +97,7 @@ namespace Assets.Script.Core.GameRoot
             GameData data = gameSession.Data;
             this.inventory = new Inventory(data.inventoryData);
             this.debtManager = new DebtManager(data);
+            this.itemSpawnManager = new ItemSpawnManager(data);
             this.shopManager = new ShopManager(inventory, data, debtManager);
             this.endingSystem = new EndingSystem(data);
         }    
@@ -99,8 +111,25 @@ namespace Assets.Script.Core.GameRoot
             }
             gameSession.SetData(data);
             InitializeManagers();
-            gameState.ChangeState(new ShopState(this.shopManager, gameState));
-        }    
+            gameState.ChangeState(new ShopState(
+                shopManager,
+                gameState,
+                itemSpawnManager,
+                inventory,
+                gameSession.Data,
+                ShowSummary));
+        }
+        private void ShowSummary(RunResult runResult)
+        {
+            gameState.ChangeState(
+                new SummaryState(
+                    runResult,
+                    gameSession.Data,
+                    debtManager,
+                    endingSystem,
+                    gameState,
+                    PrepareNextDay));
+        }
     }
 }
 

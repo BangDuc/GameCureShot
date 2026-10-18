@@ -17,8 +17,13 @@ public class Inventory
     }
     public void AddItem(InventoryItemData item)
     {
+        if (item == null)
+            return;
+
         data.items.Add(item);
+        Changed?.Invoke();
     }
+
     public int GetCount(string itemId)
     {
         int count = 0;
@@ -31,6 +36,25 @@ public class Inventory
 
         return count;
     }
+
+    public bool ConsumeUse(InventoryItemData item)
+    {
+        if (item == null ||
+            !data.items.Contains(item) ||
+            item.remainingUses <= 0)
+        {
+            return false;
+        }
+
+        item.remainingUses--;
+
+        if (item.remainingUses == 0)
+            return RemoveItem(item);
+
+        Changed?.Invoke();
+        return true;
+    }
+
     public bool RemoveItem(InventoryItemData item)
     {
         if (item == null || !data.items.Remove(item))
@@ -44,13 +68,9 @@ public class Inventory
     {
         return GetCount(itemId) > 0;
     }
-    //void UseItem(ItemUseContext item)
-    //{
-            
-    //}
     //void ActivatePassiveEffects(InventoryItemData item)
     //{
-            
+
     //}
     //void DeactivatePassiveEffects(InventoryItemData item)
     //{
