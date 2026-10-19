@@ -1,4 +1,5 @@
 using Assets.Script.Core.GameRoot;
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,9 @@ public class ShopManager
 
     private readonly List<ShopOfferData> normalItems;
     private readonly List<ShopStockData> normalShopStock;
-
     private readonly Inventory inventory;
     private readonly GameData gameData;
     private readonly DebtManager debtManager;
-    private const string starterPotionId = "StarterPotion";
 
     public int CurrentDay => gameData.currentDay;
     public int Money => gameData.money;
@@ -62,22 +61,18 @@ public class ShopManager
     public List<ShopOfferData> GetNormalOffers()
     {
         List<ShopOfferData> offers = new();
+
         foreach (ShopOfferData offer in normalItems)
         {
-            if(offer.group == ShopItemGroup.Found)
-            {
-                if (gameData.worldStateData != null &&
-                    gameData.worldStateData.collectedItemIds != null &&
-                    gameData.worldStateData.collectedItemIds.Contains(offer.itemId))
-                {
-                    offers.Add(offer);
-                }
-            }
-            else
-            {
+            bool canShow =
+                offer.group != ShopItemGroup.Found ||
+                gameData.worldStateData?.collectedItemIds
+                    ?.Contains(offer.itemId) == true;
+
+            if (canShow)
                 offers.Add(offer);
-            }
         }
+
         return offers;
     }
 
@@ -94,11 +89,11 @@ public class ShopManager
 
     public ShopStockData GetNormalStock(string itemId)
     {
-        if (itemId == starterPotionId)
+        if (itemId == "StarterPotion")
         {
             return new ShopStockData
             {
-                itemId = starterPotionId,
+                itemId = "StarterPotion",
                 remainingStock = HasBoughtStarterPotion() ? 0 : 1
             };
         }
@@ -132,7 +127,7 @@ public class ShopManager
         if (quantity <= 0)
             return false;
 
-        if (itemId == starterPotionId)
+        if (itemId == "StarterPotion")
             return quantity == 1 && BuyStarterPotion();
 
         ShopOfferData offer = GetNormalOffer(itemId);
@@ -142,12 +137,13 @@ public class ShopManager
             stock.remainingStock < quantity)
             return false;
 
-        if (offer.price < 0 || ItemManager.GetItemData(itemId) == null)
-            return false;
-
         long total = (long)offer.price * quantity;
 
         if (total > int.MaxValue || !CanAfford((int)total))
+            return false;
+
+        ItemData item = ItemManager.GetItemData(itemId);
+        if (item == null || item.initialUses <= 0)
             return false;
 
         for (int i = 0; i < quantity; i++)
@@ -155,7 +151,8 @@ public class ShopManager
             inventory.AddItem(new InventoryItemData
             {
                 itemId = itemId,
-                state = ItemState.Normal
+                //state = ItemState.Normal
+                remainingUses = item.initialUses
             });
         }
 
@@ -168,23 +165,18 @@ public class ShopManager
         if (HasBoughtStarterPotion())
             return false;
 
-        ShopOfferData offer = GetNormalOffer(starterPotionId);
+        ShopOfferData offer = GetNormalOffer("StarterPotion");
 
-        if (offer == null || offer.price < 0 || gameData.money < 0 ||
-            ItemManager.GetItemData(starterPotionId) == null)
+        if (offer == null || gameData.money < 0 ||
+            ItemManager.GetItemData("StarterPotion") == null)
+        {
             return false;
-
+        }
         int paidAmount = Math.Min(gameData.money, offer.price);
         int missingAmount = offer.price - paidAmount;
 
         if (missingAmount > 0)
             debtManager.AddDebt(missingAmount);
-
-        inventory.AddItem(new InventoryItemData
-        {
-            itemId = starterPotionId,
-            state = ItemState.Normal
-        });
 
         gameData.money -= paidAmount;
         gameData.lastStarterPotionPurchaseDay = gameData.currentDay;
@@ -194,7 +186,7 @@ public class ShopManager
     {
         foreach (ShopOfferData offer in normalItems)
         {
-            if (offer.itemId == starterPotionId)
+            if (offer.itemId == "StarterPotion")
                 continue;
 
             if (GetNormalStock(offer.itemId) != null)
@@ -213,7 +205,7 @@ public class ShopManager
 
         foreach (ShopOfferData offer in normalItems)
         {
-            if (offer.itemId == starterPotionId)
+            if (offer.itemId == "StarterPotion")
                 continue;
 
             ShopStockData stock = GetNormalStock(offer.itemId);

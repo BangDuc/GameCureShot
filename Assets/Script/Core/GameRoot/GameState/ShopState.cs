@@ -27,7 +27,8 @@ namespace Assets.Script.Core.GameRoot.GameState
             SceneManager.sceneLoaded -= HandleSceneLoaded;
             if (presenter != null)
             {
-                presenter.Clicked -= HandleChangeState;
+                presenter.Continue -= HandleChangeStateContinue;
+                presenter.Menu -= HandleChangeStateMenu;
             }
         }
 
@@ -44,7 +45,8 @@ namespace Assets.Script.Core.GameRoot.GameState
 
                 if (presenter == null)
                     continue;
-                presenter.Clicked += HandleChangeState;
+                presenter.Continue += HandleChangeStateContinue;
+                presenter.Menu += HandleChangeStateMenu;
                 presenter.Initialize(shopManager);
                 return;
             }
@@ -53,9 +55,16 @@ namespace Assets.Script.Core.GameRoot.GameState
                 "Không tìm thấy ShopPresenter trong ShopScene.");
         }
 
-        private void HandleChangeState()
+        private void HandleChangeStateContinue()
         {
             stateMachine.ChangeState(new SurvivalState());
+            Debug.Log("Da an continue");
+        }
+
+        private void HandleChangeStateMenu()
+        {
+            stateMachine.ChangeState(new MainMenuState());
+            Debug.Log("Da an menu");
         }
     }
 }

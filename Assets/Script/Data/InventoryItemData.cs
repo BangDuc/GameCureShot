@@ -5,11 +5,12 @@ using UnityEngine;
 public class InventoryItemData
 {
     public string itemId;
-    public ItemState state;
+    public int remainingUses = 1;
+    //public ItemState state;
 }
 
-public enum ItemState
-{
-    Normal,
-    Broken
-}
+//public enum ItemState
+//{
+//    Normal,
+//    Broken
+//}
