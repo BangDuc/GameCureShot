@@ -1,5 +1,6 @@
 using Assets.Script.Core.GameRoot;
 using Assets.Script.Core.GameRoot.GameState;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +9,12 @@ public class EndingState : IGameState
     private readonly GameStateMachine stateMachine;
     private readonly EndingData endingData;
     private EndingPresenter presenter;
-    public EndingState(EndingData endingData, GameStateMachine stateMachine)
+    public event Action mainMenu;
+    public EndingState(EndingData endingData, GameStateMachine stateMachine, Action mainMenu)
     {
         this.endingData = endingData;
         this.stateMachine = stateMachine;
+        this.mainMenu = mainMenu;
     }
     public void Enter()
     {
@@ -36,7 +39,7 @@ public class EndingState : IGameState
 
         foreach (GameObject root in scene.GetRootGameObjects())
         {
-                presenter = root.GetComponentInChildren<EndingPresenter>(true);
+            presenter = root.GetComponentInChildren<EndingPresenter>(true);
 
             if (presenter == null)
                 continue;
@@ -51,6 +54,6 @@ public class EndingState : IGameState
 
     private void HandleChangeState()
     {
-        stateMachine.ChangeState(new MainMenuState());
+        mainMenu?.Invoke();
     }
 }

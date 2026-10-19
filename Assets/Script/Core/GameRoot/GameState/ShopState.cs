@@ -1,4 +1,6 @@
-﻿    using System.Collections;
+﻿using Assets.Script.Core.GamePlay;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,11 +11,27 @@ namespace Assets.Script.Core.GameRoot.GameState
         private readonly GameStateMachine stateMachine;
         private readonly ShopManager shopManager;
         private ShopPresenter presenter;
-
-        public ShopState(ShopManager shopManager, GameStateMachine stateMachine)
+        private readonly ItemSpawnManager itemSpawnManager;
+        private readonly Inventory inventory;
+        private readonly GameData gameData;
+        private readonly Action<RunResult> showSummary;
+        private readonly Action mainMenu;
+        public ShopState(
+            ShopManager shopManager,
+            GameStateMachine stateMachine,
+            ItemSpawnManager itemSpawnManager,
+            Inventory inventory,
+            GameData gameData,
+            Action<RunResult> showSummary,
+            Action mainMenu)
         {
             this.shopManager = shopManager;
             this.stateMachine = stateMachine;
+            this.itemSpawnManager = itemSpawnManager;
+            this.inventory = inventory;
+            this.gameData = gameData;
+            this.showSummary = showSummary;
+            this.mainMenu = mainMenu;
         }
 
         public void Enter()
@@ -40,8 +58,8 @@ namespace Assets.Script.Core.GameRoot.GameState
 
             foreach (GameObject root in scene.GetRootGameObjects())
             {
-                    presenter =
-                    root.GetComponentInChildren<ShopPresenter>(true);
+                presenter =
+                root.GetComponentInChildren<ShopPresenter>(true);
 
                 if (presenter == null)
                     continue;
@@ -57,14 +75,21 @@ namespace Assets.Script.Core.GameRoot.GameState
 
         private void HandleChangeStateContinue()
         {
-            stateMachine.ChangeState(new SurvivalState());
-            Debug.Log("Da an continue");
+            if (!shopManager.HasBoughtStarterPotion())
+                return;
+
+            stateMachine.ChangeState(
+                new SurvivalState(
+                    stateMachine,
+                    itemSpawnManager,
+                    inventory,
+                    gameData,
+                    showSummary));
         }
 
         private void HandleChangeStateMenu()
         {
-            stateMachine.ChangeState(new MainMenuState());
-            Debug.Log("Da an menu");
+            mainMenu?.Invoke();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Assets.Script.Core.GameRoot;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class SavePresenter : MonoBehaviour
     [SerializeField] private Transform content;
     [SerializeField] private SaveSlotView slotPrefab;
     private readonly List<SaveSlotView> views = new();
+    public event Action<int> SaveSlotClicked;
+
     public void BuildProfile()
     {
         List<SaveInfo> saves = GetListSaveInfos();
@@ -34,7 +37,7 @@ public class SavePresenter : MonoBehaviour
 
         if (!isActiveAndEnabled)
             return;
-
+        SaveSlotClicked?.Invoke(slotId);
         Debug.Log($"vừa nhấn save {slotId}", this);
     }
 

@@ -13,6 +13,26 @@ public class InventoryPresenter : MonoBehaviour
     public InventoryItemData SelectedItem { get; private set; }
     public event Action<InventoryItemData> Selected;
 
+    [SerializeField] private UIButtonView useButton;
+    public event Action<InventoryItemData> UseRequested;
+
+    private void OnEnable()
+    {
+        useButton.Clicked += HandleUseClicked;
+    }
+
+    private void OnDisable()
+    {
+        useButton.Clicked -= HandleUseClicked;
+    }
+
+    private void HandleUseClicked()
+    {
+        if (SelectedItem == null)
+            return;
+
+        UseRequested?.Invoke(SelectedItem);
+    }
     public void Initialize(Inventory inventory)
     {
         if (this.inventory != null)
@@ -62,18 +82,26 @@ public class InventoryPresenter : MonoBehaviour
             views.Add(view);
         }
 
-        if (!selectionExists)
+        if (!selectionExists && SelectedItem != null)
+        {
             SelectedItem = null;
+            Selected?.Invoke(null);
+        }
     }
 
     private void HandleSelected(InventoryItemData item)
     {
-        SelectedItem = item;
+        SelectedItem = ReferenceEquals(SelectedItem, item)
+            ? null
+            : item;
 
         foreach (InventorySlotView view in views)
-            view.SetSelected(ReferenceEquals(view.Item, item));
+        {
+            view.SetSelected(
+                ReferenceEquals(view.Item, SelectedItem));
+        }
 
-        Selected?.Invoke(item);
+        Selected?.Invoke(SelectedItem);
     }
 
     private void ClearSlots()

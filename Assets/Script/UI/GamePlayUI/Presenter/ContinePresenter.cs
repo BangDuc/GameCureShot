@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ContinePresenter : MonoBehaviour
@@ -7,6 +8,8 @@ public class ContinePresenter : MonoBehaviour
     [SerializeField] private UIButtonView closeButton;
     [SerializeField] private PanelView continuePanel;
 
+    public event Action<int> ClickedSave;
+
     [Header("Save List")]
     [SerializeField] private SavePresenter savePresenter;
 
@@ -14,12 +17,14 @@ public class ContinePresenter : MonoBehaviour
     {
         ContinueButton.Clicked += HandleContinueClicked;
         closeButton.Clicked += HandleCloseClicked;
+        savePresenter.SaveSlotClicked += HandleSaveClicked;
     }
 
     private void OnDisable()
     {
         ContinueButton.Clicked -= HandleContinueClicked;
         closeButton.Clicked -= HandleCloseClicked;
+        savePresenter.SaveSlotClicked -= HandleSaveClicked;
     }
 
     private void HandleContinueClicked()
@@ -32,4 +37,8 @@ public class ContinePresenter : MonoBehaviour
     {
         continuePanel.Hide();
     }
+    private void HandleSaveClicked(int slotId)
+    {
+        ClickedSave?.Invoke(slotId);
+    }    
 }

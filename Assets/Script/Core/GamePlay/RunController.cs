@@ -1,22 +1,31 @@
 using Assets.Script.Core.GamePlay;
+using Assets.Script.Core.GameRoot;
 using Bang.Lib.Singleton;
 using System;
 using UnityEngine;
 
 public class RunController : Singleton<RunController>
 {
-    
+
     [SerializeField] private float remainingTime;
     [SerializeField] private float elapsedTime;
     [SerializeField] private int runHealth;
     [SerializeField] private bool isRunning = false;
     [SerializeField] private BuffState buffState;
 
-
+    public BuffState Buffs => buffState;
     public event Action<int> OnDamageTaken;
     public event Action OnHealthDepleted;
+    private GameData gameData;
 
- 
+    public int CurrentHealth => runHealth;
+    public int PermanentHealth => gameData.permanentHealth;
+
+    public void Initialize(GameData gameData)
+    {
+        this.gameData = gameData;
+    }
+
     private void FixedUpdate()
     {
         if (isRunning)
@@ -31,8 +40,9 @@ public class RunController : Singleton<RunController>
         elapsedTime = 0;
         runHealth = 100;
         isRunning = true;
+        buffState = new BuffState();
     }
-    [ContextMenu ("Test")]
+    [ContextMenu("Test")]
     public void StartRun()
     {
         KhoiTao();
@@ -61,7 +71,7 @@ public class RunController : Singleton<RunController>
             Debug.Log("Thua Game");
             Pause();
         }
-        
+
     }
 
     public void TakeDamage(int damage)
@@ -79,7 +89,7 @@ public class RunController : Singleton<RunController>
 
     public void Resume()
     {
-        isRunning= true;
+        isRunning = true;
     }
 
     public void Heal(int percent)

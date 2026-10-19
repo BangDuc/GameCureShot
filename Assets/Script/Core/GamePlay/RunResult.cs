@@ -6,13 +6,12 @@ namespace Assets.Script.Core.GamePlay
 {
     public class RunResult
     {
-        int day;
-        int money;
-        int photoTaken;
-        int requiredPhotosCompleted;
-        int damageTaken;
-        float surivalTime;
-        bool failed;
-
+        public int day;
+        public int money;
+        public int photoTaken;
+        public int requiredPhotosCompleted;
+        public int damageTaken;
+        public float survivalTime;
+        public bool failed;
     }
 }
