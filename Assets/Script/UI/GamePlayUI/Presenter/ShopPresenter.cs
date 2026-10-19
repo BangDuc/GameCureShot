@@ -1,6 +1,7 @@
 using Assets.Script.Core.GameRoot;
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopPresenter : MonoBehaviour
@@ -12,11 +13,11 @@ public class ShopPresenter : MonoBehaviour
     [SerializeField] private PanelView orionShopPanel;
     [SerializeField] private NormalItemSlotPresenter normalItemSlotPresenter;
     [SerializeField] private UIButtonView continueButton;
-    [SerializeField] private TMP_Text dayText;
-    [SerializeField] private TMP_Text cashText;
-    [SerializeField] private TMP_Text debtText;
-    [SerializeField] private TMP_Text healthText;
-    public event Action Clicked;
+    [SerializeField] private UIButtonView MainMenuButton;
+    [SerializeField] private TopBarView topBarView;
+    public event Action Continue;
+
+    public event Action Menu;
     private ShopManager shopManager;
 
     public void Initialize(ShopManager shopManager)
@@ -34,8 +35,10 @@ public class ShopPresenter : MonoBehaviour
     private void OnEnable()
     {
         continueButton.Clicked += HandleContinueClicked;
+        MainMenuButton.Clicked += HandleMenuCLicked;
         normalShopButton.Clicked += HandleNormalShopClicked;
         orionShopButton.Clicked += HandleOrionShopClicked;
+        normalItemSlotPresenter.bought += RefreshHeader;
     }
 
     private void Start()
@@ -53,19 +56,21 @@ public class ShopPresenter : MonoBehaviour
         ShopManager testShop = new ShopManager(inventory, data, debtManager);
         Initialize(testShop);
     }
-
     private void OnDisable()
     {
         continueButton.Clicked -= HandleContinueClicked;
+        MainMenuButton.Clicked -= HandleMenuCLicked;
         normalShopButton.Clicked -= HandleNormalShopClicked;
         orionShopButton.Clicked -= HandleOrionShopClicked;
+        normalItemSlotPresenter.bought -= RefreshHeader;
     }
-    private void RefreshHeader()
+    public void RefreshHeader()
     {
-        dayText.text = $"DAY {shopManager.CurrentDay}";
-        cashText.text = $"CASH ${shopManager.Money}";
-        debtText.text = $"OUTSTANDING DEBT ${shopManager.OutstandingDebt}";
-        healthText.text = $"PERMANENT HEALTH {shopManager.PermanentHealth}/4";
+        topBarView.Render(
+            $"DAY {shopManager.CurrentDay}",
+            $"CASH ${shopManager.Money}",
+            $"OUTSTANDING DEBT ${shopManager.OutstandingDebt}",
+            $"PERMANENT HEALTH {shopManager.PermanentHealth}");
     }
 
     private void HandleNormalShopClicked()
@@ -83,6 +88,11 @@ public class ShopPresenter : MonoBehaviour
 
     private void HandleContinueClicked()
     {
-        Clicked?.Invoke();
+        Continue?.Invoke();
+    }
+
+    private void HandleMenuCLicked()
+    {
+        Menu?.Invoke();
     }    
 }

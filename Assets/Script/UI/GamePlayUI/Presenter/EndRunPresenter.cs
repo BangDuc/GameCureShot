@@ -1,3 +1,5 @@
+using Assets.Script.Core.GamePlay;
+using System;
 using UnityEngine;
 
 public class EndRunPresenter : MonoBehaviour
@@ -8,13 +10,7 @@ public class EndRunPresenter : MonoBehaviour
     [SerializeField] private UIButtonView yesButton;
     [SerializeField] private PanelView endRunPanel;
 
-    [Header("System")]
-    [SerializeField] private RunController controller;
-
-    private void Start()
-    {
-        controller = RunController.Instance;
-    }
+    public event Action EndRunRequested;
 
     private void OnEnable()
     {
@@ -44,7 +40,7 @@ public class EndRunPresenter : MonoBehaviour
 
     private void HandleYesClicked()
     {
-
+        EndRunRequested?.Invoke();
     }
 }
 

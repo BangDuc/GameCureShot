@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class NewGamePresenter : MonoBehaviour
@@ -8,6 +9,7 @@ public class NewGamePresenter : MonoBehaviour
     [SerializeField] private UIButtonView yesButton;
     [SerializeField] private PanelView newGamePanel;
 
+    public event Action Clicked;
     //[Header("System")]
     //[SerializeField] private RunController controller;
 
@@ -38,7 +40,7 @@ public class NewGamePresenter : MonoBehaviour
 
     private void HandleYesClicked()
     {
-
+        Clicked?.Invoke();
     }
 
 }
