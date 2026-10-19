@@ -7,5 +7,11 @@ public class PlayerManager : Singleton<PlayerManager>
     [SerializeField] public HealthPlayer healthPlayer;
 
 
+    public void GetHurt(int damage )
+    {
+        healthPlayer.HealthDeduct(damage);
+        EventBus.Publish("OnPlayerGetHurt");
+    }
+
 
 }

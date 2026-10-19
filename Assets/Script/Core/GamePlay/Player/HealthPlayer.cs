@@ -13,13 +13,13 @@ public class HealthPlayer : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth += heal_hp, 0, maxHealth);
     }
 
-    public void MoneyĐeuct(int d_hp)
+    public void HealthDeduct(int d_hp)
     {
-        if (!CanMoneyĐeuct(d_hp)) return;
+        if (!CanHealthDeduct(d_hp)) return;
         currentHealth -= d_hp;
     }
 
-    public bool CanMoneyĐeuct(int d_hp)
+    public bool CanHealthDeduct(int d_hp)
     {
         if (currentHealth < d_hp) return false;
         return true;

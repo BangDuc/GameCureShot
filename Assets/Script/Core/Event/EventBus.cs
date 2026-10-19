@@ -25,6 +25,6 @@ public static class EventBus
     {
         if (Events.ContainsKey(eventName))
             Events[eventName]?.Invoke();
-        Debug.Log(eventName);
+        //Debug.Log(eventName);
     }
 }

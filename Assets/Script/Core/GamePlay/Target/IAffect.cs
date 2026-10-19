@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 
 public interface IAffect
 {
-    public void ApplyEffect(PlayerManager player);
-
+    public void ApplyEffect();
+    public void CancelEffect();
 }

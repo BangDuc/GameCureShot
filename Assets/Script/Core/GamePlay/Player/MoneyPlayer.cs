@@ -10,13 +10,13 @@ public class MoneyPlayer : MonoBehaviour
         money += e_money;
     }
 
-    public void MoneyĐeuct(int d_money)
+    public void MoneyDeduct(int d_money)
     {
-        if (!CanMoneyĐeuct(d_money)) return;
+        if (!CanMoneyDeduct(d_money)) return;
         money -= d_money;
     }
 
-    public bool CanMoneyĐeuct(int d_money)
+    public bool CanMoneyDeduct(int d_money)
     {
         if (money < d_money) return false;
         return true;
