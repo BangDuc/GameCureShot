@@ -106,7 +106,7 @@ namespace Assets.Script.Core.GameRoot.GameState
                 });
 
             endRunPresenter.EndRunRequested += HandleEndRunRequested;
-
+            InitializeWorldItems(scene);
             run.StartRun();
         }
 
@@ -124,6 +124,26 @@ namespace Assets.Script.Core.GameRoot.GameState
             }
 
             showSummary(runResult);
+        }
+
+        private void InitializeWorldItems(Scene scene)
+        {
+            if (gameData.worldStateData == null)
+                gameData.worldStateData = new WorldStateData();
+
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                WorldItemPickup[] items =
+                    root.GetComponentsInChildren<WorldItemPickup>(true);
+
+                foreach (WorldItemPickup item in items)
+                {
+                    item.Initialize(
+                        item.ItemId,
+                        inventory,
+                        gameData.worldStateData);
+                }
+            }
         }
     }
 }
