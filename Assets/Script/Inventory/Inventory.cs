@@ -40,15 +40,15 @@ public class Inventory
     public bool ConsumeUse(InventoryItemData item)
     {
         if (item == null ||
-            !data.items.Contains(item) ||
-            item.remainingUses <= 0)
+            !data.items.Contains(item))
+            //item.remainingUses <= 0)
         {
             return false;
         }
 
-        item.remainingUses--;
+        //item.remainingUses--;
 
-        if (item.remainingUses == 0)
+        //if (item.remainingUses == 0)
             return RemoveItem(item);
 
         Changed?.Invoke();

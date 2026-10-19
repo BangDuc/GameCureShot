@@ -7,12 +7,12 @@ public class InventorySlotView : MonoBehaviour
 {
     [SerializeField] private Image icon;
     [SerializeField] private GameObject selectionMark;
-
+    [SerializeField] private InventoryItemData item;
     private UIButtonView buttonView;
 
-    public InventoryItemData Item { get; private set; }
-    public event Action<InventoryItemData> Selected;
+    public InventoryItemData Item { get => item; set => item = value; }
 
+    public event Action<InventorySlotView> Selected;
     private void Awake()
     {
         buttonView = GetComponent<UIButtonView>();
@@ -28,13 +28,13 @@ public class InventorySlotView : MonoBehaviour
         buttonView.Clicked -= NotifySelected;
     }
 
-    public void Render(InventoryItemData item, Sprite sprite)
+    public void Init(InventoryItemData item)
     {
-        Item = item;
+        this.Item = item;
+        if (icon != null && item != null)
+            icon.sprite = item._icon;
 
-        if (sprite != null)
-            icon.sprite = sprite;
-
+        SetSelected(false);
     }
 
     public void SetSelected(bool selected)
@@ -45,6 +45,7 @@ public class InventorySlotView : MonoBehaviour
 
     private void NotifySelected()
     {
-        Selected?.Invoke(Item);
+        Selected?.Invoke(this);
+
     }
 }

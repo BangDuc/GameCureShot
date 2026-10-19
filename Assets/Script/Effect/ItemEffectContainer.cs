@@ -9,11 +9,25 @@ public class ItemEffectContainer : MonoBehaviour
     public IItemEffect[] Effects { get; private set; }
     public IPassiveItemEffect[] PassiveEffects { get; private set; }
 
-    private void Awake()
+    
+    public void ApplyEffect(ItemUseContext context)
+    {
+        if (Effects == null || Effects.Length == 0)
+        {
+            Debug.LogWarning($"[ItemEffectContainer] Không tìm thấy IItemEffect nào trên item: {itemId}");
+            return;
+        }
+        foreach (var effect in Effects) 
+        {
+            effect.Apply(context);
+        }
+    }
+
+    public void InitEffect()
     {
         Effects = GetComponents<IItemEffect>();
 
-        PassiveEffects =
-            GetComponents<IPassiveItemEffect>();
+        PassiveEffects = GetComponents<IPassiveItemEffect>();
     }
+    
 }

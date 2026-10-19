@@ -16,14 +16,14 @@ public class ItemInteract_DOTween : MonoBehaviour, IInteractable
 
     public virtual bool CanInteract()
     {
-        Debug.Log("CanInteract " + this.gameObject);
+       
         return true;
     }
 
     public virtual bool Interact()
     {
         DOTween_Transition.Toggle();
-        Debug.Log("Click " + this.gameObject);
+        
         return true;
     }
 

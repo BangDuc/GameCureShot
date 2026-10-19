@@ -88,22 +88,9 @@ namespace Assets.Script.Core.GameRoot.GameState
                 return;
             }
 
-            ItemUseController itemUse = run.GetComponent<ItemUseController>();
 
-            if (itemUse == null)
-            {
-                Debug.LogError("GameObject RunController thiếu ItemUseController.");
-                return;
-            }
 
             run.Initialize(gameData);
-
-            itemUse.Initialize(
-                inventory,
-                new ItemUseContext
-                {
-                    runController = run
-                });
 
             endRunPresenter.EndRunRequested += HandleEndRunRequested;
             InitializeWorldItems(scene);

@@ -51,10 +51,9 @@ public static class ItemManager
                 itemId = itemConfig.itemId,
                 itemName = itemConfig.itemName,
                 description = itemConfig.description,
-                icon = Resources.Load<Sprite>(itemConfig.iconPath),
+                //icon = Resources.Load<Sprite>(itemConfig.iconPath),
 
-                effects = new List<IItemEffect>(),
-                passiveEffects = new List<IPassiveItemEffect>()
+                
             };
 
             // Nối bước tạo effect từ itemConfig.effects tại đây.

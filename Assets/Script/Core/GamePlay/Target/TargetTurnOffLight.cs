@@ -7,6 +7,8 @@ using UnityEngine;
 public class TargetTurnOffLight : MonoBehaviour, IAffect
 {
     [SerializeField]public List<LightManager> LightsTurnOff;
+    [SerializeField] public float timeToStart;
+    [SerializeField] public float Duration;
 
     public void ApplyEffect()
     {        
@@ -38,7 +40,7 @@ public class TargetTurnOffLight : MonoBehaviour, IAffect
 
     private void Start()
     {
-        Invoke("ApplyEffect", 9f);
-        Invoke("CancelEffect", 20f);
+        Invoke("ApplyEffect", timeToStart);
+        Invoke("CancelEffect", Duration);
     }
 }

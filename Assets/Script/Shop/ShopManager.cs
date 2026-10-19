@@ -143,7 +143,7 @@ public class ShopManager
             return false;
 
         ItemData item = ItemManager.GetItemData(itemId);
-        if (item == null || item.initialUses <= 0)
+        if (item == null )
             return false;
 
         for (int i = 0; i < quantity; i++)
@@ -152,7 +152,7 @@ public class ShopManager
             {
                 itemId = itemId,
                 //state = ItemState.Normal
-                remainingUses = item.initialUses
+                //remainingUses = item.initialUses
             });
         }
 

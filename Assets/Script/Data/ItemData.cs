@@ -1,16 +1,33 @@
 using System;
-using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [Serializable]
-public class ItemData
+public class ItemData : IIdentifiable
 {
     public string itemId;
     public string itemName;
-    public Sprite icon;
+    public string iconPath;
     public string description;
-    public int initialUses = 1;
-    public List<IItemEffect> effects;
-    public List<IPassiveItemEffect> passiveEffects;
-}
 
+    
+    [JsonIgnore]
+    public string Id => itemId;
+
+    
+    [JsonIgnore]
+    private Sprite _icon;
+
+    [JsonIgnore]
+    public Sprite Icon
+    {
+        get
+        {
+            if (_icon == null && !string.IsNullOrEmpty(iconPath))
+            {
+                _icon = Resources.Load<Sprite>(iconPath);
+            }
+            return _icon;
+        }
+    }
+}

@@ -42,7 +42,7 @@ public class WorldItemPickup : MonoBehaviour, IInteractable
             return;
         }
 
-        GetComponent<SpriteRenderer>().sprite = itemData.icon;
+        //GetComponent<SpriteRenderer>().sprite = itemData.icon;
 
         collected = worldData.collectedItemIds.Contains(itemId);
         gameObject.SetActive(!collected);
@@ -67,7 +67,7 @@ public class WorldItemPickup : MonoBehaviour, IInteractable
         inventory.AddItem(new InventoryItemData
         {
             itemId = itemData.itemId,
-            remainingUses = itemData.initialUses
+            //remainingUses = 1
         });
 
         if (!worldData.collectedItemIds.Contains(itemId))

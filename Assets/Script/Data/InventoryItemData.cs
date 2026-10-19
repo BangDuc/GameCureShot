@@ -5,12 +5,25 @@ using UnityEngine;
 public class InventoryItemData
 {
     public string itemId;
-    public int remainingUses = 1;
-    //public ItemState state;
-}
 
-//public enum ItemState
-//{
-//    Normal,
-//    Broken
-//}
+    public Sprite _icon;
+
+    public ItemEffectContainer itemEffect;
+    public InventoryItemData()
+    {
+
+    }
+    public InventoryItemData(ItemData item)
+    {
+        itemId = item.itemId;
+        _icon = item.Icon;
+    }
+
+    public InventoryItemData(ItemData item, ItemEffectContainer effect)
+    {
+        itemId = item.itemId;
+        _icon = item.Icon;
+        itemEffect = effect;
+
+    }
+}

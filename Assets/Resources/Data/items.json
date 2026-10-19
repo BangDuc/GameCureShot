@@ -1,194 +1,122 @@
-{
-    "items": [
-        {
-            "itemId": "StarterPotion",
-            "itemName": "Starter Potion",
-            "description": "Each time you enter a run, you are required to make a purchase. If your balance is zero, you can pay later.",
-            "iconPath": "Sprite/Item/1",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "Shield",
-            "itemName": "Shield",
-            "description": "Allows you to block one monster attack that hits directly at your health",
-            "iconPath": "Sprite/Item/2",
-            "effects": [
-                {
-                    "type": "CoinBuffEffect",
-                    "amount": 0.0,
-                    "monsterId": ""
-                }
-            ],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "Coin",
-            "itemName": "Coin",
-            "description": "Doubles the money for the first time you take a shot",
-            "iconPath": "Sprite/Item/3",
-            "effects": [
-                {
-                    "type": "CoinBuffEffect",
-                    "amount": 0.0,
-                    "monsterId": ""
-                }
-            ],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "Health",
-            "itemName": "Health",
-            "description": "Once in a run, when your health drops below 30%, it will restore your health to 70%",
-            "iconPath": "Sprite/Item/4",
-            "effects": [
-                {
-                    "type": "BloodBuffEffect",
-                    "amount": 0.0,
-                    "monsterId": ""
-                }
-            ],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "ColdCoffee",
-            "itemName": "Cold Coffee",
-            "description": "Restores 15% HP.",
-            "iconPath": "Sprite/Item/6",
-            "effects": [
-                {
-                    "type": "HealEffect",
-                    "amount": 0.0,
-                    "monsterId": ""
-                }
-            ],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "AdrenalineSerum",
-            "itemName": "Adrenaline Serum",
-            "description": "Passive. If HP drops to 0, automatically revives the player with 30% HP (saves a life, preventing permanent HP loss).",
-            "iconPath": "Sprite/Item/9",
-            "effects": [],
-            "passiveEffects": [
-                {
-                    "type": "ReviveEffect",
-                    "amount": 0.0,
-                    "monsterId": ""
-                }
-            ]
-        },
-        {
-            "itemId": "BrokenAntenna",
-            "itemName": "Broken Antenna",
-            "description": "Interacts with TV",
-            "iconPath": "Sprite/Item/9",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "BlackTapeRoll",
-            "itemName": "Black Tape Roll",
-            "description": "Interacts with TV",
-            "iconPath": "Sprite/Item/18",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "CigaretteButt",
-            "itemName": "Cigarette Butt",
-            "description": "Interacts with Armchair",
-            "iconPath": "Sprite/Item/19",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "PhotoShard",
-            "itemName": "Photo Shard",
-            "description": "Interacts with Photo ",
-            "iconPath": "Sprite/Item/20",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "RottenMeat",
-            "itemName": "Rotten Meat",
-            "description": "Interacts with Animal Head / Interact with the oven (unlimited uses) ",
-            "iconPath": "Sprite/Item/21",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "WaterBottle",
-            "itemName": "Water Bottle",
-            "description": "Used to extinguish fire in fireplace",
-            "iconPath": "Sprite/Item/22",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "PhoneNumberShard",
-            "itemName": "Phone Number Shard",
-            "description": "Interacts with Phone",
-            "iconPath": "Sprite/Item/23",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "CursedGear",
-            "itemName": "Cursed Gear",
-            "description": "Interacts with Clock",
-            "iconPath": "Sprite/Item/24",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "CrayonBox",
-            "itemName": "Crayon Box",
-            "description": "Interacts with Painting on Staircase ",
-            "iconPath": "Sprite/Item/25",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "FaceMask",
-            "itemName": "Face Mask",
-            "description": "Interacts with Refrigerator ",
-            "iconPath": "Sprite/Item/26",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "Lighter",
-            "itemName": "Lighter",
-            "description": "Interacts with Oven (Can be used 5 times)",
-            "iconPath": "Sprite/Item/27",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "Matches",
-            "itemName": "Matches",
-            "description": "Interacts with Oven (Can be used 1 times)",
-            "iconPath": "Sprite/Item/28",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "Wrench",
-            "itemName": "Wrench",
-            "description": "Interact with the water pipes in the kitchen",
-            "iconPath": "Sprite/Item/29",
-            "effects": [],
-            "passiveEffects": []
-        },
-        {
-            "itemId": "CassetteTape",
-            "itemName": "Cassette tape",
-            "description": "Interact with the radio",
-            "iconPath": "Sprite/Item/30",
-            "effects": [],
-            "passiveEffects": []
-        }
-    ]
-}
+[
+  {
+    "itemId": "StarterPotion",
+    "itemName": "Starter Potion",
+    "iconPath": "Sprite/Item/1",
+    "description": "Each time you enter a run, you are required to make a purchase. If your balance is zero, you can pay later."
+  },
+  {
+    "itemId": "Shield",
+    "itemName": "Shield",
+    "iconPath": "Sprite/Item/2",
+    "description": "Allows you to block one monster attack that hits directly at your health"
+  },
+  {
+    "itemId": "Coin",
+    "itemName": "Coin",
+    "iconPath": "Sprite/Item/3",
+    "description": "Doubles the money for the first time you take a shot"
+  },
+  {
+    "itemId": "Health",
+    "itemName": "Health",
+    "iconPath": "Sprite/Item/4",
+    "description": "Once in a run, when your health drops below 30%, it will restore your health to 70%"
+  },
+  {
+    "itemId": "ColdCoffee",
+    "itemName": "Cold Coffee",
+    "iconPath": "Sprite/Item/6",
+    "description": "Restores 15% HP."
+  },
+  {
+    "itemId": "AdrenalineSerum",
+    "itemName": "Adrenaline Serum",
+    "iconPath": "Sprite/Item/9",
+    "description": "Passive. If HP drops to 0, automatically revives the player with 30% HP (saves a life, preventing permanent HP loss)."
+  },
+  {
+    "itemId": "BrokenAntenna",
+    "itemName": "Broken Antenna",
+    "iconPath": "Sprite/Item/9",
+    "description": "Interacts with TV"
+  },
+  {
+    "itemId": "BlackTapeRoll",
+    "itemName": "Black Tape Roll",
+    "iconPath": "Sprite/Item/18",
+    "description": "Interacts with TV"
+  },
+  {
+    "itemId": "CigaretteButt",
+    "itemName": "Cigarette Butt",
+    "iconPath": "Sprite/Item/19",
+    "description": "Interacts with Armchair"
+  },
+  {
+    "itemId": "PhotoShard",
+    "itemName": "Photo Shard",
+    "iconPath": "Sprite/Item/20",
+    "description": "Interacts with Photo"
+  },
+  {
+    "itemId": "RottenMeat",
+    "itemName": "Rotten Meat",
+    "iconPath": "Sprite/Item/21",
+    "description": "Interacts with Animal Head / Interact with the oven (unlimited uses)"
+  },
+  {
+    "itemId": "WaterBottle",
+    "itemName": "Water Bottle",
+    "iconPath": "Sprite/Item/22",
+    "description": "Used to extinguish fire in fireplace"
+  },
+  {
+    "itemId": "PhoneNumberShard",
+    "itemName": "Phone Number Shard",
+    "iconPath": "Sprite/Item/23",
+    "description": "Interacts with Phone"
+  },
+  {
+    "itemId": "CursedGear",
+    "itemName": "Cursed Gear",
+    "iconPath": "Sprite/Item/24",
+    "description": "Interacts with Clock"
+  },
+  {
+    "itemId": "CrayonBox",
+    "itemName": "Crayon Box",
+    "iconPath": "Sprite/Item/25",
+    "description": "Interacts with Painting on Staircase"
+  },
+  {
+    "itemId": "FaceMask",
+    "itemName": "Face Mask",
+    "iconPath": "Sprite/Item/26",
+    "description": "Interacts with Refrigerator"
+  },
+  {
+    "itemId": "Lighter",
+    "itemName": "Lighter",
+    "iconPath": "Sprite/Item/27",
+    "description": "Interacts with Oven (Can be used 5 times)"
+  },
+  {
+    "itemId": "Matches",
+    "itemName": "Matches",
+    "iconPath": "Sprite/Item/28",
+    "description": "Interacts with Oven (Can be used 1 times)"
+  },
+  {
+    "itemId": "Wrench",
+    "itemName": "Wrench",
+    "iconPath": "Sprite/Item/29",
+    "description": "Interact with the water pipes in the kitchen"
+  },
+  {
+    "itemId": "CassetteTape",
+    "itemName": "Cassette tape",
+    "iconPath": "Sprite/Item/30",
+    "description": "Interact with the radio"
+  }
+]
