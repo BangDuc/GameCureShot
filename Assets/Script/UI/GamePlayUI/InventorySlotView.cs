@@ -34,6 +34,7 @@ public class InventorySlotView : MonoBehaviour
 
         if (sprite != null)
             icon.sprite = sprite;
+
     }
 
     public void SetSelected(bool selected)

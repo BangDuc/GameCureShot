@@ -1,4 +1,5 @@
 using Assets.Script.Core.GameRoot;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class NormalItemSlotPresenter : MonoBehaviour
 
     private readonly List<ItemShopView> views = new();
     private ShopManager shopManager;
-
+    public event Action bought;
     public void Initialize(ShopManager shopManager)
     {
         if (shopManager == null)
@@ -92,13 +93,14 @@ public class NormalItemSlotPresenter : MonoBehaviour
             return;
 
         bool purchased = shopManager.BuyItem(itemId, quantity);
-        if(purchased)
+        if (purchased)
         {
-            Debug.Log($"Đã mua {quantity} x {itemId}", this);
-        }    
+            Debug.Log($"Đã mua {quantity} {itemId}", this);
+            bought?.Invoke();
+        }
         if (!purchased)
         {
-            Debug.Log($"Không mua được {quantity} x {itemId}", this);
+            Debug.Log($"Không mua được {quantity} {itemId}", this);
             return;
         }
 

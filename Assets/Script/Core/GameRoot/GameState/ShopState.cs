@@ -1,4 +1,6 @@
-﻿    using System.Collections;
+﻿using Assets.Script.Core.GamePlay;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,11 +11,27 @@ namespace Assets.Script.Core.GameRoot.GameState
         private readonly GameStateMachine stateMachine;
         private readonly ShopManager shopManager;
         private ShopPresenter presenter;
-
-        public ShopState(ShopManager shopManager, GameStateMachine stateMachine)
+        private readonly ItemSpawnManager itemSpawnManager;
+        private readonly Inventory inventory;
+        private readonly GameData gameData;
+        private readonly Action<RunResult> showSummary;
+        private readonly Action mainMenu;
+        public ShopState(
+            ShopManager shopManager,
+            GameStateMachine stateMachine,
+            ItemSpawnManager itemSpawnManager,
+            Inventory inventory,
+            GameData gameData,
+            Action<RunResult> showSummary,
+            Action mainMenu)
         {
             this.shopManager = shopManager;
             this.stateMachine = stateMachine;
+            this.itemSpawnManager = itemSpawnManager;
+            this.inventory = inventory;
+            this.gameData = gameData;
+            this.showSummary = showSummary;
+            this.mainMenu = mainMenu;
         }
 
         public void Enter()
@@ -27,7 +45,8 @@ namespace Assets.Script.Core.GameRoot.GameState
             SceneManager.sceneLoaded -= HandleSceneLoaded;
             if (presenter != null)
             {
-                presenter.Clicked -= HandleChangeState;
+                presenter.Continue -= HandleChangeStateContinue;
+                presenter.Menu -= HandleChangeStateMenu;
             }
         }
 
@@ -39,12 +58,13 @@ namespace Assets.Script.Core.GameRoot.GameState
 
             foreach (GameObject root in scene.GetRootGameObjects())
             {
-                    presenter =
-                    root.GetComponentInChildren<ShopPresenter>(true);
+                presenter =
+                root.GetComponentInChildren<ShopPresenter>(true);
 
                 if (presenter == null)
                     continue;
-                presenter.Clicked += HandleChangeState;
+                presenter.Continue += HandleChangeStateContinue;
+                presenter.Menu += HandleChangeStateMenu;
                 presenter.Initialize(shopManager);
                 return;
             }
@@ -53,9 +73,23 @@ namespace Assets.Script.Core.GameRoot.GameState
                 "Không tìm thấy ShopPresenter trong ShopScene.");
         }
 
-        private void HandleChangeState()
+        private void HandleChangeStateContinue()
         {
-            stateMachine.ChangeState(new SurvivalState());
+            if (!shopManager.HasBoughtStarterPotion())
+                return;
+
+            stateMachine.ChangeState(
+                new SurvivalState(
+                    stateMachine,
+                    itemSpawnManager,
+                    inventory,
+                    gameData,
+                    showSummary));
+        }
+
+        private void HandleChangeStateMenu()
+        {
+            mainMenu?.Invoke();
         }
     }
 }

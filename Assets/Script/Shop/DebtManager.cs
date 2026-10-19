@@ -44,17 +44,21 @@ public class DebtManager
 
     public DebtResult PayDailyDebt()
     {
-        if (gameData.money < 0 || gameData.outstandingDebt < 0 ||
+        if (gameData.money < 0 ||
+            gameData.outstandingDebt < 0 ||
             gameData.consecutiveUnpaidDays < 0)
         {
             throw new InvalidOperationException(
                 "Tiền, nợ tồn và số ngày chưa trả đủ phải từ 0 trở lên.");
         }
 
-        int requiredAmount = checked(
-            GetRequiredDebt(gameData.currentDay) + gameData.outstandingDebt);
+        int previousDebt = gameData.outstandingDebt;
+        int dailyDebt = GetRequiredDebt(gameData.currentDay);
+
+        int requiredAmount = checked(previousDebt + dailyDebt);
         int paidAmount = Math.Min(gameData.money, requiredAmount);
         int remainingDebt = requiredAmount - paidAmount;
+
         int unpaidDays = remainingDebt > 0
             ? checked(gameData.consecutiveUnpaidDays + 1)
             : 0;
@@ -65,7 +69,8 @@ public class DebtManager
 
         return new DebtResult
         {
-            requiredAmount = requiredAmount,
+            previousDebt = previousDebt,
+            dailyDebt = dailyDebt,
             paidAmount = paidAmount,
             remainingDebt = remainingDebt
         };
