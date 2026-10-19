@@ -1,33 +1,19 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-//[Serializable]
-//public class UpgradeLevelData
-//{
-//    [SerializeField] private int level;
-//    [SerializeField] private int price;
-//    [SerializeField] private float holdTime;
-//    [SerializeField] private float cooldownTime;
-//    [SerializeField] private float healthCostPercent;
-//    [SerializeField] private float doubleMoneyChance;
+[Serializable]
+public class UpgradeCamera
+{
+    [SerializeField] private float cooldownTime;
+    [SerializeField] private float healthPercent;
+    [SerializeField] private float moneyPercent;
 
-//    public int Level => level;
-//    public int Price => price;
-//    public float HoldTime => holdTime;
-//    public float CooldownTime => cooldownTime;
-//    public float HealthCostPercent => healthCostPercent;
-//    public float DoubleMoneyChance => doubleMoneyChance;
-//}
+    public float CooldownTime { get { return cooldownTime; } set { cooldownTime = value; } }
 
-//[CreateAssetMenu(fileName = "CameraUpgradeData", menuName = "Photo/Camera Upgrade Data")]
-//public class CameraUpgradeData : ScriptableObject
-//{
-//    [SerializeField] private string upgradeId;
-//    [SerializeField] private string upgradeName;
-//    [SerializeField] private List<UpgradeLevelData> levels = new List<UpgradeLevelData>();
+    public float HealthPercent { get { return healthPercent; } set { healthPercent = value; } }
 
-//    public string UpgradeId => upgradeId;
-//    public string UpgradeName => upgradeName;
-//    public List<UpgradeLevelData> Levels => levels;
-//}
+    public float MoneyPercent { get { return moneyPercent; } set { moneyPercent = value; } }
+
+
+}

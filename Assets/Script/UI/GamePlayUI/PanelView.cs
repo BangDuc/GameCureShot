@@ -17,7 +17,7 @@ public class PanelView : MonoBehaviour
     }
     public void Hide()
     {
-        if (!gameObject.active) return;
+        if (!gameObject.activeInHierarchy) return;
         canvas.alpha = 0f;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;

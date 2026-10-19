@@ -7,13 +7,7 @@ namespace Assets.Script.Core.GamePlay.Camera
     public enum CameraState
     {
         Ready,
-        Holding,
         Cooldown
     }
 
-    public enum PhotoTargetType
-    {
-        Interest,
-        Monster
-    }
 }

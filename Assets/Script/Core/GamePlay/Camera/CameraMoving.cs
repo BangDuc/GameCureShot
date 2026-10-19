@@ -23,10 +23,14 @@ public class CameraMoving : Singleton<CameraMoving>
 
 
     [SerializeField]public bool isZoomMode;
+    private Transform zoomTargetProxy;
     private void Start()
     {
         isZoomMode = false;
         UpdateActiveCamera();
+
+        GameObject proxyGo = new GameObject("[Camera_Zoom_Target]");
+        zoomTargetProxy = proxyGo.transform;
     }
 
     private void Update()
@@ -128,13 +132,15 @@ public class CameraMoving : Singleton<CameraMoving>
     public void ChangeZoomMode(Transform Zoom_object)
     {
         isZoomMode = true;
-        GameObject CameraTransform = new GameObject();
 
-        CameraTransform.transform.position = new Vector3(Zoom_object.position.x, Zoom_object.position.y, -10f);
+        
+        zoomTargetProxy.position = new Vector3(Zoom_object.position.x, Zoom_object.position.y, -10f);
 
         ChangeCamera(CameraIndex.ZoomMode);
-        activeCam.Follow= CameraTransform.transform;
-        activeCam.LookAt = CameraTransform.transform;
+        activeCam.Follow = zoomTargetProxy;
+        activeCam.LookAt = zoomTargetProxy;
+
+
     }
 
 }

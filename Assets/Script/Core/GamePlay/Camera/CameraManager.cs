@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 using Assets.Script.Core.GamePlay.Camera;
+using Bang.Lib.Singleton;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : Singleton<CameraManager>
 {
 
     
@@ -10,13 +11,11 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private CameraState state = CameraState.Ready;
 
     [Header("Stats (from Upgrade)")]
-    [SerializeField] private float holdTime = 1.0f;
     [SerializeField] private float cooldownTime = 2.0f;
-    [SerializeField] private float healthCostPercent = 0.05f;
-    [SerializeField] private float doubleMoneyChance = 0.1f;
+    [SerializeField] private float healthPercent = 0.05f;
+    [SerializeField] private float MoneyPercent = 10f;
 
     [Header("Runtime Timers")]
-    [SerializeField] private float currentHoldTimer = 0f;
     [SerializeField] private float cooldownTimer = 0f;
 
     [SerializeField] private PhotoManager photoManager;
@@ -26,7 +25,6 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] InGamePhotoCapture cameraCapture;
     public CameraState State => state;
-    public float DoubleMoneyChance => doubleMoneyChance;
 
 
 
@@ -37,41 +35,38 @@ public class CameraManager : MonoBehaviour
 
     public void UpdateCamera()
     {
-        
+        if (cooldownTimer == 0) 
+        {
+            state = CameraState.Ready;
+            return;
+        }
+
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer=Math.Clamp(cooldownTimer-= Time.deltaTime,0,999);
+            state = CameraState.Cooldown;
+            return;
+        }
+
     }
 
     public bool CanCapture()
     {
         return state == CameraState.Ready;
     }
-
-    public void StartCapture()
-    {
-        if (!CanCapture()) return;
-
-        currentHoldTimer = 0f;
-        state = CameraState.Holding;
-    }
-
-    public void CancelCapture()
-    {
-        if (state == CameraState.Holding)
-        {
-            currentHoldTimer = 0f;
-            state = CameraState.Ready;
-        }
-    }
+    
 
     public void Capture()
     {
-        
+        if (!CanCapture()) return;
+        cameraCapture.Chup();
+        cooldownTimer = cooldownTime;
     }
 
-    //public void ApplyUpgrade(UpgradeLevelData levelData)
-    //{
-    //    holdTime = levelData.HoldTime;
-    //    cooldownTime = levelData.CooldownTime;
-    //    healthCostPercent = levelData.HealthCostPercent;
-    //    doubleMoneyChance = levelData.DoubleMoneyChance;
-    //}
+    public void ApplyUpgrade(UpgradeCamera upgradeData)
+    {
+        cooldownTime = upgradeData.CooldownTime;
+        healthPercent = upgradeData.HealthPercent;
+        MoneyPercent = upgradeData.MoneyPercent;
+    }
 }

@@ -61,8 +61,7 @@ public class CameraPresenter : MonoBehaviour
 
     private void HandleCaptureCameraClicked()
     {
-       Debug.Log("chup");
-       InGamePhotoCapture.Instance.Chup();
+       CameraManager.Instance.Capture();
 
     }
 

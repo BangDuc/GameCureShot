@@ -1,0 +1,30 @@
+[
+  {
+    "TargetId": "1",
+    "TargetName": "QuaiVatBanhMi",
+    "TargetType": "Monster",
+    "MoneyReward": 200,
+    "Id": "1"
+  },
+  {
+    "TargetId": "2",
+    "TargetName": "It's me",
+    "TargetType": "Monster",
+    "MoneyReward": 500,
+    "Id": "2"
+  },
+  {
+    "TargetId": "3",
+    "TargetName": "Đầu Hươu Ứa Máu",
+    "TargetType": "Interest",
+    "MoneyReward": 1000,
+    "Id": "3"
+  },
+  {
+    "TargetId": "4",
+    "TargetName": "Ngọn Lửa Xanh",
+    "TargetType": "Interest",
+    "MoneyReward": 300,
+    "Id": "4"
+  }
+]

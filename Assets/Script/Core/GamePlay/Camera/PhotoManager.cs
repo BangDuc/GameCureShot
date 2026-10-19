@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PhotoManager : MonoBehaviour
 {
-
-    //[SerializeField] private List<PhotoTarget> activeTargets = new List<PhotoTarget>();
-
-
-
     [SerializeField] public List<Sprite> librarySpriteCapture;
 
 

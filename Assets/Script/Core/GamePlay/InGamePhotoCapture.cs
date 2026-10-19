@@ -3,12 +3,13 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InGamePhotoCapture : Singleton<InGamePhotoCapture>
+public class InGamePhotoCapture : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private Image previewUI; 
     [SerializeField] PhotoManager photoManager;
     public static event Action<PhotoResult> OnPhotoTaken;
+
 
     public Sprite CaptureToSprite(int width = 512, int height = 512)
     {
@@ -38,7 +39,6 @@ public class InGamePhotoCapture : Singleton<InGamePhotoCapture>
         if (previewUI != null) previewUI.sprite = photoSprite;
         return photoSprite;
     }
-    [ContextMenu("Chup")]
     public void Chup()
     {
         Sprite sprite = CaptureToSprite();
