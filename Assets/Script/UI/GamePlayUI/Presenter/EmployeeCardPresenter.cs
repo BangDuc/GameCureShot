@@ -17,6 +17,7 @@ public class EmployeeCardPresenter : MonoBehaviour
 
     private readonly List<BuffRowView> buffRows = new();
     private readonly List<GameObject> permanentHealthViews = new();
+    [SerializeField] private PlayerManager playerManager;
 
     [Header("System")]
     [SerializeField] private RunController controller;
@@ -72,7 +73,6 @@ public class EmployeeCardPresenter : MonoBehaviour
     private void RenderHealth()
     {
         HealthPlayer health = PlayerManager.Instance.healthPlayer;
-
         float ratio = health.maxHealth > 0
             ? Mathf.Clamp01((float)health.currentHealth / health.maxHealth)
             : 0f;

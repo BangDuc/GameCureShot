@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class HealthPlayer : MonoBehaviour
 {
-   public int maxHealth;
+   public int maxHealth = 100;
 
-    public int currentHealth;
+    public int currentHealth = 100;
 
     public void Heal(int heal_hp)
     {

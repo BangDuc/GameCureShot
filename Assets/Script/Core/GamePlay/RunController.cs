@@ -9,16 +9,16 @@ public class RunController : Singleton<RunController>
 
     [SerializeField] private float remainingTime;
     [SerializeField] private float elapsedTime;
-    [SerializeField] private int runHealth;
     [SerializeField] private bool isRunning = false;
     [SerializeField] private BuffState buffState;
+
+    [SerializeField] private PlayerManager player;
 
     public BuffState Buffs => buffState;
     public event Action<int> OnDamageTaken;
     public event Action OnHealthDepleted;
-    private GameData gameData;
-
-    public int CurrentHealth => runHealth;
+    private GameData gameData = new GameData();
+    public int CurrentHealth => player.healthPlayer.currentHealth;
     public int PermanentHealth => gameData.permanentHealth;
 
     public void Initialize(GameData gameData)
@@ -38,7 +38,6 @@ public class RunController : Singleton<RunController>
     {
         remainingTime = 500;
         elapsedTime = 0;
-        runHealth = 100;
         isRunning = true;
         buffState = new BuffState();
     }
@@ -66,7 +65,7 @@ public class RunController : Singleton<RunController>
 
     public void FailRun()
     {
-        if (runHealth <= 0)
+        if (player.healthPlayer.currentHealth <= 0)
         {
             Debug.Log("Thua Game");
             Pause();
@@ -78,7 +77,7 @@ public class RunController : Singleton<RunController>
     {
         if (damage <= 0) return;
         OnDamageTaken?.Invoke(damage);
-        runHealth -= damage;
+        player.healthPlayer.currentHealth -= damage;
 
     }
 
@@ -95,7 +94,7 @@ public class RunController : Singleton<RunController>
     public void Heal(int percent)
     {
         OnHealthDepleted?.Invoke();
-        runHealth += percent;
+        player.healthPlayer.currentHealth += percent;
     }
 
     public float GetElapsedTime()

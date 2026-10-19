@@ -303,11 +303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
   state: 0
-  holdTime: 1
   cooldownTime: 2
-  healthCostPercent: 0.05
-  doubleMoneyChance: 0.1
-  currentHoldTimer: 0
+  healthPercent: 0.05
+  MoneyPercent: 10
   cooldownTimer: 0
   photoManager: {fileID: 0}
   cameraMoving: {fileID: 0}
@@ -510,8 +508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RunController
   remainingTime: 0
   elapsedTime: 0
-  runHealth: 0
   isRunning: 0
+  player: {fileID: 1009656196}
 --- !u!4 &395388335
 Transform:
   m_ObjectHideFlags: 0
@@ -1576,6 +1574,81 @@ Transform:
   m_Children:
   - {fileID: 1170505853}
   - {fileID: 1109807961}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1009656193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009656197}
+  - component: {fileID: 1009656196}
+  - component: {fileID: 1009656195}
+  - component: {fileID: 1009656194}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1009656194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009656193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b431a8ed56bff444e81545c772e9555a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPlayer
+  maxHealth: 100
+  currentHealth: 100
+--- !u!114 &1009656195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009656193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae79d6bd77d5924c89b9332f097c39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoneyPlayer
+  money: 100
+--- !u!114 &1009656196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009656193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2504470077e0aee4c9a8a831611ee53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  moneyPlayer: {fileID: 1009656195}
+  healthPlayer: {fileID: 1009656194}
+--- !u!4 &1009656197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009656193}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1019514162
@@ -2748,7 +2821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1953135528328643752, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 54.976868
+      value: 54.976807
       objectReference: {fileID: 0}
     - target: {fileID: 2047516834239044686, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2780,7 +2853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2357701725851621980, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2421614495136116840, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_Pivot.x
@@ -2892,7 +2965,7 @@ PrefabInstance:
       objectReference: {fileID: 395388334}
     - target: {fileID: 3730816956208003272, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4347235938058914033, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2904,7 +2977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4790436312977635881, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 59.977
+      value: 59.97705
       objectReference: {fileID: 0}
     - target: {fileID: 5218607262621174770, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_Color.b
@@ -3410,3 +3483,4 @@ SceneRoots:
   - {fileID: 475847933}
   - {fileID: 678280440}
   - {fileID: 1919512848}
+  - {fileID: 1009656197}

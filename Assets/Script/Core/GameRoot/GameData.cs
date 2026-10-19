@@ -8,22 +8,22 @@ namespace Assets.Script.Core.GameRoot
     [Serializable]
     public class GameData
     {
-        public int currentDay;
-        public int currentPhase;
-        public int money;
-        public int permanentHealth;
-        public bool IsORION_Unlocked;
-        public int cameraCooldownLevel;
-        public int cameraDamageReductionLevel;
-        public int cameraDoubleMoneyLevel;
-        public int outstandingDebt;
-        public int consecutiveUnpaidDays;
-        public bool isSealBroken;
-        public float playtime;
+        public int currentDay = 1;
+        public int currentPhase = 1;
+        public int money = 100;
+        public int permanentHealth = 4;
+        public bool IsORION_Unlocked = false;
+        public int cameraCooldownLevel = 1;
+        public int cameraDamageReductionLevel = 1;
+        public int cameraDoubleMoneyLevel = 1;
+        public int outstandingDebt = 0;
+        public int consecutiveUnpaidDays = 0;
+        public bool isSealBroken = false;
+        public float playtime = 0;
         public InventoryData inventoryData = new();
         public WorldStateData worldStateData = new();
         public List<ShopStockData> orionShopStock = new();
         public List<ShopStockData> normalShopStock = new();
-        public int lastStarterPotionPurchaseDay;
+        public int lastStarterPotionPurchaseDay = 0;
     }
 }
