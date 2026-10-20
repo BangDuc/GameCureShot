@@ -34,35 +34,9 @@ public static class ItemManager
         if (itemDatabase != null)
             return itemDatabase;
 
-        string json = ReadConfigJson("items");
-        ItemConfigData fileData =
-            JsonUtility.FromJson<ItemConfigData>(json);
+        itemDatabase =
+            JsonDataService.LoadList<ItemData>("Data/items");
 
-        if (fileData == null || fileData.items == null)
-            throw new System.InvalidOperationException(
-                "Cấu hình items không có danh sách items.");
-
-        List<ItemData> loadedItems = new();
-
-        foreach (ItemConfig itemConfig in fileData.items)
-        {
-            ItemData item = new ItemData
-            {
-                itemId = itemConfig.itemId,
-                itemName = itemConfig.itemName,
-                description = itemConfig.description,
-                //icon = Resources.Load<Sprite>(itemConfig.iconPath),
-
-                
-            };
-
-            // Nối bước tạo effect từ itemConfig.effects tại đây.
-            // Nối bước tạo passive từ itemConfig.passiveEffects tại đây.
-
-            loadedItems.Add(item);
-        }
-
-        itemDatabase = loadedItems;
         return itemDatabase;
     }
 
@@ -118,53 +92,4 @@ public static class ItemManager
         return file.text;
     }
 
-    //private static List<IItemEffect> CreateEffects(
-    //List<ItemEffectConfig> configs)
-    //{
-    //    List<IItemEffect> effects = new();
-
-    //    if (configs == null)
-    //        return effects;
-
-    //    foreach (ItemEffectConfig config in configs)
-    //    {
-    //        switch (config.type)
-    //        {
-    //            case "Heal":
-    //                effects.Add(new HealEffect(config.amount));
-    //                break;
-
-    //            default:
-    //                throw new System.InvalidOperationException(
-    //                    $"Chưa hỗ trợ effect: {config.type}");
-    //        }
-    //    }
-
-    //    return effects;
-    //}
-
-    //private static List<IPassiveItemEffect> CreatePassiveEffects(
-    //List<ItemEffectConfig> configs)
-    //{
-    //    List<IPassiveItemEffect> effects = new();
-
-    //    if (configs == null)
-    //        return effects;
-
-    //    foreach (ItemEffectConfig config in configs)
-    //    {
-    //        switch (config.type)
-    //        {
-    //            case "Heal":
-    //                effects.Add(new HealEffect(config.amount));
-    //                break;
-
-    //            default:
-    //                throw new System.InvalidOperationException(
-    //                    $"Chưa hỗ trợ effect: {config.type}");
-    //        }
-    //    }
-
-    //    return effects;
-    //}
 }

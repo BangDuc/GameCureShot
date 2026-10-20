@@ -42,7 +42,7 @@ public class ItemDetailView : MonoBehaviour
         if (itemId != null)
         {
             this.itemId = itemId;
-            //icon.sprite = item.icon;
+            icon.sprite = item.Icon;
             nameText.text = item.itemName;
             descriptionText.text = item.description;
             ownedText.text = "OWNED: "+owned;

@@ -59,7 +59,7 @@ public class NormalItemSlotPresenter : MonoBehaviour
                 : foundContent;
 
             ItemShopView view = Instantiate(slotPrefab, parent, false);
-            //view.Render(item.itemId, item.icon);
+            view.Render(item.itemId, item.Icon);
             view.Selected += HandleItemSlotClicked;
             view.gameObject.SetActive(true);
 
