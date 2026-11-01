@@ -1,0 +1,1775 @@
+fileFormatVersion: 2
+guid: a0bd096138a310c4193647e4d23e84d7
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: b10b55a1aa6a1aa32521bc0cab59632e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 67eeda9b3c21cac4d8a5a0bb2b47fb1a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: Cua
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1274
+      y: 5887
+      width: 118
+      height: 993
+    spriteID: 3baca8bec1082974fb628e8bdb0dc066
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1274, y: 5887}
+    spritePosition: {x: 3722, y: 420}
+  - name: Ghe
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6932
+      y: 4
+      width: 831
+      height: 464
+    spriteID: ab4b517e8174b6549b0baa7bf1b67686
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6932, y: 4}
+    spritePosition: {x: 1335, y: 807}
+  - name: TuLanhMo
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7771
+      y: 4
+      width: 310
+      height: 364
+    spriteID: 602b05e7c6d7b1e4086b32810b3634b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7771, y: 4}
+    spritePosition: {x: 2649, y: 815}
+  - name: TuLanhDong
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1274
+      y: 5364
+      width: 264
+      height: 515
+    spriteID: 90b96014ba2f6e9419507e577ea1c7c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1274, y: 5364}
+    spritePosition: {x: 2949, y: 656}
+  - name: BaseTuLanh
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 3302
+      width: 480
+      height: 756
+    spriteID: d090f2763a59e3c47a6e1017a2586a3a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 3302}
+    spritePosition: {x: 2946, y: 655}
+  - name: Ban
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1010
+      y: 7109
+      width: 492
+      height: 339
+    spriteID: 3700b04f2d3e62945a44df0c3b32f37a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1010, y: 7109}
+    spritePosition: {x: 1308, y: 798}
+  - name: Ghe2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7657
+      width: 739
+      height: 510
+    spriteID: 928cbeb0de2c64544a32b4d82985a5f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 7657}
+    spritePosition: {x: 1239, y: 755}
+  - name: ThungRac
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1908
+      y: 4341
+      width: 181
+      height: 223
+    spriteID: f17b814bd9772c043a4273699f72366f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1908, y: 4341}
+    spritePosition: {x: 2776, y: 816}
+  - name: TuBep
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2100
+      y: 3557
+      width: 712
+      height: 217
+    spriteID: 0e76c982b6d82e84abc5bc4ac22ba591
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2100, y: 3557}
+    spritePosition: {x: 1507, y: 1074}
+  - name: ChayNuoc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1930
+      y: 5438
+      width: 114
+      height: 70
+    spriteID: fb5cc2d6145741447a889a23da9084d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1930, y: 5438}
+    spritePosition: {x: 2639, y: 1222}
+  - name: VungNuoc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1885
+      y: 5684
+      width: 131
+      height: 129
+    spriteID: ce77d4a4d5f5eef4daacbfac2aef68f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1885, y: 5684}
+    spritePosition: {x: 2490, y: 841}
+  - name: NuocTran
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 4341
+      width: 288
+      height: 312
+    spriteID: 6f2d6211b5167014495c1bea064eff74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 4341}
+    spritePosition: {x: 2511, y: 950}
+  - name: Nuoc_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 5525
+      width: 265
+      height: 151
+    spriteID: a3f18fe364dd9af4c889b7f06a567c2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 5525}
+    spritePosition: {x: 2534, y: 1123}
+  - name: ChayNuoc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1961
+      y: 4203
+      width: 114
+      height: 70
+    spriteID: 7c9ddce83b232b947bcf475a83b9c7ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1961, y: 4203}
+    spritePosition: {x: 2639, y: 1222}
+  - name: VungNuoc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1930
+      y: 5301
+      width: 131
+      height: 129
+    spriteID: a0445299b5982b34ba2cca066f5517e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1930, y: 5301}
+    spritePosition: {x: 2490, y: 841}
+  - name: NuocTran
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 4661
+      width: 288
+      height: 312
+    spriteID: e5ce8beb5b40f674f9acaec1d17d12b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 4661}
+    spritePosition: {x: 2511, y: 950}
+  - name: Nuoc_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 5684
+      width: 265
+      height: 151
+    spriteID: 4d94c949a99ef014582a6de19a6e74f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 5684}
+    spritePosition: {x: 2534, y: 1123}
+  - name: ChayNuoc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1908
+      y: 4572
+      width: 114
+      height: 70
+    spriteID: 643803abf1f1c5542b29e8787914f777
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1908, y: 4572}
+    spritePosition: {x: 2639, y: 1222}
+  - name: VungNuoc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1961
+      y: 4066
+      width: 131
+      height: 129
+    spriteID: 0eee156653020744fb04a00261ec668c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1961, y: 4066}
+    spritePosition: {x: 2490, y: 841}
+  - name: NuocTran
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 4981
+      width: 288
+      height: 312
+    spriteID: a366c1e752a71464596ae7d2d3604496
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 4981}
+    spritePosition: {x: 2511, y: 950}
+  - name: Nuoc_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 5843
+      width: 265
+      height: 151
+    spriteID: f6aa907d495f4384ab003bbb20fa194d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 5843}
+    spritePosition: {x: 2534, y: 1123}
+  - name: BeNuoc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1274
+      y: 6888
+      width: 297
+      height: 203
+    spriteID: a437cd3b9b154cd43b1c3fe2b7561d28
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1274, y: 6888}
+    spritePosition: {x: 2510, y: 1122}
+  - name: Voi_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2017
+      y: 4836
+      width: 65
+      height: 94
+    spriteID: 5948ac7e489ac254d80ca1b9aa5806b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2017, y: 4836}
+    spritePosition: {x: 2726, y: 1225}
+  - name: Voi_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2030
+      y: 4572
+      width: 47
+      height: 75
+    spriteID: e5f6a8ee03effa045ad46ec1093010b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2030, y: 4572}
+    spritePosition: {x: 2642, y: 1250}
+  - name: Mo
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1010
+      y: 7456
+      width: 308
+      height: 159
+    spriteID: bf5b6fe26d22c384b812520520322432
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1010, y: 7456}
+    spritePosition: {x: 2436, y: 1059}
+  - name: Dong
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1885
+      y: 5525
+      width: 189
+      height: 142
+    spriteID: a8677cc1d8d7d094da4950db89e74f34
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1885, y: 5525}
+    spritePosition: {x: 2554, y: 1062}
+  - name: Mo
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1908
+      y: 4661
+      width: 101
+      height: 165
+    spriteID: a5652bc31775dea43866b64e8812f026
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1908, y: 4661}
+    spritePosition: {x: 2404, y: 1025}
+  - name: Dong
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2017
+      y: 4661
+      width: 72
+      height: 167
+    spriteID: e26dcf5655eea2443a0655ec4a3abd54
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2017, y: 4661}
+    spritePosition: {x: 2485, y: 1019}
+  - name: BaseTuBepTo
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 751
+      y: 7657
+      width: 735
+      height: 417
+    spriteID: 1880b54ea4418df4c892f84e29d65124
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 751, y: 7657}
+    spritePosition: {x: 2388, y: 873}
+  - name: Cai Bat
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1961
+      y: 4281
+      width: 123
+      height: 52
+    spriteID: 7dcaec1f2404bc94392a63bd00847733
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1961, y: 4281}
+    spritePosition: {x: 2200, y: 1262}
+  - name: Mo
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7771
+      y: 376
+      width: 360
+      height: 138
+    spriteID: eb8d90cf9aa13e44ba15fe973e81d9ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7771, y: 376}
+    spritePosition: {x: 2209, y: 964}
+  - name: Dong
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1326
+      y: 7456
+      width: 269
+      height: 180
+    spriteID: 410cbbeaaef2b704f8936afa82687365
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1326, y: 7456}
+    spritePosition: {x: 2216, y: 1079}
+  - name: BaseLoNuong
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 5301
+      width: 310
+      height: 216
+    spriteID: f8eff1b913ed7564a9b0d5e9fa3e483f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 5301}
+    spritePosition: {x: 2177, y: 1077}
+  - name: Tham
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2100
+      y: 3302
+      width: 1005
+      height: 247
+    spriteID: e1fab7f7a96efa149b6dfceae164e4b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2100, y: 3302}
+    spritePosition: {x: 1024, y: 749}
+  - name: Noi
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1908
+      y: 4834
+      width: 85
+      height: 100
+    spriteID: 75e7a6edd8b3aca47b271db893931175
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1908, y: 4834}
+    spritePosition: {x: 1724, y: 1361}
+  - name: Chao
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2024
+      y: 5684
+      width: 66
+      height: 143
+    spriteID: 11840d19ae28efa4396e68f47530db5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2024, y: 5684}
+    spritePosition: {x: 1661, y: 1328}
+  - name: Dao
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1908
+      y: 4981
+      width: 114
+      height: 141
+    spriteID: 26a537f09109bda45920fdc2fbaecd1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1908, y: 4981}
+    spritePosition: {x: 1734, y: 1333}
+  - name: Ke
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6932
+      y: 476
+      width: 196
+      height: 38
+    spriteID: 9e13e157b8a489f4a906565ab1abe645
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6932, y: 476}
+    spritePosition: {x: 1668, y: 1444}
+  - name: Tu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1612
+      y: 4066
+      width: 341
+      height: 267
+    spriteID: 6d63d21be49a56547a6f2e89f20a5a27
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1612, y: 4066}
+    spritePosition: {x: 1328, y: 1543}
+  - name: Tuong_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7109
+      width: 998
+      height: 540
+    spriteID: 2f10661843ca74d4fb974c743a6de83d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 7109}
+    spritePosition: {x: 1592, y: 1113}
+  - name: Tuong_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5364
+      width: 1262
+      height: 1737
+    spriteID: d61cf7a0a740a304d88024f7edb252b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5364}
+    spritePosition: {x: 2578, y: 423}
+  - name: Tuong_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3302
+      width: 1600
+      height: 2054
+    spriteID: 789c54b94f5077b4fa677c8737e29589
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3302}
+    spritePosition: {x: 0, y: 106}
+  - name: Tuong_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3852
+      y: 4
+      width: 3072
+      height: 512
+    spriteID: 19b549b5ee0d43843b6800b6630ef91f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3852, y: 4}
+    spritePosition: {x: 629, y: 1648}
+  - name: SanNha
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2172
+      width: 3840
+      height: 1122
+    spriteID: 6c53cd9970647f94593f2d17cc741795
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2172}
+    spritePosition: {x: 0, y: 0}
+  - name: Layer 0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 3840
+      height: 2160
+    spriteID: 21d35b7e4c053684f80321ee6669545c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  generateTileAssets: 0
+  tilePaletteCellLayout: 0
+  tilePaletteHexagonLayout: 0
+  tilePaletteCellSize: {x: 1, y: 1, z: 0}
+  tilePaletteCellSizing: 0
+  transparencySortMode: 0
+  transparencySortAxis: {x: 0, y: 0, z: 1}
+  tileTemplate: {instanceID: 0}
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: DoVat
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: d9d602b10d9cd384c944f47232afee67
+    layerID: 104
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Cua
+    spriteName: Cua
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 3baca8bec1082974fb628e8bdb0dc066
+    layerID: 92
+    mosaicPosition: {x: 1274, y: 5887}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Ghe
+    spriteName: Ghe
+    isGroup: 0
+    parentIndex: 0
+    spriteID: ab4b517e8174b6549b0baa7bf1b67686
+    layerID: 54
+    mosaicPosition: {x: 6932, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: TuLanh
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: f3c6cc2ecde8e3646bd4ab26d32a5d23
+    layerID: 48
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: TuLanhMo
+    spriteName: TuLanhMo
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 602b05e7c6d7b1e4086b32810b3634b2
+    layerID: 240
+    mosaicPosition: {x: 7771, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: TuLanhDong
+    spriteName: TuLanhDong
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 90b96014ba2f6e9419507e577ea1c7c7
+    layerID: 241
+    mosaicPosition: {x: 1274, y: 5364}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BaseTuLanh
+    spriteName: BaseTuLanh
+    isGroup: 0
+    parentIndex: 3
+    spriteID: d090f2763a59e3c47a6e1017a2586a3a
+    layerID: 46
+    mosaicPosition: {x: 1612, y: 3302}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Ban
+    spriteName: Ban
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 3700b04f2d3e62945a44df0c3b32f37a
+    layerID: 44
+    mosaicPosition: {x: 1010, y: 7109}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Ghe2
+    spriteName: Ghe2
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 928cbeb0de2c64544a32b4d82985a5f1
+    layerID: 57
+    mosaicPosition: {x: 4, y: 7657}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ThungRac
+    spriteName: ThungRac
+    isGroup: 0
+    parentIndex: 0
+    spriteID: f17b814bd9772c043a4273699f72366f
+    layerID: 96
+    mosaicPosition: {x: 1908, y: 4341}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: TuBep
+    spriteName: TuBep
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 0e76c982b6d82e84abc5bc4ac22ba591
+    layerID: 79
+    mosaicPosition: {x: 2100, y: 3557}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeNuocFull
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: ab2097433c5f12a478a70ac353956752
+    layerID: 67
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Nuoc Mau
+    spriteName: 
+    isGroup: 1
+    parentIndex: 11
+    spriteID: 8f23bfb10aaae4f408760ae44fed197f
+    layerID: 217
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ChayNuoc
+    spriteName: ChayNuoc
+    isGroup: 0
+    parentIndex: 12
+    spriteID: fb5cc2d6145741447a889a23da9084d9
+    layerID: 216
+    mosaicPosition: {x: 1930, y: 5438}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc_2
+    spriteName: 
+    isGroup: 1
+    parentIndex: 12
+    spriteID: 310cb749e22e5794abf51a987930bd02
+    layerID: 215
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: VungNuoc
+    spriteName: VungNuoc
+    isGroup: 0
+    parentIndex: 14
+    spriteID: ce77d4a4d5f5eef4daacbfac2aef68f9
+    layerID: 214
+    mosaicPosition: {x: 1885, y: 5684}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: NuocTran
+    spriteName: NuocTran
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 6f2d6211b5167014495c1bea064eff74
+    layerID: 213
+    mosaicPosition: {x: 1612, y: 4341}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc_1
+    spriteName: Nuoc_1
+    isGroup: 0
+    parentIndex: 12
+    spriteID: a3f18fe364dd9af4c889b7f06a567c2a
+    layerID: 211
+    mosaicPosition: {x: 1612, y: 5525}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc Doc
+    spriteName: 
+    isGroup: 1
+    parentIndex: 11
+    spriteID: db60aa13e2d6e6845b64cf88087046a3
+    layerID: 209
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ChayNuoc
+    spriteName: ChayNuoc
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 7c9ddce83b232b947bcf475a83b9c7ef
+    layerID: 208
+    mosaicPosition: {x: 1961, y: 4203}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc_2
+    spriteName: 
+    isGroup: 1
+    parentIndex: 18
+    spriteID: a6905e417129cde44b254e8b5c700e24
+    layerID: 207
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: VungNuoc
+    spriteName: VungNuoc
+    isGroup: 0
+    parentIndex: 20
+    spriteID: a0445299b5982b34ba2cca066f5517e0
+    layerID: 206
+    mosaicPosition: {x: 1930, y: 5301}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: NuocTran
+    spriteName: NuocTran
+    isGroup: 0
+    parentIndex: 20
+    spriteID: e5ce8beb5b40f674f9acaec1d17d12b2
+    layerID: 205
+    mosaicPosition: {x: 1612, y: 4661}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc_1
+    spriteName: Nuoc_1
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 4d94c949a99ef014582a6de19a6e74f2
+    layerID: 203
+    mosaicPosition: {x: 1612, y: 5684}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc
+    spriteName: 
+    isGroup: 1
+    parentIndex: 11
+    spriteID: b9acfa1e1fff99143ad5281ecb06aa09
+    layerID: 200
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ChayNuoc
+    spriteName: ChayNuoc
+    isGroup: 0
+    parentIndex: 24
+    spriteID: 643803abf1f1c5542b29e8787914f777
+    layerID: 199
+    mosaicPosition: {x: 1908, y: 4572}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc_2
+    spriteName: 
+    isGroup: 1
+    parentIndex: 24
+    spriteID: 631d6c833049bae4b826f76d81912f1d
+    layerID: 197
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: VungNuoc
+    spriteName: VungNuoc
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 0eee156653020744fb04a00261ec668c
+    layerID: 194
+    mosaicPosition: {x: 1961, y: 4066}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: NuocTran
+    spriteName: NuocTran
+    isGroup: 0
+    parentIndex: 26
+    spriteID: a366c1e752a71464596ae7d2d3604496
+    layerID: 193
+    mosaicPosition: {x: 1612, y: 4981}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nuoc_1
+    spriteName: Nuoc_1
+    isGroup: 0
+    parentIndex: 24
+    spriteID: f6aa907d495f4384ab003bbb20fa194d
+    layerID: 192
+    mosaicPosition: {x: 1612, y: 5843}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeNuoc
+    spriteName: BeNuoc
+    isGroup: 0
+    parentIndex: 11
+    spriteID: a437cd3b9b154cd43b1c3fe2b7561d28
+    layerID: 190
+    mosaicPosition: {x: 1274, y: 6888}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: VoiNuoc
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 6eedee027d5ecb54b9c65e69469dbbfe
+    layerID: 64
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Voi_1
+    spriteName: Voi_1
+    isGroup: 0
+    parentIndex: 31
+    spriteID: 5948ac7e489ac254d80ca1b9aa5806b5
+    layerID: 187
+    mosaicPosition: {x: 2017, y: 4836}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Voi_2
+    spriteName: Voi_2
+    isGroup: 0
+    parentIndex: 31
+    spriteID: e5f6a8ee03effa045ad46ec1093010b9
+    layerID: 185
+    mosaicPosition: {x: 2030, y: 4572}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: TuBep_To
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 1200cd7ddfb37f744887103fc803398e
+    layerID: 83
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: NganTu_1
+    spriteName: 
+    isGroup: 1
+    parentIndex: 34
+    spriteID: 2f19e0a34a1605d459995341e288d196
+    layerID: 180
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Mo
+    spriteName: Mo
+    isGroup: 0
+    parentIndex: 35
+    spriteID: bf5b6fe26d22c384b812520520322432
+    layerID: 155
+    mosaicPosition: {x: 1010, y: 7456}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Dong
+    spriteName: Dong
+    isGroup: 0
+    parentIndex: 35
+    spriteID: a8677cc1d8d7d094da4950db89e74f34
+    layerID: 179
+    mosaicPosition: {x: 1885, y: 5525}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: NganTu_2
+    spriteName: 
+    isGroup: 1
+    parentIndex: 34
+    spriteID: 901e64c192b92334688b54b1f2c72a25
+    layerID: 173
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Mo
+    spriteName: Mo
+    isGroup: 0
+    parentIndex: 38
+    spriteID: a5652bc31775dea43866b64e8812f026
+    layerID: 165
+    mosaicPosition: {x: 1908, y: 4661}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Dong
+    spriteName: Dong
+    isGroup: 0
+    parentIndex: 38
+    spriteID: e26dcf5655eea2443a0655ec4a3abd54
+    layerID: 172
+    mosaicPosition: {x: 2017, y: 4661}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BaseTuBepTo
+    spriteName: BaseTuBepTo
+    isGroup: 0
+    parentIndex: 34
+    spriteID: 1880b54ea4418df4c892f84e29d65124
+    layerID: 176
+    mosaicPosition: {x: 751, y: 7657}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cai Bat
+    spriteName: Cai Bat
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 7dcaec1f2404bc94392a63bd00847733
+    layerID: 75
+    mosaicPosition: {x: 1961, y: 4281}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LoNuong
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: a61555efc9a4bb140870dc6ce396172b
+    layerID: 72
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Mo
+    spriteName: Mo
+    isGroup: 0
+    parentIndex: 43
+    spriteID: eb8d90cf9aa13e44ba15fe973e81d9ac
+    layerID: 226
+    mosaicPosition: {x: 7771, y: 376}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Dong
+    spriteName: Dong
+    isGroup: 0
+    parentIndex: 43
+    spriteID: 410cbbeaaef2b704f8936afa82687365
+    layerID: 225
+    mosaicPosition: {x: 1326, y: 7456}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BaseLoNuong
+    spriteName: BaseLoNuong
+    isGroup: 0
+    parentIndex: 43
+    spriteID: f8eff1b913ed7564a9b0d5e9fa3e483f
+    layerID: 229
+    mosaicPosition: {x: 1612, y: 5301}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Tham
+    spriteName: Tham
+    isGroup: 0
+    parentIndex: 0
+    spriteID: e1fab7f7a96efa149b6dfceae164e4b7
+    layerID: 87
+    mosaicPosition: {x: 2100, y: 3302}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Noi
+    spriteName: Noi
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 75e7a6edd8b3aca47b271db893931175
+    layerID: 8
+    mosaicPosition: {x: 1908, y: 4834}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Chao
+    spriteName: Chao
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 11840d19ae28efa4396e68f47530db5b
+    layerID: 7
+    mosaicPosition: {x: 2024, y: 5684}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Dao
+    spriteName: Dao
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 26a537f09109bda45920fdc2fbaecd1b
+    layerID: 11
+    mosaicPosition: {x: 1908, y: 4981}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Ke
+    spriteName: Ke
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 9e13e157b8a489f4a906565ab1abe645
+    layerID: 6
+    mosaicPosition: {x: 6932, y: 476}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Tu
+    spriteName: Tu
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 6d63d21be49a56547a6f2e89f20a5a27
+    layerID: 2
+    mosaicPosition: {x: 1612, y: 4066}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 805672729777e2046a86989cdb953b9f
+    layerID: 247
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Tuong_1
+    spriteName: Tuong_1
+    isGroup: 0
+    parentIndex: 53
+    spriteID: 2f10661843ca74d4fb974c743a6de83d
+    layerID: 109
+    mosaicPosition: {x: 4, y: 7109}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Tuong_2
+    spriteName: Tuong_2
+    isGroup: 0
+    parentIndex: 53
+    spriteID: d61cf7a0a740a304d88024f7edb252b6
+    layerID: 113
+    mosaicPosition: {x: 4, y: 5364}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Tuong_3
+    spriteName: Tuong_3
+    isGroup: 0
+    parentIndex: 53
+    spriteID: 789c54b94f5077b4fa677c8737e29589
+    layerID: 117
+    mosaicPosition: {x: 4, y: 3302}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Tuong_4
+    spriteName: Tuong_4
+    isGroup: 0
+    parentIndex: 53
+    spriteID: 19b549b5ee0d43843b6800b6630ef91f
+    layerID: 121
+    mosaicPosition: {x: 3852, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SanNha
+    spriteName: SanNha
+    isGroup: 0
+    parentIndex: 53
+    spriteID: 6c53cd9970647f94593f2d17cc741795
+    layerID: 125
+    mosaicPosition: {x: 4, y: 2172}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Layer 0
+    spriteName: Layer 0
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 21d35b7e4c053684f80321ee6669545c
+    layerID: 4
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 1
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
