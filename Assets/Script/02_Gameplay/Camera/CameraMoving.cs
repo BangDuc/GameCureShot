@@ -1,4 +1,6 @@
+using System;
 using Bang.Lib.Singleton;
+using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,6 +26,9 @@ public class CameraMoving : Singleton<CameraMoving>
 
     [SerializeField]public bool isZoomMode;
     private Transform zoomTargetProxy;
+
+    public BackgroundBounds BackgroundBounds => backgroundBounds;
+
     private void Start()
     {
         isZoomMode = false;
@@ -70,6 +75,39 @@ public class CameraMoving : Singleton<CameraMoving>
         
         if (minX > maxX) { float temp = minX; minX = maxX; maxX = temp; }
         if (minY > maxY) { float temp = minY; minY = maxY; maxY = temp; }
+    }
+
+    public void SetBackgroundBounds(BackgroundBounds newBounds, Vector3? newCameraPos = null)
+    {
+        if (newBounds == null) return;
+        backgroundBounds = newBounds;
+        newBounds.CalculateBounds();
+        CalculateBounds();
+
+        if (newCameraPos.HasValue)
+        {
+            Vector3 pos = newCameraPos.Value;
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+            pos.z = transform.position.z;
+            transform.position = pos;
+        }
+        else
+        {
+            Vector3 clampedPos = transform.position;
+            clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
+            clampedPos.y = Mathf.Clamp(clampedPos.y, minY, maxY);
+            transform.position = clampedPos;
+        }
+    }
+
+    public void PanToPosition(Vector3 targetPos, float duration = 0.5f, Action onComplete = null)
+    {
+        targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
+        targetPos.z = transform.position.z;
+
+        transform.DOMove(targetPos, duration).SetEase(Ease.InOutQuad).OnComplete(() => onComplete?.Invoke());
     }
 
     public void Moving()

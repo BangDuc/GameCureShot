@@ -19,7 +19,6 @@ public class BackgroundBounds : MonoBehaviour
     {
         if (backgroundRenderer != null)
         {
-           
             Bounds bounds = backgroundRenderer.bounds;
 
             // bounds.min là góc dưới cùng bên trái (tọa độ nhỏ nhất)
@@ -29,9 +28,6 @@ public class BackgroundBounds : MonoBehaviour
             // bounds.max là góc trên cùng bên phải (tọa độ lớn nhất)
             maxX = bounds.max.x;
             maxY = bounds.max.y;
-
-            // In ra Console để kiểm tra thử
-          
         }
         else
         {
@@ -39,7 +35,20 @@ public class BackgroundBounds : MonoBehaviour
         }
     }
 
-    
+    public void SetRenderer(SpriteRenderer renderer)
+    {
+        backgroundRenderer = renderer;
+        CalculateBounds();
+    }
+
+    public void SetBounds(float newMinX, float newMaxX, float newMinY, float newMaxY)
+    {
+        minX = newMinX;
+        maxX = newMaxX;
+        minY = newMinY;
+        maxY = newMaxY;
+    }
+
     void OnDrawGizmos()
     {
         if (backgroundRenderer != null)
