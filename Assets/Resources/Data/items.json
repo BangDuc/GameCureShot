@@ -1,0 +1,128 @@
+[
+  {
+    "itemId": "StarterPotion",
+    "itemName": "Starter Potion",
+    "iconPath": "Sprite/Item/1",
+    "description": "Thuốc hồi phục 2 máu sinh tồn trong Run. Yêu cầu mua để bắt đầu ca trực."
+  },
+  {
+    "itemId": "Shield",
+    "itemName": "Shield",
+    "iconPath": "Sprite/Item/2",
+    "description": "Sử dụng để chặn 1 đòn tấn công tiếp theo từ quái vật."
+  },
+  {
+    "itemId": "Coin",
+    "itemName": "Coin",
+    "iconPath": "Sprite/Item/3",
+    "description": "Nhân đôi tiền thưởng cho lần chụp quái vật đầu tiên."
+  },
+  {
+    "itemId": "Health",
+    "itemName": "Health",
+    "iconPath": "Sprite/Item/4",
+    "description": "Bình máu hồi phục 2 máu sinh tồn khi sử dụng."
+  },
+  {
+    "itemId": "ColdCoffee",
+    "itemName": "Cold Coffee",
+    "iconPath": "Sprite/Item/6",
+    "description": "Cà phê ướp lạnh, hồi phục 1 máu sinh tồn khi sử dụng."
+  },
+  {
+    "itemId": "AdrenalineSerum",
+    "itemName": "Adrenaline Serum",
+    "iconPath": "Sprite/Item/9",
+    "description": "Huyết thanh hồi phục máu sinh tồn khẩn cấp."
+  },
+  {
+    "itemId": "LightWard",
+    "itemName": "Light Ward",
+    "iconPath": "Sprite/Item/5",
+    "description": "Bùa hộ mệnh, miễn nhiễm một lần tắt đèn từ quái vật The Shy."
+  },
+  {
+    "itemId": "BrokenAntenna",
+    "itemName": "Broken Antenna",
+    "iconPath": "Sprite/Item/9",
+    "description": "Interacts with TV"
+  },
+  {
+    "itemId": "BlackTapeRoll",
+    "itemName": "Black Tape Roll",
+    "iconPath": "Sprite/Item/18",
+    "description": "Interacts with TV"
+  },
+  {
+    "itemId": "CigaretteButt",
+    "itemName": "Cigarette Butt",
+    "iconPath": "Sprite/Item/19",
+    "description": "Interacts with Armchair"
+  },
+  {
+    "itemId": "PhotoShard",
+    "itemName": "Photo Shard",
+    "iconPath": "Sprite/Item/20",
+    "description": "Interacts with Photo"
+  },
+  {
+    "itemId": "RottenMeat",
+    "itemName": "Rotten Meat",
+    "iconPath": "Sprite/Item/21",
+    "description": "Interacts with Animal Head / Interact with the oven (unlimited uses)"
+  },
+  {
+    "itemId": "WaterBottle",
+    "itemName": "Water Bottle",
+    "iconPath": "Sprite/Item/22",
+    "description": "Used to extinguish fire in fireplace"
+  },
+  {
+    "itemId": "PhoneNumberShard",
+    "itemName": "Phone Number Shard",
+    "iconPath": "Sprite/Item/23",
+    "description": "Interacts with Phone"
+  },
+  {
+    "itemId": "CursedGear",
+    "itemName": "Cursed Gear",
+    "iconPath": "Sprite/Item/24",
+    "description": "Interacts with Clock"
+  },
+  {
+    "itemId": "CrayonBox",
+    "itemName": "Crayon Box",
+    "iconPath": "Sprite/Item/25",
+    "description": "Interacts with Painting on Staircase"
+  },
+  {
+    "itemId": "FaceMask",
+    "itemName": "Face Mask",
+    "iconPath": "Sprite/Item/26",
+    "description": "Interacts with Refrigerator"
+  },
+  {
+    "itemId": "Lighter",
+    "itemName": "Lighter",
+    "iconPath": "Sprite/Item/27",
+    "description": "Interacts with Oven (Can be used 5 times)"
+  },
+  {
+    "itemId": "Matches",
+    "itemName": "Matches",
+    "iconPath": "Sprite/Item/28",
+    "description": "Interacts with Oven (Can be used 1 times)"
+  },
+  {
+    "itemId": "Wrench",
+    "itemName": "Wrench",
+    "iconPath": "Sprite/Item/29",
+    "description": "Interact with the water pipes in the kitchen"
+  },
+  {
+    "itemId": "CassetteTape",
+    "itemName": "Cassette tape",
+    "iconPath": "Sprite/Item/30",
+    "description": "Interact with the radio"
+  }
+]
