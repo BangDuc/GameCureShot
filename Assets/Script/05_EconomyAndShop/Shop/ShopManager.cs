@@ -1,15 +1,10 @@
 using Assets.Script.Core.GameRoot;
-using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopManager
 {
-    //public List<ShopStockData> orionShopStock;
-    //public List<ShopOfferData> orionItems;
-    //public List<CameraUpgradeData> cameraUpgrades;
-
     private readonly List<ShopOfferData> normalItems;
     private readonly List<ShopStockData> normalShopStock;
     private readonly Inventory inventory;
@@ -20,6 +15,8 @@ public class ShopManager
     public int Money => gameData.money;
     public int OutstandingDebt => gameData.outstandingDebt;
     public int PermanentHealth => gameData.permanentHealth;
+    public Inventory PlayerInventory => inventory;
+    public GameData Data => gameData;
 
     public ShopManager(
         Inventory inventory,
@@ -58,6 +55,69 @@ public class ShopManager
         EnsureNormalStock();
     }
 
+    public List<ShopOfferData> GetBuffOffers()
+    {
+        List<ShopOfferData> buffOffers = new List<ShopOfferData>();
+        foreach (ShopOfferData offer in normalItems)
+        {
+            if (offer != null && offer.group == ShopItemGroup.Buff)
+            {
+                buffOffers.Add(offer);
+            }
+        }
+        return buffOffers;
+    }
+
+    public bool IsFoundItemUnlocked(string itemId)
+    {
+        if (string.IsNullOrEmpty(itemId)) return false;
+
+        // 1. Đã được ghi nhận trong collectedItemIds
+        if (gameData.worldStateData != null &&
+            gameData.worldStateData.collectedItemIds != null &&
+            gameData.worldStateData.collectedItemIds.Contains(itemId))
+        {
+            return true;
+        }
+
+        // 2. Hoặc người chơi hiện đang có trong Inventory (đã từng nhặt trong run)
+        if (inventory != null && inventory.GetCount(itemId) > 0)
+        {
+            if (gameData.worldStateData != null)
+            {
+                if (gameData.worldStateData.collectedItemIds == null)
+                {
+                    gameData.worldStateData.collectedItemIds = new List<string>();
+                }
+                if (!gameData.worldStateData.collectedItemIds.Contains(itemId))
+                {
+                    gameData.worldStateData.collectedItemIds.Add(itemId);
+                    Debug.Log($"<color=green>[ShopManager] Tự động đồng bộ Found Item '{itemId}' từ Inventory vào collectedItemIds để mở khóa trong Shop!</color>");
+                }
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    public List<ShopOfferData> GetUnlockedFoundOffers()
+    {
+        List<ShopOfferData> unlockedFound = new List<ShopOfferData>();
+
+        foreach (ShopOfferData offer in normalItems)
+        {
+            if (offer != null && offer.group == ShopItemGroup.Found)
+            {
+                if (IsFoundItemUnlocked(offer.itemId))
+                {
+                    unlockedFound.Add(offer);
+                }
+            }
+        }
+        return unlockedFound;
+    }
+
     public List<ShopOfferData> GetNormalOffers()
     {
         List<ShopOfferData> offers = new();
@@ -66,8 +126,7 @@ public class ShopManager
         {
             bool canShow =
                 offer.group != ShopItemGroup.Found ||
-                gameData.worldStateData?.collectedItemIds
-                    ?.Contains(offer.itemId) == true;
+                IsFoundItemUnlocked(offer.itemId);
 
             if (canShow)
                 offers.Add(offer);
@@ -78,9 +137,9 @@ public class ShopManager
 
     public ShopOfferData GetNormalOffer(string itemId)
     {
-        foreach (ShopOfferData offer in GetNormalOffers())
+        foreach (ShopOfferData offer in normalItems)
         {
-            if (offer.itemId == itemId)
+            if (offer != null && offer.itemId == itemId)
                 return offer;
         }
 
@@ -133,9 +192,15 @@ public class ShopManager
         ShopOfferData offer = GetNormalOffer(itemId);
         ShopStockData stock = GetNormalStock(itemId);
 
-        if (offer == null || stock == null ||
-            stock.remainingStock < quantity)
+        if (offer == null || stock == null || stock.remainingStock < quantity)
             return false;
+
+        // Nếu là Found Item, kiểm tra xem đã được mở khóa bằng cách nhặt trong Run chưa
+        if (offer.group == ShopItemGroup.Found && !IsFoundItemUnlocked(itemId))
+        {
+            Debug.LogWarning($"[ShopManager] Found item '{itemId}' chưa được mở khóa bằng cách tìm thấy trong Run!");
+            return false;
+        }
 
         long total = (long)offer.price * quantity;
 
@@ -153,6 +218,11 @@ public class ShopManager
 
         gameData.money -= (int)total;
         stock.remainingStock -= quantity;
+
+        Debug.Log($"<color=green>[ShopManager] Đã mua thành công {quantity}x {item.itemName} (${total}). Tiền còn lại: ${gameData.money}</color>");
+
+        // Tự động lưu GameData sau khi mua
+        SaveSystem.Save(gameData, 0);
         return true;
     }
 
@@ -184,6 +254,8 @@ public class ShopManager
             inventory.AddItem(new InventoryItemData(starterData));
         }
 
+        // Lưu lại GameData sau khi mua StarterPotion
+        SaveSystem.Save(gameData, 0);
         return true;
     }
 

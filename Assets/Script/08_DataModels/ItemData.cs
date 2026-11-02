@@ -9,12 +9,11 @@ public class ItemData : IIdentifiable
     public string itemName;
     public string iconPath;
     public string description;
+    public int sellPrice;
 
-    
     [JsonIgnore]
     public string Id => itemId;
 
-    
     [JsonIgnore]
     private Sprite _icon;
 

@@ -82,6 +82,19 @@ public class DroppedItemPickup : MonoBehaviour, IInteractable
                 itemMgr.InventoryItem.PickUpItem(itemData);
                 Debug.Log($"<color=green>[DroppedItemPickup] Đã nhặt vật phẩm: {itemData.itemName} ({itemId})!</color>");
             }
+
+            if (RunController.Instance != null && RunController.Instance.GameData != null)
+            {
+                var ws = RunController.Instance.GameData.worldStateData;
+                if (ws != null)
+                {
+                    if (ws.collectedItemIds == null) ws.collectedItemIds = new System.Collections.Generic.List<string>();
+                    if (!ws.collectedItemIds.Contains(itemId))
+                    {
+                        ws.collectedItemIds.Add(itemId);
+                    }
+                }
+            }
         }
         else
         {
