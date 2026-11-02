@@ -143,23 +143,19 @@ public class ShopManager
             return false;
 
         ItemData item = ItemManager.GetItemData(itemId);
-        if (item == null )
+        if (item == null)
             return false;
 
         for (int i = 0; i < quantity; i++)
         {
-            inventory.AddItem(new InventoryItemData
-            {
-                itemId = itemId,
-                //state = ItemState.Normal
-                //remainingUses = item.initialUses
-            });
+            inventory.AddItem(new InventoryItemData(item));
         }
 
         gameData.money -= (int)total;
         stock.remainingStock -= quantity;
         return true;
     }
+
     public bool BuyStarterPotion()
     {
         if (HasBoughtStarterPotion())
@@ -180,8 +176,17 @@ public class ShopManager
 
         gameData.money -= paidAmount;
         gameData.lastStarterPotionPurchaseDay = gameData.currentDay;
+
+        // Thêm StarterPotion vào kho đồ của người chơi
+        ItemData starterData = ItemManager.GetItemData("StarterPotion");
+        if (starterData != null)
+        {
+            inventory.AddItem(new InventoryItemData(starterData));
+        }
+
         return true;
     }
+
     private void EnsureNormalStock()
     {
         foreach (ShopOfferData offer in normalItems)
@@ -199,6 +204,7 @@ public class ShopManager
             });
         }
     }
+
     public void RestockNormalShop()
     {
         EnsureNormalStock();
@@ -209,7 +215,10 @@ public class ShopManager
                 continue;
 
             ShopStockData stock = GetNormalStock(offer.itemId);
-            stock.remainingStock = offer.initialStock;
+            if (stock != null)
+            {
+                stock.remainingStock = offer.initialStock;
+            }
         }
     }
 }

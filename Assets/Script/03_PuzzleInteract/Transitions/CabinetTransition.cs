@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class CabinetTransition : MonoBehaviour
@@ -14,10 +15,36 @@ public class CabinetTransition : MonoBehaviour
 
     private Sequence transitionSequence;
 
+    public bool IsOpen => isOpen;
+    public SpriteRenderer ClosedCabinet => closedCabinet;
+    public SpriteRenderer OpenedCabinet => openedCabinet;
+    public float Duration => duration;
+
+    public event Action OnCabinetOpened;
+    public event Action OnCabinetClosed;
+
+    /// <summary>
+    /// Thiết lập tham số từ code (dùng khi khởi tạo động từ Scene / RoomManager / KitchenInteractionSync).
+    /// </summary>
+    public void Setup(SpriteRenderer closed, SpriteRenderer opened, float transitionDuration = 0.35f, bool initialOpen = false)
+    {
+        closedCabinet = closed;
+        openedCabinet = opened;
+        duration = transitionDuration;
+        isOpen = initialOpen;
+        if (closedCabinet != null && openedCabinet != null)
+        {
+            SetInitialState(isOpen);
+        }
+    }
+
     private void Start()
     {
         // Khởi tạo trạng thái ban đầu mà không chạy animation
-        SetInitialState(isOpen);
+        if (closedCabinet != null && openedCabinet != null)
+        {
+            SetInitialState(isOpen);
+        }
     }
 
     private void SetInitialState(bool open)
@@ -25,21 +52,26 @@ public class CabinetTransition : MonoBehaviour
         isOpen = open;
 
         // Đảm bảo alpha và trạng thái hiển thị đúng lúc vào game
-        Color cClosed = closedCabinet.color;
-        cClosed.a = open ? 0f : 1f;
-        closedCabinet.color = cClosed;
-        closedCabinet.gameObject.SetActive(!open);
+        if (closedCabinet != null)
+        {
+            Color cClosed = closedCabinet.color;
+            cClosed.a = open ? 0f : 1f;
+            closedCabinet.color = cClosed;
+            closedCabinet.gameObject.SetActive(!open);
+        }
 
-        Color cOpen = openedCabinet.color;
-        cOpen.a = open ? 1f : 0f;
-        openedCabinet.color = cOpen;
-        openedCabinet.gameObject.SetActive(open);
+        if (openedCabinet != null)
+        {
+            Color cOpen = openedCabinet.color;
+            cOpen.a = open ? 1f : 0f;
+            openedCabinet.color = cOpen;
+            openedCabinet.gameObject.SetActive(open);
+        }
     }
 
     /// <summary>
     /// Gọi hàm này khi người chơi click/tương tác vào tủ
     /// </summary>
-    /// 
     [ContextMenu("Toggle")]
     public void Toggle()
     {
@@ -56,7 +88,10 @@ public class CabinetTransition : MonoBehaviour
     public void OpenCabinet()
     {
         if (isOpen) return;
+        if (closedCabinet == null || openedCabinet == null) return;
         isOpen = true;
+
+        OnCabinetOpened?.Invoke();
 
         PlayTransition(
             fromRenderer: closedCabinet,
@@ -68,7 +103,10 @@ public class CabinetTransition : MonoBehaviour
     public void CloseCabinet()
     {
         if (!isOpen) return;
+        if (closedCabinet == null || openedCabinet == null) return;
         isOpen = false;
+
+        OnCabinetClosed?.Invoke();
 
         PlayTransition(
             fromRenderer: openedCabinet,

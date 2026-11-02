@@ -34,6 +34,44 @@ public class RoomManager : Singleton<RoomManager>
     public bool IsTransitioning => isTransitioning;
     public GameObject PhongKhachRoot => phongKhachRoot;
     public GameObject KitchenRoot => kitchenRoot;
+    public BackgroundBounds PhongKhachBounds => phongKhachBounds;
+    public BackgroundBounds KitchenBounds => kitchenBounds;
+
+    public BackgroundBounds GetBoundsForRoom(RoomId room)
+    {
+        if (room == RoomId.Kitchen)
+        {
+            if (kitchenBounds != null)
+            {
+                kitchenBounds.CalculateBounds();
+                return kitchenBounds;
+            }
+            if (kitchenRoot != null)
+            {
+                var b = kitchenRoot.GetComponentInChildren<BackgroundBounds>(true);
+                if (b != null) { b.CalculateBounds(); return b; }
+            }
+        }
+        else
+        {
+            if (phongKhachBounds != null)
+            {
+                phongKhachBounds.CalculateBounds();
+                return phongKhachBounds;
+            }
+            if (phongKhachRoot != null)
+            {
+                var b = phongKhachRoot.GetComponentInChildren<BackgroundBounds>(true);
+                if (b != null) { b.CalculateBounds(); return b; }
+            }
+            if (CameraMoving.Instance != null && CameraMoving.Instance.BackgroundBounds != null)
+            {
+                CameraMoving.Instance.BackgroundBounds.CalculateBounds();
+                return CameraMoving.Instance.BackgroundBounds;
+            }
+        }
+        return null;
+    }
 
     public event Action<RoomId, RoomId> OnRoomTransitionStart;
     public event Action<RoomId> OnRoomChanged;
@@ -127,13 +165,29 @@ public class RoomManager : Singleton<RoomManager>
                 SpriteRenderer bgRenderer = null;
                 foreach (var r in renderers)
                 {
-                    if (r.name == "BackGround")
+                    if (r.name == "BackGround" || r.name == "Layer 0" || r.name == "Background")
                     {
                         bgRenderer = r;
                         break;
                     }
                 }
-                if (bgRenderer == null && renderers.Length > 0) bgRenderer = renderers[0];
+                if (bgRenderer == null && renderers.Length > 0)
+                {
+                    float maxArea = 0f;
+                    foreach (var r in renderers)
+                    {
+                        if (r != null && r.sprite != null)
+                        {
+                            float area = r.bounds.size.x * r.bounds.size.y;
+                            if (area > maxArea)
+                            {
+                                maxArea = area;
+                                bgRenderer = r;
+                            }
+                        }
+                    }
+                    if (bgRenderer == null) bgRenderer = renderers[0];
+                }
 
                 if (bgRenderer != null)
                 {
@@ -145,6 +199,37 @@ public class RoomManager : Singleton<RoomManager>
                     kitchenBounds.backgroundRenderer = bgRenderer;
                     kitchenBounds.CalculateBounds();
                 }
+            }
+        }
+
+        // Tự động đồng bộ các tương tác đóng mở tủ & giải đố cho Kitchen
+        if (kitchenRoot != null)
+        {
+            KitchenInteractionSync.EnsureOn(kitchenRoot);
+        }
+
+        // Tự động gắn CabinetItemDrop cho các tủ trong PhongKhach
+        if (phongKhachRoot != null)
+        {
+            SetupLivingRoomCabinetDrops();
+        }
+    }
+
+    private void SetupLivingRoomCabinetDrops()
+    {
+        if (phongKhachRoot == null) return;
+
+        var transitions = phongKhachRoot.GetComponentsInChildren<CabinetTransition>(true);
+        foreach (var cab in transitions)
+        {
+            if (cab == null || cab.gameObject == null) continue;
+            if (cab.gameObject.name == "DongHo") continue;
+
+            var drop = cab.GetComponent<CabinetItemDrop>();
+            if (drop == null)
+            {
+                drop = cab.gameObject.AddComponent<CabinetItemDrop>();
+                drop.Setup("Health", new Vector3(0f, -0.5f, 0f));
             }
         }
     }

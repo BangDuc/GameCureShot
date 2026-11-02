@@ -312,6 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMoving
   speed: 10
+  edgeBorderPercent: 0.05
+  enableEdgeScrolling: 1
   backgroundBounds: {fileID: 291429298}
   getAxis: {fileID: 291429296}
   allCameras:
@@ -374,8 +376,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RunController
   remainingTime: 0
   elapsedTime: 0
+  maxRunHealth: 100
   runHealth: 0
+  captureHealthCost: 10
+  totalPhotosTaken: 0
+  successfulPhotosCount: 0
+  earnedMoney: 0
+  totalDamageTaken: 0
   isRunning: 0
+  isRunFinished: 0
 --- !u!4 &395388335
 Transform:
   m_ObjectHideFlags: 0
@@ -2283,6 +2292,9 @@ MonoBehaviour:
     targetName: 
     targetType: 0
     moneyReward: 0
+    spritePath: 
+    behaviorType: 
+  isCaptured: 0
   affectComponents: []
 --- !u!114 &1170505856
 MonoBehaviour:
@@ -4284,6 +4296,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.4285714
       objectReference: {fileID: 0}
+    - target: {fileID: 778043593127947281, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1151166840540645404, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -4434,7 +4450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883531832635582809, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150.33
       objectReference: {fileID: 0}
     - target: {fileID: 2883531832635582809, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4623,6 +4639,10 @@ PrefabInstance:
     - target: {fileID: 4432377179715992406, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533178832807382513, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4658139204701276999, guid: 166e3edac2fbf65429ff11997bece1bf, type: 3}
       propertyPath: m_AnchorMax.y

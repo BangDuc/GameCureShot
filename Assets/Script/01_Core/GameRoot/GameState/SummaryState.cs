@@ -1,4 +1,4 @@
-﻿using Assets.Script.Core.GamePlay;
+using Assets.Script.Core.GamePlay;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,7 +7,7 @@ namespace Assets.Script.Core.GameRoot.GameState
 {
     public class SummaryState : IGameState
     {
-        private const string SceneName = "SummaryScene";
+        private const string SceneName = "DaySummary";
 
         private readonly RunResult runResult;
         private readonly GameData gameData;
@@ -48,10 +48,22 @@ namespace Assets.Script.Core.GameRoot.GameState
             {
                 debtResult = debtManager.PayDailyDebt();
                 debtSettled = true;
+
+                // Requirement 11: Debt và Save sau Summary
+                SaveSystem.Save(gameData, 0);
+                Debug.Log($"<color=cyan>[SummaryState] Đã xử lý nợ ngày {gameData.currentDay} và lưu GameData. Tiền: ${gameData.money}, Nợ còn: ${gameData.outstandingDebt}, Chưa trả: {gameData.consecutiveUnpaidDays} ngày.</color>");
             }
 
             SceneManager.sceneLoaded += HandleSceneLoaded;
-            AsyncLoader.Instance.StartLoading(SceneName);
+
+            if (SceneManager.GetActiveScene().name == SceneName)
+            {
+                HookPresenter(SceneManager.GetActiveScene());
+            }
+            else
+            {
+                AsyncLoader.Instance.StartLoading(SceneName);
+            }
         }
 
         public void Exit()
@@ -61,6 +73,7 @@ namespace Assets.Script.Core.GameRoot.GameState
             if (presenter != null)
             {
                 presenter.Clicked -= HandleContinueClicked;
+                presenter = null;
             }
         }
 
@@ -71,8 +84,11 @@ namespace Assets.Script.Core.GameRoot.GameState
             if (scene.name != SceneName)
                 return;
 
-            SceneManager.sceneLoaded -= HandleSceneLoaded;
+            HookPresenter(scene);
+        }
 
+        private void HookPresenter(Scene scene)
+        {
             foreach (GameObject root in scene.GetRootGameObjects())
             {
                 presenter =
@@ -86,12 +102,13 @@ namespace Assets.Script.Core.GameRoot.GameState
                     debtResult,
                     gameData);
 
+                presenter.Clicked -= HandleContinueClicked;
                 presenter.Clicked += HandleContinueClicked;
                 return;
             }
 
             Debug.LogError(
-                $"Không tìm thấy SummaryPrensenter trong {SceneName}.");
+                $"Không tìm thấy SummaryPresenter trong {SceneName}.");
         }
 
         private void HandleContinueClicked()
@@ -105,13 +122,15 @@ namespace Assets.Script.Core.GameRoot.GameState
 
             if (ending != null)
             {
+                Debug.Log($"<color=magenta>[SummaryState] Đạt điều kiện Ending: {ending.endingId}! Chuyển sang EndingState.</color>");
                 stateMachine.ChangeState(
                     new EndingState(ending, stateMachine, mainMenu));
 
                 return;
             }
 
-            prepareNextDay();
+            Debug.Log($"<color=green>[SummaryState] Tiếp tục sang ngày mới!</color>");
+            prepareNextDay?.Invoke();
         }
     }
 }

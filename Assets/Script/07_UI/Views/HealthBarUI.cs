@@ -24,6 +24,8 @@ public class HealthBarUI : MonoBehaviour
     /// </summary>
     public void UpdateHealth(float currentHealth, float maxHealth)
     {
+        if (healthBarRect == null || maxHealth <= 0) return;
+
         float t = Mathf.Clamp01(currentHealth / maxHealth);
         // t = 1 (đầy máu) -> 450; t = 0 (hết máu) -> 0
         float currentOffset = Mathf.Lerp(minOffset, maxOffset, t);
@@ -36,6 +38,8 @@ public class HealthBarUI : MonoBehaviour
     /// </summary>
     public void ApplyOffset(float value)
     {
+        if (healthBarRect == null) return;
+
         if (shrinkSide == ShrinkSide.Right)
         {
             // Right tương ứng với -offsetMax.x
@@ -54,7 +58,13 @@ public class HealthBarUI : MonoBehaviour
 
     private void Update()
     {
-        UpdateHealth(PlayerManager.Instance.healthPlayer.currentHealth, PlayerManager.Instance.healthPlayer.maxHealth);
+        if (RunController.Instance != null && RunController.Instance.IsRunning)
+        {
+            UpdateHealth(RunController.Instance.CurrentHealth, RunController.Instance.MaxRunHealth);
+        }
+        else if (PlayerManager.Instance != null && PlayerManager.Instance.healthPlayer != null)
+        {
+            UpdateHealth(PlayerManager.Instance.healthPlayer.currentHealth, PlayerManager.Instance.healthPlayer.maxHealth);
+        }
     }
-
 }

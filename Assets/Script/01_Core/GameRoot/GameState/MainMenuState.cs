@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,10 +6,11 @@ namespace Assets.Script.Core.GameRoot.GameState
 {
     public class MainMenuState : IGameState
     {
+        private const string SceneName = "MainMenu";
         private MainMenuPresenter mainMenuPresenter;
-        private SettingPresenter settingPresenter;
-        private event Action startNewGame;
-        private event Action<int> loadGame;
+        private readonly Action startNewGame;
+        private readonly Action<int> loadGame;
+
         public MainMenuState(
             Action startNewGame,
             Action<int> loadGame)
@@ -17,39 +18,61 @@ namespace Assets.Script.Core.GameRoot.GameState
             this.startNewGame = startNewGame;
             this.loadGame = loadGame;
         }
+
         public void Enter()
         {
             SceneManager.sceneLoaded += HandleSceneLoaded;
-            AsyncLoader.Instance.StartLoading("SurvivalRunScene");
+
+            if (SceneManager.GetActiveScene().name == SceneName)
+            {
+                HookPresenter(SceneManager.GetActiveScene());
+            }
+            else
+            {
+                AsyncLoader.Instance.StartLoading(SceneName);
+            }
         }
 
         public void Exit()
         {
             SceneManager.sceneLoaded -= HandleSceneLoaded;
-            mainMenuPresenter.NewGame -= HandleChangeStateNewGame;
-            mainMenuPresenter.Continue -= HandleChangeStateContinue;
+
+            if (mainMenuPresenter != null)
+            {
+                mainMenuPresenter.NewGame -= HandleChangeStateNewGame;
+                mainMenuPresenter.Continue -= HandleChangeStateContinue;
+                mainMenuPresenter = null;
+            }
         }
 
         private void HandleSceneLoaded(
             Scene scene, LoadSceneMode mode)
         {
-            if (scene.name != "SurvivalRunScene")
+            if (scene.name != SceneName)
                 return;
 
+            HookPresenter(scene);
+        }
+
+        private void HookPresenter(Scene scene)
+        {
             foreach (GameObject root in scene.GetRootGameObjects())
             {
                 mainMenuPresenter =
-                root.GetComponentInChildren<MainMenuPresenter>(true);
+                    root.GetComponentInChildren<MainMenuPresenter>(true);
 
                 if (mainMenuPresenter == null)
                     continue;
+
+                mainMenuPresenter.NewGame -= HandleChangeStateNewGame;
                 mainMenuPresenter.NewGame += HandleChangeStateNewGame;
+                mainMenuPresenter.Continue -= HandleChangeStateContinue;
                 mainMenuPresenter.Continue += HandleChangeStateContinue;
                 return;
             }
 
             Debug.LogError(
-                "Không tìm thấy MainMenuPresenter trong MainMenuScene.");
+                $"Không tìm thấy MainMenuPresenter trong {SceneName}.");
         }
 
         private void HandleChangeStateNewGame()

@@ -3,37 +3,43 @@
     "itemId": "StarterPotion",
     "itemName": "Starter Potion",
     "iconPath": "Sprite/Item/1",
-    "description": "Each time you enter a run, you are required to make a purchase. If your balance is zero, you can pay later."
+    "description": "Thuốc hồi phục 2 máu sinh tồn trong Run. Yêu cầu mua để bắt đầu ca trực."
   },
   {
     "itemId": "Shield",
     "itemName": "Shield",
     "iconPath": "Sprite/Item/2",
-    "description": "Allows you to block one monster attack that hits directly at your health"
+    "description": "Sử dụng để chặn 1 đòn tấn công tiếp theo từ quái vật."
   },
   {
     "itemId": "Coin",
     "itemName": "Coin",
     "iconPath": "Sprite/Item/3",
-    "description": "Doubles the money for the first time you take a shot"
+    "description": "Nhân đôi tiền thưởng cho lần chụp quái vật đầu tiên."
   },
   {
     "itemId": "Health",
     "itemName": "Health",
     "iconPath": "Sprite/Item/4",
-    "description": "Once in a run, when your health drops below 30%, it will restore your health to 70%"
+    "description": "Bình máu hồi phục 2 máu sinh tồn khi sử dụng."
   },
   {
     "itemId": "ColdCoffee",
     "itemName": "Cold Coffee",
     "iconPath": "Sprite/Item/6",
-    "description": "Restores 15% HP."
+    "description": "Cà phê ướp lạnh, hồi phục 1 máu sinh tồn khi sử dụng."
   },
   {
     "itemId": "AdrenalineSerum",
     "itemName": "Adrenaline Serum",
     "iconPath": "Sprite/Item/9",
-    "description": "Passive. If HP drops to 0, automatically revives the player with 30% HP (saves a life, preventing permanent HP loss)."
+    "description": "Huyết thanh hồi phục máu sinh tồn khẩn cấp."
+  },
+  {
+    "itemId": "LightWard",
+    "itemName": "Light Ward",
+    "iconPath": "Sprite/Item/5",
+    "description": "Bùa hộ mệnh, miễn nhiễm một lần tắt đèn từ quái vật The Shy."
   },
   {
     "itemId": "BrokenAntenna",

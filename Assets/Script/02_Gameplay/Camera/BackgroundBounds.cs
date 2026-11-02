@@ -17,6 +17,12 @@ public class BackgroundBounds : MonoBehaviour
 
     public void CalculateBounds()
     {
+        if (backgroundRenderer == null)
+        {
+            backgroundRenderer = GetComponent<SpriteRenderer>();
+            if (backgroundRenderer == null) backgroundRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        }
+
         if (backgroundRenderer != null)
         {
             Bounds bounds = backgroundRenderer.bounds;
@@ -31,7 +37,7 @@ public class BackgroundBounds : MonoBehaviour
         }
         else
         {
-            Debug.Log("Thiếu Sence BG");
+            Debug.Log("[BackgroundBounds] Chưa gán backgroundRenderer.");
         }
     }
 

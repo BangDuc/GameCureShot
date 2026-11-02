@@ -41,18 +41,11 @@ public class Inventory
     {
         if (item == null ||
             !data.items.Contains(item))
-            //item.remainingUses <= 0)
         {
             return false;
         }
 
-        //item.remainingUses--;
-
-        //if (item.remainingUses == 0)
-            return RemoveItem(item);
-
-        Changed?.Invoke();
-        return true;
+        return RemoveItem(item);
     }
 
     public bool RemoveItem(InventoryItemData item)

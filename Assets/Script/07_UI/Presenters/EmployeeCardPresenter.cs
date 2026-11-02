@@ -32,7 +32,7 @@ public class EmployeeCardPresenter : MonoBehaviour
     }
     private void Update()
     {
-        if (infoPanel.isActiveAndEnabled);
+        if (infoPanel != null && infoPanel.isActiveAndEnabled) { }
            
     }
 

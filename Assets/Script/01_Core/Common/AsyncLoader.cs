@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AsyncLoader : Singleton<AsyncLoader>
+public class AsyncLoader : SingletonPersistent<AsyncLoader>
 {
     public void StartLoading(string sceneName)
     {
@@ -12,16 +12,21 @@ public class AsyncLoader : Singleton<AsyncLoader>
 
     private IEnumerator LoadSceneCoroutine(string sceneName)
     {
-        // Tải ngầm Scene mới
+        Debug.Log($"<color=cyan>[AsyncLoader] Bắt đầu tải ngầm scene: {sceneName}</color>");
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        if (operation == null)
+        {
+            Debug.LogError($"<color=red>[AsyncLoader] Không thể tải scene '{sceneName}'! Hãy đảm bảo scene đã được thêm vào EditorBuildSettings.</color>");
+            yield break;
+        }
 
         while (!operation.isDone)
         {
-            // Tiến trình tải từ 0.0 đến 1.0 (Dùng để làm thanh Loading)
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            Debug.Log($"Đang tải: {progress * 100}%");
-
-            yield return null; // Chờ sang khung hình tiếp theo
+            yield return null;
         }
+
+        Debug.Log($"<color=green>[AsyncLoader] Tải hoàn tất scene: {sceneName}</color>");
     }
 }

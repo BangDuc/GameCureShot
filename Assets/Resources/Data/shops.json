@@ -8,32 +8,38 @@
         },
         {
             "itemId": "Shield",
-            "price": 0,
-            "initialStock": 0,
+            "price": 120,
+            "initialStock": 3,
             "group": 0
         },
         {
             "itemId": "Coin",
-            "price": 0,
-            "initialStock": 0,
+            "price": 80,
+            "initialStock": 3,
             "group": 0
         },
         {
             "itemId": "Health",
-            "price": 0,
-            "initialStock": 0,
+            "price": 150,
+            "initialStock": 3,
             "group": 0
         },
         {
             "itemId": "ColdCoffee",
-            "price": 0,
-            "initialStock": 0,
+            "price": 80,
+            "initialStock": 3,
+            "group": 0
+        },
+        {
+            "itemId": "LightWard",
+            "price": 100,
+            "initialStock": 3,
             "group": 0
         },
         {
             "itemId": "AdrenalineSerum",
-            "price": 0,
-            "initialStock": 0,
+            "price": 200,
+            "initialStock": 1,
             "group": 0
         },
         {

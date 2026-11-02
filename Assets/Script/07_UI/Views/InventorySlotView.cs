@@ -32,7 +32,10 @@ public class InventorySlotView : MonoBehaviour
     {
         this.Item = item;
         if (icon != null && item != null)
-            icon.sprite = item._icon;
+        {
+            icon.sprite = item.Icon;
+            icon.enabled = (icon.sprite != null);
+        }
 
         SetSelected(false);
     }
@@ -46,6 +49,5 @@ public class InventorySlotView : MonoBehaviour
     private void NotifySelected()
     {
         Selected?.Invoke(this);
-
     }
 }

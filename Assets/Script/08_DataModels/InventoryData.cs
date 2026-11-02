@@ -5,5 +5,5 @@ using UnityEngine;
 [Serializable]
 public class InventoryData
 {
-    public List<InventoryItemData> items;
+    public List<InventoryItemData> items = new List<InventoryItemData>();
 }

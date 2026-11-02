@@ -3,11 +3,14 @@ using UnityEngine;
 public abstract class UnlockByItem_Base : MonoBehaviour, IUnlockByItem
 {
     [SerializeField] string idItem;
+
+    public string ItemId => idItem;
+    public void SetItemId(string id) => idItem = id;
+
     public ItemData GetItemNeeded()
     {
         return Core.Item.ItemManager.Instance.LibraryItem.GetItem(idItem);
     }
-
 
     public void Unlocked()
     {

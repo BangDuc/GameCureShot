@@ -2,31 +2,31 @@
     "dailyDebts": [
         {
             "day": 1,
-            "requiredAmount": 0
+            "requiredAmount": 100
         },
         {
             "day": 2,
-            "requiredAmount": 0
+            "requiredAmount": 200
         },
         {
             "day": 3,
-            "requiredAmount": 0
+            "requiredAmount": 300
         },
         {
             "day": 4,
-            "requiredAmount": 0
+            "requiredAmount": 400
         },
         {
             "day": 5,
-            "requiredAmount": 0
+            "requiredAmount": 500
         },
         {
             "day": 6,
-            "requiredAmount": 0
+            "requiredAmount": 600
         },
         {
             "day": 7,
-            "requiredAmount": 0
+            "requiredAmount": 700
         }
     ]
 }
