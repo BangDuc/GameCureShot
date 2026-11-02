@@ -247,6 +247,19 @@ public class ItemInventory : MonoBehaviour
             {
                 gData.inventoryData.items.Add(new InventoryItemData { itemId = itemId });
             }
+
+            if (gData.worldStateData != null)
+            {
+                if (gData.worldStateData.collectedItemIds == null)
+                {
+                    gData.worldStateData.collectedItemIds = new List<string>();
+                }
+                if (!gData.worldStateData.collectedItemIds.Contains(itemId))
+                {
+                    gData.worldStateData.collectedItemIds.Add(itemId);
+                    Debug.Log($"<color=cyan>[ItemInventory] Đã ghi nhận '{itemId}' vào collectedItemIds để mở khóa trong Shop.</color>");
+                }
+            }
         }
     }
 

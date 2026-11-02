@@ -44,74 +44,86 @@
         },
         {
             "itemId": "BrokenAntenna",
-            "price": 0,
-            "initialStock": 0,
+            "price": 60,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "BlackTapeRoll",
-            "price": 0,
-            "initialStock": 0,
+            "price": 40,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "CigaretteButt",
-            "price": 0,
-            "initialStock": 0,
+            "price": 30,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "PhotoShard",
-            "price": 0,
-            "initialStock": 0,
+            "price": 70,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "PhoneNumberShard",
-            "price": 0,
-            "initialStock": 0,
+            "price": 80,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "CursedGear",
-            "price": 0,
-            "initialStock": 0,
+            "price": 90,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "CrayonBox",
-            "price": 0,
-            "initialStock": 0,
+            "price": 55,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "FaceMask",
-            "price": 0,
-            "initialStock": 0,
+            "price": 65,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "Lighter",
-            "price": 0,
-            "initialStock": 0,
+            "price": 50,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "Matches",
-            "price": 0,
-            "initialStock": 0,
+            "price": 35,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "CassetteTape",
-            "price": 0,
-            "initialStock": 0,
+            "price": 100,
+            "initialStock": 1,
             "group": 1
         },
         {
             "itemId": "WaterBottle",
-            "price": 0,
-            "initialStock": 0,
+            "price": 45,
+            "initialStock": 1,
+            "group": 1
+        },
+        {
+            "itemId": "RottenMeat",
+            "price": 50,
+            "initialStock": 1,
+            "group": 1
+        },
+        {
+            "itemId": "Wrench",
+            "price": 75,
+            "initialStock": 1,
             "group": 1
         }
     ],

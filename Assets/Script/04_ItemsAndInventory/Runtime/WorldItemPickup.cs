@@ -25,8 +25,7 @@ public class WorldItemPickup : MonoBehaviour, IInteractable
 
         if (inventory == null || worldData == null)
         {
-            Debug.LogError(
-                "Chưa truyền Inventory hoặc WorldStateData.", this);
+            Debug.LogError("Chưa truyền Inventory hoặc WorldStateData.", this);
             return;
         }
 
@@ -37,12 +36,15 @@ public class WorldItemPickup : MonoBehaviour, IInteractable
 
         if (itemData == null)
         {
-            Debug.LogError(
-                $"Không tìm thấy ItemData: {itemId}", this);
+            Debug.LogError($"Không tìm thấy ItemData: {itemId}", this);
             return;
         }
 
-        //GetComponent<SpriteRenderer>().sprite = itemData.icon;
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr != null && sr.sprite == null && itemData.Icon != null)
+        {
+            sr.sprite = itemData.Icon;
+        }
 
         collected = worldData.collectedItemIds.Contains(itemId);
         gameObject.SetActive(!collected);
@@ -64,16 +66,26 @@ public class WorldItemPickup : MonoBehaviour, IInteractable
 
         collected = true;
 
+        // 1. Thêm vào GameData Inventory
         inventory.AddItem(new InventoryItemData
         {
-            itemId = itemData.itemId,
-            //remainingUses = 1
+            itemId = itemData.itemId
         });
+
+        // 2. Ghi nhận itemId vào WorldStateData.collectedItemIds để không spawn lại khi nạp lại
+        if (worldData.collectedItemIds == null)
+            worldData.collectedItemIds = new List<string>();
 
         if (!worldData.collectedItemIds.Contains(itemId))
             worldData.collectedItemIds.Add(itemId);
 
-        Debug.Log($"Đã nhặt: {itemData.itemName}", this);
+        // 3. Đồng bộ với thanh UI Inventory runtime trong màn chơi
+        if (Core.Item.ItemManager.Instance != null && Core.Item.ItemManager.Instance.InventoryItem != null)
+        {
+            Core.Item.ItemManager.Instance.InventoryItem.AddItemSilently(itemData);
+        }
+
+        Debug.Log($"<color=green>[WorldItemPickup] Đã nhặt Found Item: {itemData.itemName} ({itemId})! Đưa vào Inventory, sẵn sàng bán tại Shop.</color>", this);
 
         gameObject.SetActive(false);
         Destroy(gameObject);
